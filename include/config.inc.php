@@ -8,23 +8,12 @@ Copyright (C) 2021-2025, VPS Live Digital togethers all rights reserved.
  *****************************************************************/
 
 
+// Setting
+$Brand 		= "ระบบบริหารออฟฟิศ ปัณณ์จรีย์ v.01 Beta";
+$Copyright 	= "Pajaree Office";
+$Powerby 	= "อ.พี่เอก";
 
-
-
-// Mysql Version 
-/*
-if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1') {
-
-	$db_config = array(
-		"host" => "localhost",
-		"user" => "root",
-		"pass" => "",
-		"dbname" => "panjaree_office",
-		"charset" => "utf8"
-	);
-} else {
-*/
-// Mysql Version 
+// Database 
 $db_config = array(
 	"host" => "203.146.252.149",
 	"user" => "panjaree_office",
@@ -32,7 +21,7 @@ $db_config = array(
 	"dbname" => "panjaree_office",
 	"charset" => "utf8"
 );
-/*}*/
+
 
 
 

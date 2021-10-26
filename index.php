@@ -17,12 +17,15 @@ $tpl = new TemplatePower("template/_tp_main.html");
 $tpl->assignInclude("body", "_tp_index.html");
 $tpl->prepare();
 $tpl->assign("_ROOT.page_title", "หน้าแรก");
-$tpl->assign("_ROOT.logo_brand_alt", "ระบบบริหารออฟฟิศ ปัณณ์จรีย์ v.01 Beta");
+$tpl->assign("_ROOT.logo_brand_alt", $Brand);
 
 
-$TodayThaiShow = ThaiToday($strDateTime, $tnow);
+//$TodayThaiShow = ThaiToday($strDateTime, $tnow);
 
 
 
 
+
+$tpl->assign("_ROOT.Powerby", $Powerby);
+$tpl->assign("_ROOT.Copyright", $Copyright);
 $tpl->printToScreen();
