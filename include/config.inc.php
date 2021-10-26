@@ -69,7 +69,7 @@ if ($iPod || $iPhone) {
 	//were a webOS device -- do something here
 }
 if ($status == true) {
-	//	header( 'Location: https://office.vpslive.com/' ) ;
+	//	header( 'Location: https://pajaree.uarea.in/' ) ;
 }
 
 // Display Error ,0=none display,1=display
@@ -123,7 +123,7 @@ if (empty($_SESSION['file_upload'])) $_SESSION['file_upload'] = array();
 
 // Connect MySQL
 $conn = @new mysqli($db_config["host"], $db_config["user"], $db_config["pass"], $db_config["dbname"]);
-$conn->set_charset($db_config["charset"]);
+//$conn->set_charset($db_config["charset"]);
 
 
 
