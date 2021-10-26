@@ -17,7 +17,7 @@ $tpl = new TemplatePower("template/_tp_main.html");
 $tpl->assignInclude("body", "_tp_index.html");
 $tpl->prepare();
 $tpl->assign("_ROOT.page_title", "หน้าแรก");
-
+$tpl->assign("_ROOT.logo_brand_alt", "ระบบบริหารออฟฟิศ ปัณณ์จรีย์ v.01 Beta");
 
 
 $TodayThaiShow = ThaiToday($strDateTime, $tnow);
