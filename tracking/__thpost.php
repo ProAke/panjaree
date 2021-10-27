@@ -45,6 +45,15 @@ $res_token = api_request($api_token_url, $token_key);
 
 
 //Step2: GetItems()
-$res_items = api_request($api_track_url, $res_token['token'], $items);
+$result = api_request($api_track_url, $res_token['token'], $items);
 
-print_r($res_items);
+
+if (!is_null($result) && array_key_exists('response', $result)) {
+    $response = $result['response'];
+    if (!is_null($response) && array_key_exists('items', $response)) {
+        foreach ($response['items'] as $key => $data) {
+            echo $data['barcode'] . "\r\n";
+            // อาจจะประยุกต็์วันลูป รายการ เพื่อบันทึกลงฐานข้อมูล ว่ามีรหัสใดบ้าง ที่เราขอรับข้อมูล จาก hook data
+        }
+    }
+}
