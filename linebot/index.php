@@ -28,7 +28,7 @@ $text = $deCode['events'][0]['message']['text'];
 $messages = [];
 $messages['replyToken'] = $replyToken;
 //$messages['messages'][0] = getFormatTextMessage("อยู่ค่ะ" . $userName . "จะถามอะไรจ๊ะ");
-$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=TH273221W9AN2D");
+$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=" . $text);
 /*
 $datas = [];
 //$datas['replyToken'] = $replyToken;
