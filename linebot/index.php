@@ -18,6 +18,7 @@ file_put_contents('log/log.txt', file_get_contents('php://input') . PHP_EOL, FIL
 
 $replyToken = $deCode['events'][0]['replyToken'];
 $userId = $deCode['events'][0]['source']['userId'];
+$userName = $deCode['events'][0]['source']['displayName'];
 $text = $deCode['events'][0]['message']['text'];
 
 
@@ -25,11 +26,11 @@ $text = $deCode['events'][0]['message']['text'];
 
 
 // บอทตอบ///////////////////////
-//$messages = [];
-//$messages['replyToken'] = $replyToken;
-//$messages['messages'][0] = getFormatTextMessage("เอ้ย ถามอะไรก็ตอบได้");
+$messages = [];
+$messages['replyToken'] = $replyToken;
+$messages['messages'][0] = getFormatTextMessage("อยู่จ๊ะ" . $userName . "จะถามอะไรจ๊ะ");
 
-
+/*
 $datas = [];
 $datas['replyToken'] = $replyToken;
 $datas["type"] = "flex";
@@ -47,7 +48,10 @@ $datas["contents"]["template"]["columns"][0]["actions"][0]["uri"] = "https://www
 $datas["contents"]["template"]["columns"][0]["imageBackgroundColor"] = "#FDCE00";
 
 $encodeJson = json_encode($datas);
+*/
 
+
+$encodeJson = json_encode($messages);
 $LINEDatas['url'] = "https://api.line.me/v2/bot/message/reply";
 $LINEDatas['token'] = "PipIwu3mnNEqEtvNFle3e1SwXnBhU/9VOKvm3X7T0Rwa5QFTZzVK3PDWfcjaqq1qwA5T0O1wpr0KHuootMeArUg8LFAJEuM9groAcBqcsf5oIstDSWUH+6W1m+aYOCSilMtGxr3ugzp/xxWhFOTaZAdB04t89/1O/w1cDnyilFU=";
 
