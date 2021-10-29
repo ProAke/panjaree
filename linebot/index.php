@@ -14,204 +14,102 @@ $datas = file_get_contents('php://input');
 /*Decode Json From LINE Data Body*/
 $deCode = json_decode($datas, true);
 
-///file_put_contents('log/log.txt', file_get_contents('php://input') . PHP_EOL, FILE_APPEND);
+file_put_contents('log/log.txt', file_get_contents('php://input') . PHP_EOL, FILE_APPEND);
 
 $replyToken = $deCode['events'][0]['replyToken'];
 $userId = $deCode['events'][0]['source']['userId'];
-$userName = $deCode['events'][0]['source']['displayName'];
 $text = $deCode['events'][0]['message']['text'];
 
 
-require 'sendMessage.php';
 
-$flexDataJson = '{
-	  "type": "flex",
-	  "altText": "Flex Message",
-	  "contents": {
-	    "type": "carousel",
-	    "contents": [
-	      {
-	        "type": "bubble",
-	        "hero": {
-	          "type": "image",
-	          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_5_carousel.png",
-	          "size": "full",
-	          "aspectRatio": "20:13",
-	          "aspectMode": "cover"
-	        },
-	        "body": {
-	          "type": "box",
-	          "layout": "vertical",
-	          "spacing": "sm",
-	          "contents": [
-	            {
-	              "type": "text",
-	              "text": "Arm Chair, White",
-	              "size": "xl",
-	              "weight": "bold",
-	              "wrap": true
-	            },
-	            {
-	              "type": "box",
-	              "layout": "baseline",
-	              "contents": [
-	                {
-	                  "type": "text",
-	                  "text": "$49",
-	                  "flex": 0,
-	                  "size": "xl",
-	                  "weight": "bold",
-	                  "wrap": true
-	                },
-	                {
-	                  "type": "text",
-	                  "text": ".99",
-	                  "flex": 0,
-	                  "size": "sm",
-	                  "weight": "bold",
-	                  "wrap": true
-	                }
-	              ]
-	            }
-	          ]
-	        },
-	        "footer": {
-	          "type": "box",
-	          "layout": "vertical",
-	          "spacing": "sm",
-	          "contents": [
-	            {
-	              "type": "button",
-	              "action": {
-	                "type": "uri",
-	                "label": "Add to Cart",
-	                "uri": "https://linecorp.com"
-	              },
-	              "style": "primary"
-	            },
-	            {
-	              "type": "button",
-	              "action": {
-	                "type": "uri",
-	                "label": "Add to whishlist",
-	                "uri": "https://linecorp.com"
-	              }
-	            }
-	          ]
-	        }
-	      },
-	      {
-	        "type": "bubble",
-	        "hero": {
-	          "type": "image",
-	          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_6_carousel.png",
-	          "size": "full",
-	          "aspectRatio": "20:13",
-	          "aspectMode": "cover"
-	        },
-	        "body": {
-	          "type": "box",
-	          "layout": "vertical",
-	          "spacing": "sm",
-	          "contents": [
-	            {
-	              "type": "text",
-	              "text": "Metal Desk Lamp",
-	              "size": "xl",
-	              "weight": "bold",
-	              "wrap": true
-	            },
-	            {
-	              "type": "box",
-	              "layout": "baseline",
-	              "flex": 1,
-	              "contents": [
-	                {
-	                  "type": "text",
-	                  "text": "$11",
-	                  "flex": 0,
-	                  "size": "xl",
-	                  "weight": "bold",
-	                  "wrap": true
-	                },
-	                {
-	                  "type": "text",
-	                  "text": ".99",
-	                  "flex": 0,
-	                  "size": "sm",
-	                  "weight": "bold",
-	                  "wrap": true
-	                }
-	              ]
-	            },
-	            {
-	              "type": "text",
-	              "text": "Temporarily out of stock",
-	              "flex": 0,
-	              "margin": "md",
-	              "size": "xxs",
-	              "color": "#FF5551",
-	              "wrap": true
-	            }
-	          ]
-	        },
-	        "footer": {
-	          "type": "box",
-	          "layout": "vertical",
-	          "spacing": "sm",
-	          "contents": [
-	            {
-	              "type": "button",
-	              "action": {
-	                "type": "uri",
-	                "label": "Add to Cart",
-	                "uri": "https://linecorp.com"
-	              },
-	              "flex": 2,
-	              "color": "#AAAAAA",
-	              "style": "primary"
-	            },
-	            {
-	              "type": "button",
-	              "action": {
-	                "type": "uri",
-	                "label": "Add to wish list",
-	                "uri": "https://linecorp.com"
-	              }
-	            }
-	          ]
-	        }
-	      },
-	      {
-	        "type": "bubble",
-	        "body": {
-	          "type": "box",
-	          "layout": "vertical",
-	          "spacing": "sm",
-	          "contents": [
-	            {
-	              "type": "button",
-	              "action": {
-	                "type": "uri",
-	                "label": "See more",
-	                "uri": "https://linecorp.com"
-	              },
-	              "flex": 1,
-	              "gravity": "center"
-	            }
-	          ]
-	        }
-	      }
-	    ]
-	  }
-	}';
-$flexDataJsonDeCode = json_decode($flexDataJson, true);
-$datas['url'] = "https://api.line.me/v2/bot/message/push";
-$datas['token'] = "PipIwu3mnNEqEtvNFle3e1SwXnBhU/9VOKvm3X7T0Rwa5QFTZzVK3PDWfcjaqq1qwA5T0O1wpr0KHuootMeArUg8LFAJEuM9groAcBqcsf5oIstDSWUH+6W1m+aYOCSilMtGxr3ugzp/xxWhFOTaZAdB04t89/1O/w1cDnyilFU=";
-$messages['to'] = $userId;
-$messages['messages'][] = $flexDataJsonDeCode;
+
+
+// บอทตอบ///////////////////////
+$messages = [];
+$messages['replyToken'] = $replyToken;
+//$messages['messages'][0] = getFormatTextMessage("อยู่ค่ะ" . $userName . "จะถามอะไรจ๊ะ");
+$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=TH273221W9AN2D");
+/*
+$datas = [];
+//$datas['replyToken'] = $replyToken;
+$datas["type"] = "flex";
+$datas["altText"] = "ปัณณ์จรีย์ ติดตามสินค้า";
+$datas["contents"]["type"] = "template";
+$datas["contents"]["altText"] = "ปัณณ์จรีย์ ติดตามสินค้า FlasExpress : TH273221W9AN2D";
+$datas["contents"]["template"]["type"] = "carousel";
+$datas["contents"]["template"]["imageSize"] = "cover";
+$datas["contents"]["template"]["columns"][0]["thumbnailImageUrl"] = "https://panjaree.uarea.in/linebot/img/flashexpressflex.jpg";
+$datas["contents"]["template"]["columns"][0]["title"] = "ปัณณ์จรีย์ ติดตามสินค้า";
+$datas["contents"]["template"]["columns"][0]["text"] = "ส่งสินค้าแล้วทาง Flash Express คลิ๊กที่เลขพัสดุ";
+$datas["contents"]["template"]["columns"][0]["actions"][0]["type"] = "uri";
+$datas["contents"]["template"]["columns"][0]["actions"][0]["label"] = "TH273221W9AN2D";
+$datas["contents"]["template"]["columns"][0]["actions"][0]["uri"] = "https://www.flashexpress.co.th/tracking/?se=TH273221W9AN2D";
+$datas["contents"]["template"]["columns"][0]["imageBackgroundColor"] = "#FDCE00";
+//$dataPushMessages['url'] = "https://api.line.me/v2/bot/message/push";
+//$dataPushMessages['token'] = "<access token>";
+//$messages['to'] = "<user id>";
+$messages['messages'][] = $datas;
 $encodeJson = json_encode($messages);
+//sentMessage($encodeJson,$dataPushMessages);
+*/
 
 
-sentMessage($encodeJson, $datas);
+
+
+
+$encodeJson = json_encode($messages);
+$LINEDatas['url'] = "https://api.line.me/v2/bot/message/reply";
+$LINEDatas['token'] = "PipIwu3mnNEqEtvNFle3e1SwXnBhU/9VOKvm3X7T0Rwa5QFTZzVK3PDWfcjaqq1qwA5T0O1wpr0KHuootMeArUg8LFAJEuM9groAcBqcsf5oIstDSWUH+6W1m+aYOCSilMtGxr3ugzp/xxWhFOTaZAdB04t89/1O/w1cDnyilFU=";
+$results = sentMessage($encodeJson, $LINEDatas);
+/*Return HTTP Request 200*/
 http_response_code(200);
+
+function getFormatTextMessage($text)
+{
+	$datas = [];
+	$datas['type'] = 'text';
+	$datas['text'] = $text;
+
+	return $datas;
+}
+
+function sentMessage($encodeJson, $datas)
+{
+	$datasReturn = [];
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+		CURLOPT_URL => $datas['url'],
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_MAXREDIRS => 10,
+		CURLOPT_TIMEOUT => 30,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "POST",
+		CURLOPT_POSTFIELDS => $encodeJson,
+		CURLOPT_HTTPHEADER => array(
+			"authorization: Bearer " . $datas['token'],
+			"cache-control: no-cache",
+			"content-type: application/json; charset=UTF-8",
+		),
+	));
+
+	$response = curl_exec($curl);
+	$err = curl_error($curl);
+
+	curl_close($curl);
+
+	if ($err) {
+		$datasReturn['result'] = 'E';
+		$datasReturn['message'] = $err;
+	} else {
+		if ($response == "{}") {
+			$datasReturn['result'] = 'S';
+			$datasReturn['message'] = 'Success';
+		} else {
+			$datasReturn['result'] = 'E';
+			$datasReturn['message'] = $response;
+		}
+	}
+
+	return $datasReturn;
+}
