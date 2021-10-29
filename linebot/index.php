@@ -26,11 +26,11 @@ $text = $deCode['events'][0]['message']['text'];
 
 
 // บอทตอบ///////////////////////
-//$messages = [];
-//$messages['replyToken'] = $replyToken;
+$messages = [];
+$messages['replyToken'] = $replyToken;
 //$messages['messages'][0] = getFormatTextMessage("อยู่ค่ะ" . $userName . "จะถามอะไรจ๊ะ");
-
-
+$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=TH273221W9AN2D");
+/*
 $datas = [];
 //$datas['replyToken'] = $replyToken;
 $datas["type"] = "flex";
@@ -46,21 +46,21 @@ $datas["contents"]["template"]["columns"][0]["actions"][0]["type"] = "uri";
 $datas["contents"]["template"]["columns"][0]["actions"][0]["label"] = "TH273221W9AN2D";
 $datas["contents"]["template"]["columns"][0]["actions"][0]["uri"] = "https://www.flashexpress.co.th/tracking/?se=TH273221W9AN2D";
 $datas["contents"]["template"]["columns"][0]["imageBackgroundColor"] = "#FDCE00";
-
-//$encodeJson = json_encode($messages);
-$LINEDatas['url'] = "https://api.line.me/v2/bot/message/reply";
-$LINEDatas['token'] = "PipIwu3mnNEqEtvNFle3e1SwXnBhU/9VOKvm3X7T0Rwa5QFTZzVK3PDWfcjaqq1qwA5T0O1wpr0KHuootMeArUg8LFAJEuM9groAcBqcsf5oIstDSWUH+6W1m+aYOCSilMtGxr3ugzp/xxWhFOTaZAdB04t89/1O/w1cDnyilFU=";
-
-
 //$dataPushMessages['url'] = "https://api.line.me/v2/bot/message/push";
 //$dataPushMessages['token'] = "<access token>";
 //$messages['to'] = "<user id>";
 $messages['messages'][] = $datas;
 $encodeJson = json_encode($messages);
 //sentMessage($encodeJson,$dataPushMessages);
+*/
 
 
 
+
+
+$encodeJson = json_encode($messages);
+$LINEDatas['url'] = "https://api.line.me/v2/bot/message/reply";
+$LINEDatas['token'] = "PipIwu3mnNEqEtvNFle3e1SwXnBhU/9VOKvm3X7T0Rwa5QFTZzVK3PDWfcjaqq1qwA5T0O1wpr0KHuootMeArUg8LFAJEuM9groAcBqcsf5oIstDSWUH+6W1m+aYOCSilMtGxr3ugzp/xxWhFOTaZAdB04t89/1O/w1cDnyilFU=";
 $results = sentMessage($encodeJson, $LINEDatas);
 /*Return HTTP Request 200*/
 http_response_code(200);
