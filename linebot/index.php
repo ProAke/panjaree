@@ -25,21 +25,36 @@ $text = $deCode['events'][0]['message']['text'];
 
 
 // บอทตอบ///////////////////////
-$messages = [];
-$messages['replyToken'] = $replyToken;
-$messages['messages'][0] = getFormatTextMessage("เอ้ย ถามอะไรก็ตอบได้");
-$encodeJson = json_encode($messages);
+//$messages = [];
+//$messages['replyToken'] = $replyToken;
+//$messages['messages'][0] = getFormatTextMessage("เอ้ย ถามอะไรก็ตอบได้");
+
+
+$datas = [];
+$datas['replyToken'] = $replyToken;
+$datas["type"] = "flex";
+$datas["altText"] = "ปัณณ์จรีย์ ติดตามสินค้า";
+$datas["contents"]["type"] = "template";
+$datas["contents"]["altText"] = "ปัณณ์จรีย์ ติดตามสินค้า FlasExpress : TH273221W9AN2D";
+$datas["contents"]["template"]["type"] = "carousel";
+$datas["contents"]["template"]["imageSize"] = "cover";
+$datas["contents"]["template"]["columns"][0]["thumbnailImageUrl"] = "https://panjaree.uarea.in/linebot/img/flashexpressflex.jpg";
+$datas["contents"]["template"]["columns"][0]["title"] = "ปัณณ์จรีย์ ติดตามสินค้า";
+$datas["contents"]["template"]["columns"][0]["text"] = "ส่งสินค้าแล้วทาง Flash Express คลิ๊กที่เลขพัสดุ";
+$datas["contents"]["template"]["columns"][0]["actions"][0]["type"] = "uri";
+$datas["contents"]["template"]["columns"][0]["actions"][0]["label"] = "TH273221W9AN2D";
+$datas["contents"]["template"]["columns"][0]["actions"][0]["uri"] = "https://www.flashexpress.co.th/tracking/?se=TH273221W9AN2D";
+$datas["contents"]["template"]["columns"][0]["imageBackgroundColor"] = "#FDCE00";
+
+$encodeJson = json_encode($datas);
 
 $LINEDatas['url'] = "https://api.line.me/v2/bot/message/reply";
 $LINEDatas['token'] = "PipIwu3mnNEqEtvNFle3e1SwXnBhU/9VOKvm3X7T0Rwa5QFTZzVK3PDWfcjaqq1qwA5T0O1wpr0KHuootMeArUg8LFAJEuM9groAcBqcsf5oIstDSWUH+6W1m+aYOCSilMtGxr3ugzp/xxWhFOTaZAdB04t89/1O/w1cDnyilFU=";
 
 
 
-if ($userId == "Uf0d3b0c8e196e3d31ecaac13935a9991") {
 
-    $results = sentMessage($encodeJson, $LINEDatas);
-}
-
+$results = sentMessage($encodeJson, $LINEDatas);
 /*Return HTTP Request 200*/
 http_response_code(200);
 
