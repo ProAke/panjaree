@@ -25,10 +25,10 @@ $text = $deCode['events'][0]['message']['text'];
 
 
 // บอทตอบ///////////////////////
-$messages = [];
-$messages['replyToken'] = $replyToken;
+//$messages = [];
+//$messages['replyToken'] = $replyToken;
 //$messages['messages'][0] = getFormatTextMessage("อยู่ค่ะ" . $userName . "จะถามอะไรจ๊ะ");
-$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=" . $text);
+//$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=" . $text);
 /*
 $datas = [];
 //$datas['replyToken'] = $replyToken;
@@ -54,7 +54,21 @@ $encodeJson = json_encode($messages);
 */
 
 
-
+$messages = [];
+$messages['replyToken'] = $replyToken;
+$messages["type"] = "flex";
+$messages["altText"] = "ปัณณ์จรีย์ ติดตามสินค้า";
+$messages["contents"]["type"] = "template";
+$messages["contents"]["altText"] = "ปัณณ์จรีย์ ติดตามสินค้า FlasExpress : TH273221W9AN2D";
+$messages["contents"]["template"]["type"] = "carousel";
+$messages["contents"]["template"]["imageSize"] = "cover";
+$messages["contents"]["template"]["columns"][0]["thumbnailImageUrl"] = "https://panjaree.uarea.in/linebot/img/flashexpressflex.jpg";
+$messages["contents"]["template"]["columns"][0]["title"] = "ปัณณ์จรีย์ ติดตามสินค้า";
+$messages["contents"]["template"]["columns"][0]["text"] = "ส่งสินค้าแล้วทาง Flash Express คลิ๊กที่เลขพัสดุ";
+$messages["contents"]["template"]["columns"][0]["actions"][0]["type"] = "uri";
+$messages["contents"]["template"]["columns"][0]["actions"][0]["label"] = "TH273221W9AN2D";
+$messages["contents"]["template"]["columns"][0]["actions"][0]["uri"] = "https://www.flashexpress.co.th/tracking/?se=TH273221W9AN2D";
+$messages["contents"]["template"]["columns"][0]["imageBackgroundColor"] = "#FDCE00";
 
 
 $encodeJson = json_encode($messages);
