@@ -47,6 +47,7 @@ if ($pos > 0) {
 	$deliver = "FLASHEXPRESS";
 }
 
+//substr("abcdef", 8,4); 
 // บอทตอบ///////////////////////
 //$messages = [];
 $messages['replyToken'] = $replyToken;
