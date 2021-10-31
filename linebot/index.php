@@ -38,8 +38,8 @@ $result1 = $conn->query($query1);
 
 // บอทตอบ///////////////////////
 //$messages = [];
-//$messages['replyToken'] = $replyToken;
-//$messages['messages'][0] = getFormatTextMessage("อยู่ค่ะ" . $userName . "จะถามอะไรจ๊ะ");
+$messages['replyToken'] = $replyToken;
+$messages['messages'][0] = getFormatTextMessage("อยู่ค่ะ" . $userId . "จะถามอะไรจ๊ะ");
 //$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=" . $text);
 /*
 $datas = [];
@@ -65,7 +65,7 @@ $encodeJson = json_encode($messages);
 //sentMessage($encodeJson,$dataPushMessages);
 */
 
-
+/*
 $messages = [];
 $messages['replyToken'] = $replyToken;
 $messages["type"] = "flex";
@@ -81,7 +81,7 @@ $messages["contents"]["template"]["columns"][0]["actions"][0]["type"] = "uri";
 $messages["contents"]["template"]["columns"][0]["actions"][0]["label"] = "TH273221W9AN2D";
 $messages["contents"]["template"]["columns"][0]["actions"][0]["uri"] = "https://www.flashexpress.co.th/tracking/?se=TH273221W9AN2D";
 $messages["contents"]["template"]["columns"][0]["imageBackgroundColor"] = "#FDCE00";
-
+*/
 
 $encodeJson = json_encode($messages);
 $LINEDatas['url'] = "https://api.line.me/v2/bot/message/reply";
