@@ -29,10 +29,10 @@ if ($_GET['track']) {
 
     $query1 = "INSERT INTO `$tableLog`($strFieldTmp) VALUES($strValueTmp)";
 
-
+    echo $query1;
 
     //$query1 = sqlCommandInsert($tableLog, $arrData1);
-    $result1 = $conn->query($query1);
+    //$result1 = $conn->query($query1);
 
     echo "OK";
 }
