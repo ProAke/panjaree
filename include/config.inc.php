@@ -76,6 +76,10 @@ $tableMailMessage 					= 	"tb_mail_message";
 $tableWebMil 						= 	"tb_mail_message";
 $tableWebMenu 						= 	"tb_web_menu";
 
+
+
+$tableLog							=   "tb_linelog";
+
 $tableTask							=   "tb_task";
 $tableSocial						=   "tb_social";
 $tableHotLink						=   "tb_hotlink";

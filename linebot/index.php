@@ -21,6 +21,12 @@ $userId = $deCode['events'][0]['source']['userId'];
 $text = $deCode['events'][0]['message']['text'];
 
 
+$arrData1 = array();
+$arrData1['BARCODE']                    = $code;
+$arrData1['DATETIME']                    = date("Y-m-d H:i:s");
+$query1 = sqlCommandInsert($tableBarcodelog, $arrData1);
+$result1 = $conn->query($query1);
+
 
 
 
