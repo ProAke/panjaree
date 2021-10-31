@@ -40,8 +40,8 @@ $result1 = $conn->query($query1);
 $textlen = strlen($text); //ความยาวตัวอักษร
 $textpos = strrpos($text, "TH"); //ตำแหน่งที่เริ่มต้นของรหัส
 $textposplus = $textpost + 12;
-$Code = $textcut = strstr($text, $textpos, $textposplus);
-substr("abcdef", $textpos, $textlen);
+$textcut = strstr($text, $textpos, $textposplus);
+$Code = substr($text, $textpos, 0);
 $pos = strrpos($text, "TH");
 if ($pos > 0) {
 	$deliver = "FLASHEXPRESS";
