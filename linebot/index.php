@@ -39,7 +39,16 @@ $result1 = $conn->query($query1);
 // บอทตอบ///////////////////////
 //$messages = [];
 $messages['replyToken'] = $replyToken;
-$messages['messages'][0] = getFormatTextMessage("อยู่ค่ะ" . $userId . "จะถามอะไรจ๊ะ");
+
+/*
+$textee = $text
+if($texte==0){
+
+}else{
+
+
+}*/
+$messages['messages'][0] = getFormatTextMessage("อยู่ค่ะ" . $userId . "ส่งมาว่า =>" . $text);
 //$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=" . $text);
 /*
 $datas = [];
