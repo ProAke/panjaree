@@ -13,10 +13,10 @@ include_once("../include/function.inc.php");
 
 
 
-if ($_GET['tackid']) {
+if ($_GET['track']) {
 
     $arrData1 = array();
-    $arrData1['CONTENT']                    = $_GET['trakid'];
+    $arrData1['CONTENT']                    = $_GET['trak'];
     $arrData1['TIMEPUT']                    = date("Y-m-d H:i:s");
     $query1 = sqlCommandInsert($tableLog, $arrData1);
     $result1 = $conn->query($query1);
