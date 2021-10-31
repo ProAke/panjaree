@@ -37,6 +37,11 @@ $result1 = $conn->query($query1);
 
 
 
+$textlen = strlen($text); //ความยาวตัวอักษร
+$textpos = strrpos($text, "TH"); //ตำแหน่งที่เริ่มต้นของรหัส
+$textposplus = $textpost + 12;
+$textcut = strstr($text, $textpos, $textposplus);
+
 $pos = strrpos($text, "TH");
 if ($pos > 0) {
 	$deliver = "FLASHEXPRESS";
@@ -46,7 +51,7 @@ if ($pos > 0) {
 //$messages = [];
 $messages['replyToken'] = $replyToken;
 $messages['messages'][0] = getFormatTextMessage("คุณ " . $userId . " ข้อความ =>" . $text);
-$messages['messages'][1] = getFormatTextMessage("รหัสนี้เป็นของ =>" . $deliver);
+$messages['messages'][1] = getFormatTextMessage("รหัสนี้เป็นของ =>" . $textcut);
 //$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=" . $text);
 /*
 $datas = [];
