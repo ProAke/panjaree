@@ -22,12 +22,16 @@ $text = $deCode['events'][0]['message']['text'];
 
 
 $arrData1 = array();
-$arrData1['BARCODE']                    = $code;
-$arrData1['DATETIME']                    = date("Y-m-d H:i:s");
-$query1 = sqlCommandInsert($tableBarcodelog, $arrData1);
+$arrData1['CONTENTS']                    = $datas;
+$arrData1['TIMEPUT']                    = date("Y-m-d H:i:s");
+foreach ($arrData1 as $key => $value) {
+	$arrFieldTmp[] = "`$key`";
+	$arrValueTmp[] = "'$value'";
+}
+$strFieldTmp = implode(",", $arrFieldTmp);
+$strValueTmp = implode(",", $arrValueTmp);
+$query1 = "INSERT INTO `$tableLog`($strFieldTmp) VALUES($strValueTmp)";
 $result1 = $conn->query($query1);
-
-
 
 
 // บอทตอบ///////////////////////

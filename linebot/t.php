@@ -18,12 +18,10 @@ if ($_GET['track']) {
     $arrData1 = array();
     $arrData1['CONTENTS']                    = $_GET['track'];
     $arrData1['TIMEPUT']                    = date("Y-m-d H:i:s");
-
     foreach ($arrData1 as $key => $value) {
         $arrFieldTmp[] = "`$key`";
         $arrValueTmp[] = "'$value'";
     }
-
     $strFieldTmp = implode(",", $arrFieldTmp);
     $strValueTmp = implode(",", $arrValueTmp);
     $query1 = "INSERT INTO `$tableLog`($strFieldTmp) VALUES($strValueTmp)";
