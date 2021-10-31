@@ -18,7 +18,17 @@ if ($_GET['track']) {
     $arrData1 = array();
     $arrData1['CONTENTS']                    = $_GET['track'];
     $arrData1['TIMEPUT']                    = date("Y-m-d H:i:s");
-    $query1 = sqlCommandInsert($tableLog, $arrData1);
+
+    foreach ($arrData1 as $key => $value) {
+        $arrFieldTmp[] = "`$key`";
+        $arrValueTmp[] = "'$value'";
+    }
+
+    $strFieldTmp = implode(",", $arrFieldTmp);
+    $strValueTmp = implode(",", $arrValueTmp);
+    $query1 = "INSERT INTO `$tableLog`($strFieldTmp) VALUES($strValueTmp)";
+    echo $query1;
+    //$query1 = sqlCommandInsert($tableLog, $arrData1);
     $result1 = $conn->query($query1);
 
     echo "OK";
