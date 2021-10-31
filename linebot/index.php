@@ -36,18 +36,15 @@ $query1 = "INSERT INTO `$tableLog`($strFieldTmp) VALUES($strValueTmp)";
 $result1 = $conn->query($query1);
 
 
+
+$pos = strrpos($text, "TH");
+if ($pos > 0) {
+	$deliver = "FLASHEXPRESS";
+}
+
 // บอทตอบ///////////////////////
 //$messages = [];
 $messages['replyToken'] = $replyToken;
-
-/*
-$textee = $text
-if($texte==0){
-
-}else{
-
-
-}*/
 $messages['messages'][0] = getFormatTextMessage("อยู่ค่ะ" . $userId . "ส่งมาว่า =>" . $text);
 //$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=" . $text);
 /*
