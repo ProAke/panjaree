@@ -45,7 +45,8 @@ if ($pos > 0) {
 // บอทตอบ///////////////////////
 //$messages = [];
 $messages['replyToken'] = $replyToken;
-$messages['messages'][0] = getFormatTextMessage("อยู่ค่ะ" . $userId . "ส่งมาว่า =>" . $text);
+$messages['messages'][0] = getFormatTextMessage("คุณ " . $userId . " ข้อความ =>" . $text);
+$messages['messages'][1] = getFormatTextMessage("รหัสนี้เป็นของ =>" . $deliver);
 //$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=" . $text);
 /*
 $datas = [];
