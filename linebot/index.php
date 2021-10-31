@@ -7,7 +7,8 @@ Website : https://www.vpslive.com
 Copyright (C) 2021-2025, VPS Live Digital togethers all rights reserved.
  *****************************************************************/
 include_once("../include/config.inc.php");
-
+include_once("../include/class.inc.php");
+include_once("../include/function.inc.php");
 
 /*Get Data From POST Http Request*/
 $datas = file_get_contents('php://input');
@@ -22,6 +23,7 @@ $text = $deCode['events'][0]['message']['text'];
 
 
 $arrData1 = array();
+$arrData1['LINEID']                    	= $userId;
 $arrData1['CONTENTS']                    = $datas;
 $arrData1['TIMEPUT']                    = date("Y-m-d H:i:s");
 foreach ($arrData1 as $key => $value) {
