@@ -25,7 +25,6 @@ $tpl->assign("_ROOT.logo_brand_alt", $Brand);
 
 
 
-
 $tpl->assign("_ROOT.Powerby", $Powerby);
 $tpl->assign("_ROOT.Copyright", $Copyright);
 $tpl->printToScreen();

@@ -16,9 +16,9 @@ $Powerby 	= "อ.พี่เอก";
 // Database 
 $db_config = array(
 	"host" => "203.146.252.149",
-	"user" => "panjaree_office",
-	"pass" => "mn@91rB6",
-	"dbname" => "panjaree_office",
+	"user" => "fufudev_panjaree",
+	"pass" => "6%Dn3j8a",
+	"dbname" => "panjaree_web",
 	"charset" => "utf8"
 );
 

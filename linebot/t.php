@@ -32,7 +32,7 @@ if ($_GET['track']) {
     echo $query1;
 
     //$query1 = sqlCommandInsert($tableLog, $arrData1);
-    //$result1 = $conn->query($query1);
+    $result1 = $conn->query($query1);
 
     echo "OK";
 }
