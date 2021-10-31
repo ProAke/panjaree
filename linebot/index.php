@@ -41,7 +41,7 @@ $textlen = strlen($text); //ความยาวตัวอักษร
 $textpos = strrpos($text, "TH"); //ตำแหน่งที่เริ่มต้นของรหัส
 $textposplus = $textpost + 12;
 $textcut = strstr($text, $textpos, $textposplus);
-$Code = substr($text, $textpos, 5);
+$Code = substr($text, $textpos, 14);
 $pos = strrpos($text, "TH");
 if ($pos > 0) {
 	$deliver = "FLASHEXPRESS";
