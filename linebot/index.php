@@ -20,11 +20,15 @@ file_put_contents('log/log.txt', file_get_contents('php://input') . PHP_EOL, FIL
 $replyToken = $deCode['events'][0]['replyToken'];
 $userId = $deCode['events'][0]['source']['userId'];
 $text = $deCode['events'][0]['message']['text'];
+$messageType = $deCode['events'][0]['message']['type'];
+
+
+
 
 
 $arrData1 = array();
 $arrData1['LINEID']                    	= $userId;
-$arrData1['CONTENTS']                    = $datas;
+$arrData1['CONTENTS']                    = $datas . "--" . $messageType;
 $arrData1['TIMEPUT']                    = date("Y-m-d H:i:s");
 foreach ($arrData1 as $key => $value) {
 	$arrFieldTmp[] = "`$key`";
