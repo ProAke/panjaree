@@ -79,7 +79,7 @@ $tableWebMenu 						= 	"tb_web_menu";
 
 
 $tableLog							=   "tb_linelog";
-
+$tableOrders						=	"tb_orders";
 $tableTask							=   "tb_task";
 $tableSocial						=   "tb_social";
 $tableHotLink						=   "tb_hotlink";

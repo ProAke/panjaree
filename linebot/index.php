@@ -40,6 +40,42 @@ $query1 = "INSERT INTO `$tableLog`($strFieldTmp) VALUES($strValueTmp)";
 $result1 = $conn->query($query1);
 
 
+$sender = strrpos($text, "ชื่อ-ที่อยู่ผู้ส่ง");
+if ($sender != "") {
+	$arrData2 = array();
+	$arrData2['dealer_id']                    	= "-";
+	$arrData2['dealer_uid']                    	= $userId;
+	$arrData2['dealer_cid']                    	= "-";
+	$arrData2['cs_name']                    	= $userId;
+	$arrData2['cs_phone']                    	= $userId;
+	$arrData2['cs_address']                    	= $userId;
+	$arrData2['product_id']                    	= $userId;
+	$arrData2['product_name']                   = $userId;
+	$arrData2['product_site']                   = $userId;
+	$arrData2['order_note']                    	= $userId;
+	$arrData2['order_tdate']                    = date("Y-m-d H:i:s");
+	foreach ($arrData2 as $key2 => $value2) {
+		$arrFieldTmp2[] = "`$key2`";
+		$arrValueTmp2[] = "'$value2'";
+	}
+	$strFieldTmp2 = implode(",", $arrFieldTmp2);
+	$strValueTmp2 = implode(",", $arrValueTmp2);
+	$query2 = "INSERT INTO `$tableOrders`($strFieldTmp2) VALUES($strValueTmp2)";
+	$result2 = $conn->query($query2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $textlen = strlen($text); //ความยาวตัวอักษร
 $textpos = strrpos($text, "TH"); //ตำแหน่งที่เริ่มต้นของรหัส
@@ -57,7 +93,9 @@ if ($pos > 0) {
 $messages['replyToken'] = $replyToken;
 //$messages['messages'][0] = getFormatTextMessage("คุณ " . $userId . " ข้อความ =>" . $text);
 $messages['messages'][0] = getFormatTextMessage("ประเภทข้อมูลที่ส่งมา =>" . $messageType);
-$messages['messages'][1] = getFormatTextMessage("รหัสนี้ยาว =>" . $textlen);
+$messages['messages'][1] = getFormatTextMessage("รายการส่งสินค้า  =>" . $sender);
+
+///$messages['messages'][1] = getFormatTextMessage("รหัสนี้ยาว =>" . $textlen);
 
 /*
 $messages['messages'][1] = getFormatTextMessage("รหัสนี้เป็นของ =>" . $deliver);
