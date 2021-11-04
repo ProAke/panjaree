@@ -447,25 +447,7 @@
         });
     </script>
 
-    <script>
-        $(document).ready(function() {
 
-            function getData() {
-                $.ajax({
-                    type: 'POST',
-                    url: './jqphp/oiltoday.php',
-                    success: function(data) {
-                        $('#OilToday').html(data);
-                    }
-                });
-            }
-            getData();
-            setInterval(function() {
-                getData();
-            }, 1000); // it will refresh your data every 1 sec
-
-        });
-    </script>
 
 
 
