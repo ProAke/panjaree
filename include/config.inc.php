@@ -76,8 +76,6 @@ $tableMailMessage 					= 	"tb_mail_message";
 $tableWebMil 						= 	"tb_mail_message";
 $tableWebMenu 						= 	"tb_web_menu";
 
-
-
 $tableLog							=   "tb_linelog";
 $tableOrders						=	"tb_orders";
 $tableTask							=   "tb_task";
@@ -96,11 +94,9 @@ $tablePageDetail 					= 	"tb_page_detail";
 $tableSetting						= 	"tb_setting";
 
 
-
 // All config
 $cfgDefaultPerPage = 5;
 $cfgOtherRowPerPage = 15;
-
 
 
 // Session
@@ -110,23 +106,11 @@ if (substr_count($_SERVER["SCRIPT_NAME"], "/") == 1) {
 
 session_start();
 
-
 if (empty($_SESSION['file_upload'])) $_SESSION['file_upload'] = array();
-
 
 // Connect MySQL
 $conn = @new mysqli($db_config["host"], $db_config["user"], $db_config["pass"], $db_config["dbname"]);
 //$conn->set_charset($db_config["charset"]);
-
-
-
-
-
-
-
-
-
-
 
 
 if ($_SESSION["lang"] == "") {
