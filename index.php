@@ -20,7 +20,7 @@ $tpl->assign("_ROOT.page_title", "หน้าแรก");
 $tpl->assign("_ROOT.logo_brand_alt", $Brand);
 
 
-//$TodayThaiShow = ThaiToday($strDateTime, $tnow);
+$TodayThaiShow = ThaiToday($strDateTime, $tnow);
 
 
 
