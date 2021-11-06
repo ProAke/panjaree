@@ -26,6 +26,30 @@ $TodayThaiShow = ThaiToday($strDateTime, $tnow);
 
 
 
+$query = "SELECT * FROM `$tableProducts` WHERE `status`='1' ORDER BY `ID` DESC";
+$result = $conn->query($query);
+while ($line = $result->fetch_assoc()) {
+    $no++;
+    $tpl->newBlock("PRODUCTS");
+    $tpl->assign("id", $line['id']);
+    $tpl->assign("product_code", $line['code']);
+    $tpl->assign("product_name", $line['product_name']);
+    $tpl->assign("product_photo", $line['product_photo']);
+    $tpl->assign("product_price", $line['price']);
+    $tpl->assign("product_price_discount", $line['price_discount']);
+    $tpl->assign("product_price_show", $line['price_show']);
+    // Load Stock table tb_stock_products
+}
+
+
+
+
+
+
+
+
+
+
 $tpl->assign("_ROOT.Powerby", $Powerby);
 $tpl->assign("_ROOT.Copyright", $Copyright);
 $tpl->printToScreen();

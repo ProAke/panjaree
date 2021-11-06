@@ -94,6 +94,9 @@ $tablePageDetail 					= 	"tb_page_detail";
 $tableSetting						= 	"tb_setting";
 
 
+$tableProducts						=	"tb_products";
+
+
 // All config
 $cfgDefaultPerPage = 5;
 $cfgOtherRowPerPage = 15;

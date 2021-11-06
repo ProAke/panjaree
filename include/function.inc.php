@@ -471,14 +471,14 @@ sqlCommandInsert("table",$arrData);
 */
 
 
-function sqlCommandInsert($strTableName, $arrFieldValue)
+function sqlCommandInserts($strTableName, $arrFieldValue)
 {
 
-	$arrFieldTmp = "";
-	$arrValueTmp = "";
+	$arrFieldTmp[] = "";
+	$arrValueTmp[] = "";
 
-	$strFieldTmp = "";
-	$strValueTmp = "";
+	$strFieldTmp[] = "";
+	$strValueTmp[] = "";
 
 	foreach ($arrFieldValue as $key => $value) {
 		$arrFieldTmp[] = "`$key`";
@@ -507,8 +507,8 @@ sqlCommandUpdate("table",$arrData,"`ID`='1'");
 function sqlCommandUpdate($strTableName, $arrFieldValue, $strWhere)
 {
 
-	$arrFieldValueTmp = "";
-	$strFieldValueTmp = "";
+	$arrFieldValueTmp[] = "";
+	$strFieldValueTmp[] = "";
 
 	foreach ($arrFieldValue as $key => $value) {
 		$arrFieldValueTmp[] = "`$key`='$value'";
