@@ -93,13 +93,15 @@ if ($pos > 0) {
 $messages['replyToken'] = $replyToken;
 //$messages['messages'][0] = getFormatTextMessage("คุณ " . $userId . " ข้อความ =>" . $text);
 $messages['messages'][0] = getFormatTextMessage("ประเภทข้อมูลที่ส่งมา =>" . $messageType);
-$messages['messages'][1] = getFormatTextMessage("รายการส่งสินค้า  =>" . $sender);
+$messages['messages'][1] = getFormatTextMessage("ส่งโดย  =>" . $sender);
+
+
+
+
 
 ///$messages['messages'][1] = getFormatTextMessage("รหัสนี้ยาว =>" . $textlen);
-
 /*
 $messages['messages'][1] = getFormatTextMessage("รหัสนี้เป็นของ =>" . $deliver);
-
 $messages['messages'][3] = getFormatTextMessage("รหัสนี้ตำแหน่ง =>" . $textpos);
 $messages['messages'][4] = getFormatTextMessage("รหัส CODE =>" . $Code);
 */
