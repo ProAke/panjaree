@@ -23,7 +23,12 @@ $tpl->assign("_ROOT.logo_brand_alt", $Brand);
 $TodayThaiShow = ThaiToday($strDateTime, $tnow);
 
 
-
+$query = "SELECT * FROM `$tableOrders`";
+$result = $conn->query($query);
+while ($line = $result->fetch_assoc()) {
+    $no++;
+    $tpl->newBlock("TRACKING_ALL");
+}
 
 $tpl->assign("_ROOT.Powerby", $Powerby);
 $tpl->assign("_ROOT.Copyright", $Copyright);
