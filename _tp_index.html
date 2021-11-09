@@ -15,19 +15,14 @@
                 <!-- Page title actions -->
                 <div class="col-auto ms-auto d-print-none">
                     <div class="btn-list">
-                        <span class="d-none d-sm-inline">
-            <a href="#" class="btn btn-white">
-              New view
-            </a>
-          </span>
-                        <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modal-report">
+
+                        <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modal-order">
                             <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>                            Create new report
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>สั่งสินค้าใหม่
                         </a>
-                        <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-report" aria-label="Create new report">
-                            <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
-                        </a>
+
                     </div>
                 </div>
             </div>
@@ -101,8 +96,8 @@
                                         </td>
                                         <td>{สถานรับเลี้ยงเด็กอายุ่}</td>
                                         <td class="text-end">
-                                            <a href="#" class="btn btn-blue" style="margin-left:5px;padding: 1px 5px 1px 3px;" data-bs-toggle="modal" data-bs-target="#modal-order">
-                                                + อัพเดท
+                                            <a href="#" class="btn btn-blue" style="margin-left:5px;padding: 1px 5px 1px 3px;" data-bs-toggle="modal" data-bs-target="#modal-social">
+                                                + เพิ่ม
                                         </td>
                                     </tr>
                                     <!-- END BLOCK : TRACKING_ALL -->
@@ -147,47 +142,33 @@
 
 
 <!-- Modal Master -->
-<div class="modal modal-blur fade" id="modalOrder" tabindex="-1" aria-hidden="true" style="display: none;">
+<div class="modal modal-blur fade" id="modal-order" tabindex="-1" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">แก้ไขข้อมูลการสั่งสินค้า</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title">ข้อมูลสั่งสินค้า</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="ปิด"></button>
             </div>
             <div class="modal-body">
-                <div class="mb-3">
-                    <label class="form-label">Name</label>
-                    <input type="text" class="form-control" name="example-text-input" placeholder="Your report name">
-                </div>
-                <label class="form-label">Report type</label>
-                <div class="form-selectgroup-boxes row mb-3">
-                    <div class="col-lg-6">
-                        <label class="form-selectgroup-item">
-<input type="radio" name="report-type" value="1" class="form-selectgroup-input" checked="">
-<span class="form-selectgroup-label d-flex align-items-center p-3">
-<span class="me-3">
-<span class="form-selectgroup-check"></span>
-</span>
-<span class="form-selectgroup-label-content">
-<span class="form-selectgroup-title strong mb-1">Simple</span>
-<span class="d-block text-muted">Provide only basic data needed for the report</span>
-</span>
-</span>
-</label>
+
+
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="mb-3">
+                            <label class="form-label">ชื่อผู้สั่งสินค้า/ร้านตัวแทน</label>
+                            <div class="input-group input-group-flat">
+                                <input type="text" class="form-control" name="order-name" placeholder="ชื่อผู้สั่งสินค้า">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-6">
-                        <label class="form-selectgroup-item">
-<input type="radio" name="report-type" value="1" class="form-selectgroup-input">
-<span class="form-selectgroup-label d-flex align-items-center p-3">
-<span class="me-3">
-<span class="form-selectgroup-check"></span>
-</span>
-<span class="form-selectgroup-label-content">
-<span class="form-selectgroup-title strong mb-1">Advanced</span>
-<span class="d-block text-muted">Insert charts and additional advanced analyses to be inserted in the report</span>
-</span>
-</span>
-</label>
+                    <div class="col-lg-4">
+                        <div class="mb-3">
+                            <label class="form-label">เบอร์โทร</label>
+                            <div class="input-group input-group-flat">
+                                <input type="text" class="form-control" name="order-phone" placeholder="เบอร์โทร">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -218,8 +199,8 @@ https://tabler.io/reports/
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label class="form-label">Client name</label>
-                            <input type="text" class="form-control">
+                            <div class="form-label">รูปสินค้าที่สั่ง/ระบุไซท์จำนวนในภาพด้วย</div>
+                            <input type="file" class="form-control" name="order-photo1" />
                         </div>
                     </div>
                     <div class="col-lg-6">
