@@ -97,21 +97,12 @@
                                             {delivery_date}
                                         </td>
                                         <td>
-                                            <span class="badge bg-success me-1"></span> Paid
+                                            <span class="badge bg-success me-1"></span> กำลังส่ง
                                         </td>
-                                        <td>$887</td>
+                                        <td>{สถานรับเลี้ยงเด็กอายุ่}</td>
                                         <td class="text-end">
-                                            <span class="dropdown">
-                      <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">จัดการ</button>
-                      <div class="dropdown-menu dropdown-menu-end">
-                        <a class="dropdown-item" href="#" id="model-order">
-                          แก้ไข้
-                        </a>
-                        <a class="dropdown-item" href="#">
-                          ลบ
-                        </a>
-                      </div>
-                    </span>
+                                            <a href="#" class="btn btn-blue" style="margin-left:5px;padding: 1px 5px 1px 3px;" data-bs-toggle="modal" data-bs-target="#modal-order">
+                                                + อัพเดท
                                         </td>
                                     </tr>
                                     <!-- END BLOCK : TRACKING_ALL -->
@@ -130,19 +121,19 @@
                                         <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="15 6 9 12 15 18" /></svg>                                        prev
                                     </a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">
                   next <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
                   <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="9 6 15 12 9 18" /></svg>
                 </a>
-                                </li>
-                            </ul>
+                                            </li>
+                                            </ul>
                         </div>
                     </div>
                 </div>
@@ -156,7 +147,7 @@
 
 
 <!-- Modal Master -->
-<div class="modal modal-blur fade" id="modal-order" tabindex="-1" aria-hidden="true" style="display: none;">
+<div class="modal modal-blur fade" id="modalOrder" tabindex="-1" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
