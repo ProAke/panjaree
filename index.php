@@ -28,8 +28,42 @@ $result = $conn->query($query);
 while ($line = $result->fetch_assoc()) {
     $no++;
     $tpl->newBlock("TRACKING_ALL");
+
+    $tpl->assign("id", $line['id']);
+    $tpl->assign("order_date", $line['order_tdate']);
+    $tpl->assign("agent", $line['ag_name'] . "<br>" . $line['ag_phone']);
+    $tpl->assign("customer", $line['cs_name'] . "<br>" . $line['cs_phone']);
 }
 
 $tpl->assign("_ROOT.Powerby", $Powerby);
 $tpl->assign("_ROOT.Copyright", $Copyright);
 $tpl->printToScreen();
+
+
+/*id
+id
+ag_id
+ag_uid
+ag_cid
+ag_name
+ag_phone
+ag_shopname
+ag_address
+line_groups
+cs_name
+cs_phone
+cs_address
+logistics
+shipping_type
+slip_bank
+slip_total
+slip_date
+slip_status
+product_image
+product_name
+product_size
+order_note
+order_tdate
+tracking_code
+
+*/

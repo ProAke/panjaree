@@ -26,7 +26,8 @@ $TodayThaiShow = ThaiToday($strDateTime, $tnow);
 
 
 
-$query = "SELECT * FROM `$tableProducts` WHERE `status`='1' ORDER BY `ID` DESC";
+///$query = "SELECT * FROM `$tableProducts` WHERE `status`='1' ORDER BY `ID` DESC";
+$query = "SELECT * FROM `$tableProducts` ORDER BY `ID` DESC";
 $result = $conn->query($query);
 while ($line = $result->fetch_assoc()) {
     $no++;
@@ -34,7 +35,13 @@ while ($line = $result->fetch_assoc()) {
     $tpl->assign("id", $line['id']);
     $tpl->assign("product_code", $line['code']);
     $tpl->assign("product_name", $line['product_name']);
-    $tpl->assign("product_photo", $line['product_photo']);
+
+    if ($line['product_photo'] != "") {
+        $tpl->assign("product_photo", "./uploads/" . $line['id'] . "/" . $line['product_photo']);
+    } else {
+        $tpl->assign("product_photo", "./uploads/free-upload.jpg");
+    }
+
     $tpl->assign("product_price", $line['price']);
     $tpl->assign("product_price_discount", $line['price_discount']);
     $tpl->assign("product_price_show", $line['price_show']);
