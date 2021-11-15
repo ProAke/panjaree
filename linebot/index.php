@@ -71,15 +71,6 @@ if ($sender != "") {
 
 
 
-
-$i = 10;
-
-for ($i = 0; $i < count($text); $i++) {  // วนรอบเพื่อแสดงผลขอ้มูล
-
-  $t[$i] = $text[$i];
-}
-
-
 $textlen = strlen($text); //ความยาวตัวอักษร
 $textpos = strrpos($text, "TH"); //ตำแหน่งที่เริ่มต้นของรหัส
 $textposplus = $textpost + 12;
@@ -96,8 +87,7 @@ if ($pos > 0) {
 $messages['replyToken'] = $replyToken;
 
 if ($pos > 0) {
-  //$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=" . $text);
-  $messages['messages'][0] = getFormatTextMessage("รหัส CODE =>" . $t1);
+  $messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=" . $text);
 }
 
 //$messages['messages'][0] = getFormatTextMessage("คุณ " . $userId . " ข้อความ =>" . $text);
