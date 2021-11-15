@@ -82,6 +82,10 @@ $tableTask							=   "tb_task";
 $tableSocial						=   "tb_social";
 $tableHotLink						=   "tb_hotlink";
 
+$tableDayliExpress 					=   "tb_DailyExpress"
+
+
+
 $tableContents 						= 	"tb_contents_detail";
 $tableCustomers						= 	"tb_customers";
 
