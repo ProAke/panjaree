@@ -1,57 +1,206 @@
-<?php
+<?php error_reporting(E_ALL ^ E_NOTICE);
+/*****************************************************************
+Created :26/10/2021
+Author : worapot bhilarbutra (pros.ake)
+E-mail : worapot.bhi@gmail.com
+Website : https://www.vpslive.com
+Copyright (C) 2021-2025, VPS Live Digital togethers all rights reserved.
+ *****************************************************************/
+include_once("../include/config.inc.php");
+include_once("../include/class.inc.php");
+include_once("../include/function.inc.php");
 
-var ACCESS_TOKEN = 'PipIwu3mnNEqEtvNFle3e1SwXnBhU/9VOKvm3X7T0Rwa5QFTZzVK3PDWfcjaqq1qwA5T0O1wpr0KHuootMeArUg8LFAJEuM9groAcBqcsf5oIstDSWUH+6W1m+aYOCSilMtGxr3ugzp/xxWhFOTaZAdB04t89/1O/w1cDnyilFU=';
-var FOLDER_ID = '1rMxNSLDcuRuIZmCAn77IoZLNkgohVx8a';
-var REPLY_URL = 'https://api.line.me/v2/bot/message/reply';
+/*Get Data From POST Http Request*/
+$datas = file_get_contents('php://input');
+/*Decode Json From LINE Data Body*/
+$deCode = json_decode($datas, true);
 
-function sendMsg(url, payload) {
-  UrlFetchApp.fetch(url, {
-    'headers': {
-      'Content-Type': 'application/json; charset=UTF-8',
-      'Authorization': 'Bearer ' + ACCESS_TOKEN,
-    },
-    'method': 'post',
-    'payload': JSON.stringify(payload),
-  });
+file_put_contents('log/log.txt', file_get_contents('php://input') . PHP_EOL, FILE_APPEND);
+
+$replyToken = $deCode['events'][0]['replyToken'];
+$userId = $deCode['events'][0]['source']['userId'];
+$text = $deCode['events'][0]['message']['text'];
+$messageType = $deCode['events'][0]['message']['type'];
+
+
+
+
+
+$arrData1 = array();
+$arrData1['LINEID']                      = $userId;
+$arrData1['CONTENTS']                    = $datas . "--" . $messageType;
+$arrData1['TIMEPUT']                    = date("Y-m-d H:i:s");
+foreach ($arrData1 as $key => $value) {
+  $arrFieldTmp[] = "`$key`";
+  $arrValueTmp[] = "'$value'";
 }
-function getImage(id) {
- 
-  var url = 'https://api-data.line.me/v2/bot/message/' + id + '/content';
-  var data = UrlFetchApp.fetch(url,{
-    'headers': {
-      'Authorization' :  'Bearer ' + ACCESS_TOKEN,
-    },
-    'method': 'get'
-  });
-  
-  var img = data.getBlob().getAs('image/png').setName(Number(new Date()) + '.png');
-  return img;
-}
-function saveImage(blob) {
-  try{
-    var folder = DriveApp.getFolderById(FOLDER_ID);
-    var file = folder.createFile(blob);
-    return file.getUrl();
-  }catch(e){
-    return false;
+$strFieldTmp = implode(",", $arrFieldTmp);
+$strValueTmp = implode(",", $arrValueTmp);
+$query1 = "INSERT INTO `$tableLog`($strFieldTmp) VALUES($strValueTmp)";
+$result1 = $conn->query($query1);
+
+
+$sender = strrpos($text, "ชื่อ-ที่อยู่ผู้ส่ง");
+if ($sender != "") {
+  $arrData2 = array();
+  $arrData2['dealer_id']                      = "-";
+  $arrData2['dealer_uid']                      = $userId;
+  $arrData2['dealer_cid']                      = "-";
+  $arrData2['cs_name']                      = $userId;
+  $arrData2['cs_phone']                      = $userId;
+  $arrData2['cs_address']                      = $userId;
+  $arrData2['product_id']                      = $userId;
+  $arrData2['product_name']                   = $userId;
+  $arrData2['product_site']                   = $userId;
+  $arrData2['order_note']                      = $userId;
+  $arrData2['order_tdate']                    = date("Y-m-d H:i:s");
+  foreach ($arrData2 as $key2 => $value2) {
+    $arrFieldTmp2[] = "`$key2`";
+    $arrValueTmp2[] = "'$value2'";
   }
+  $strFieldTmp2 = implode(",", $arrFieldTmp2);
+  $strValueTmp2 = implode(",", $arrValueTmp2);
+  $query2 = "INSERT INTO `$tableOrders`($strFieldTmp2) VALUES($strValueTmp2)";
+  $result2 = $conn->query($query2);
 }
-function doPost(e) {
-  var event = JSON.parse(e.postData.contents).events[0];
-  if(event.message.type == 'image') {
-    try {
-      var img = getImage(event.message.id);
-      var url = saveImage(img);
-      sendMsg(REPLY_URL, {
-        'replyToken': event.replyToken,
-        'messages': [{
-          'type': 'text',
-          'text': url ? "บันทึกแล้ว:\n" + url : "ข้อผิดพลาดในการดาวน์โหลด",
-        }]
-      })
-    }catch(e) {
-      Logger.log(e);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$textlen = strlen($text); //ความยาวตัวอักษร
+$textpos = strrpos($text, "TH"); //ตำแหน่งที่เริ่มต้นของรหัส
+$textposplus = $textpost + 12;
+$textcut = strstr($text, $textpos, $textposplus);
+$Code = substr($text, $textpos, 14);
+$pos = strrpos($text, "TH");
+if ($pos > 0) {
+  $deliver = "FLASHEXPRESS";
+}
+
+//substr("abcdef", 8,4); 
+// บอทตอบ///////////////////////
+//$messages = [];
+$messages['replyToken'] = $replyToken;
+
+if ($pos > 0) {
+  $messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=" . $text);
+}
+
+//$messages['messages'][0] = getFormatTextMessage("คุณ " . $userId . " ข้อความ =>" . $text);
+//$messages['messages'][0] = getFormatTextMessage("ประเภทข้อมูลที่ส่งมา =>" . $messageType);
+//$messages['messages'][1] = getFormatTextMessage("ส่งโดย  =>" . $sender);
+///$messages['messages'][1] = getFormatTextMessage("รหัสนี้ยาว =>" . $textlen);
+/*
+$messages['messages'][1] = getFormatTextMessage("รหัสนี้เป็นของ =>" . $deliver);
+$messages['messages'][3] = getFormatTextMessage("รหัสนี้ตำแหน่ง =>" . $textpos);
+$messages['messages'][4] = getFormatTextMessage("รหัส CODE =>" . $Code);
+*/
+//$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=" . $text);
+/*
+$datas = [];
+//$datas['replyToken'] = $replyToken;
+$datas["type"] = "flex";
+$datas["altText"] = "ปัณณ์จรีย์ ติดตามสินค้า";
+$datas["contents"]["type"] = "template";
+$datas["contents"]["altText"] = "ปัณณ์จรีย์ ติดตามสินค้า FlasExpress : TH273221W9AN2D";
+$datas["contents"]["template"]["type"] = "carousel";
+$datas["contents"]["template"]["imageSize"] = "cover";
+$datas["contents"]["template"]["columns"][0]["thumbnailImageUrl"] = "https://panjaree.uarea.in/linebot/img/flashexpressflex.jpg";
+$datas["contents"]["template"]["columns"][0]["title"] = "ปัณณ์จรีย์ ติดตามสินค้า";
+$datas["contents"]["template"]["columns"][0]["text"] = "ส่งสินค้าแล้วทาง Flash Express คลิ๊กที่เลขพัสดุ";
+$datas["contents"]["template"]["columns"][0]["actions"][0]["type"] = "uri";
+$datas["contents"]["template"]["columns"][0]["actions"][0]["label"] = "TH273221W9AN2D";
+$datas["contents"]["template"]["columns"][0]["actions"][0]["uri"] = "https://www.flashexpress.co.th/tracking/?se=TH273221W9AN2D";
+$datas["contents"]["template"]["columns"][0]["imageBackgroundColor"] = "#FDCE00";
+//$dataPushMessages['url'] = "https://api.line.me/v2/bot/message/push";
+//$dataPushMessages['token'] = "<access token>";
+//$messages['to'] = "<user id>";
+$messages['messages'][] = $datas;
+$encodeJson = json_encode($messages);
+//sentMessage($encodeJson,$dataPushMessages);
+*/
+
+/*
+$messages = [];
+$messages['replyToken'] = $replyToken;
+$messages["type"] = "flex";
+$messages["altText"] = "ปัณณ์จรีย์ ติดตามสินค้า";
+$messages["contents"]["type"] = "template";
+$messages["contents"]["altText"] = "ปัณณ์จรีย์ ติดตามสินค้า FlasExpress : TH273221W9AN2D";
+$messages["contents"]["template"]["type"] = "carousel";
+$messages["contents"]["template"]["imageSize"] = "cover";
+$messages["contents"]["template"]["columns"][0]["thumbnailImageUrl"] = "https://panjaree.uarea.in/linebot/img/flashexpressflex.jpg";
+$messages["contents"]["template"]["columns"][0]["title"] = "ปัณณ์จรีย์ ติดตามสินค้า";
+$messages["contents"]["template"]["columns"][0]["text"] = "ส่งสินค้าแล้วทาง Flash Express คลิ๊กที่เลขพัสดุ";
+$messages["contents"]["template"]["columns"][0]["actions"][0]["type"] = "uri";
+$messages["contents"]["template"]["columns"][0]["actions"][0]["label"] = "TH273221W9AN2D";
+$messages["contents"]["template"]["columns"][0]["actions"][0]["uri"] = "https://www.flashexpress.co.th/tracking/?se=TH273221W9AN2D";
+$messages["contents"]["template"]["columns"][0]["imageBackgroundColor"] = "#FDCE00";
+*/
+
+$encodeJson = json_encode($messages);
+$LINEDatas['url'] = "https://api.line.me/v2/bot/message/reply";
+$LINEDatas['token'] = "PipIwu3mnNEqEtvNFle3e1SwXnBhU/9VOKvm3X7T0Rwa5QFTZzVK3PDWfcjaqq1qwA5T0O1wpr0KHuootMeArUg8LFAJEuM9groAcBqcsf5oIstDSWUH+6W1m+aYOCSilMtGxr3ugzp/xxWhFOTaZAdB04t89/1O/w1cDnyilFU=";
+$results = sentMessage($encodeJson, $LINEDatas);
+/*Return HTTP Request 200*/
+http_response_code(200);
+
+function getFormatTextMessage($text)
+{
+  $datas = [];
+  $datas['type'] = 'text';
+  $datas['text'] = $text;
+
+  return $datas;
+}
+
+function sentMessage($encodeJson, $datas)
+{
+  $datasReturn = [];
+  $curl = curl_init();
+  curl_setopt_array($curl, array(
+    CURLOPT_URL => $datas['url'],
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 30,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "POST",
+    CURLOPT_POSTFIELDS => $encodeJson,
+    CURLOPT_HTTPHEADER => array(
+      "authorization: Bearer " . $datas['token'],
+      "cache-control: no-cache",
+      "content-type: application/json; charset=UTF-8",
+    ),
+  ));
+
+  $response = curl_exec($curl);
+  $err = curl_error($curl);
+
+  curl_close($curl);
+
+  if ($err) {
+    $datasReturn['result'] = 'E';
+    $datasReturn['message'] = $err;
+  } else {
+    if ($response == "{}") {
+      $datasReturn['result'] = 'S';
+      $datasReturn['message'] = 'Success';
+    } else {
+      $datasReturn['result'] = 'E';
+      $datasReturn['message'] = $response;
     }
   }
-  return ContentService.createTextOutput(JSON.stringify({'content': 'post ok'})).setMimeType(ContentService.MimeType.JSON);
+
+  return $datasReturn;
 }
