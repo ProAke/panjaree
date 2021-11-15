@@ -30,9 +30,11 @@ while ($line = $result->fetch_assoc()) {
     $tpl->newBlock("TRACKING_ALL");
 
     $tpl->assign("id", $line['id']);
-    $tpl->assign("order_date", $line['order_tdate']);
+    //$tpl->assign("order_date", $line['order_tdate']);
+    $tpl->assign("order_date", ThaiDateShort($line['order_tdate'], false));
     $tpl->assign("agent", $line['ag_name'] . "<br>" . $line['ag_phone']);
     $tpl->assign("customer", $line['cs_name'] . "<br>" . $line['cs_phone']);
+    $tpl->assign("tracking_code", $line['tracking_code']);
 }
 
 $tpl->assign("_ROOT.Powerby", $Powerby);
