@@ -34,7 +34,15 @@ while ($line = $result->fetch_assoc()) {
     $tpl->assign("order_date", ThaiDateShort($line['order_tdate'], false));
     $tpl->assign("agent", $line['ag_name'] . "<br>" . $line['ag_phone']);
     $tpl->assign("customer", $line['cs_name'] . "<br>" . $line['cs_phone']);
-    $tpl->assign("tracking_code", $line['tracking_code']);
+
+
+    if ($line['shipping_type'] == "FLA") {
+        $tpl->assign("express_provider", "Flash Express");
+        $tpl->assign("tracking_code", "<a href='https://www.flashexpress.co.th/tracking/?se=" . $line['tracking_code'] . "' target='_blank'>" . $line['tracking_code'] . "</a>");
+    } else {
+        $tpl->assign("express_provider", "ไปรษณีย์ไทย");
+        $tpl->assign("tracking_code", "<a href='https://track.thailandpost.co.th/?trackNumber=" . $line['tracking_code'] . "' target='_blank'>" . $line['tracking_code'] . "</a>");
+    }
 }
 
 $tpl->assign("_ROOT.Powerby", $Powerby);
