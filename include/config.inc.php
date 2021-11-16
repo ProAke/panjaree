@@ -82,7 +82,7 @@ $tableTask							=   "tb_task";
 $tableSocial						=   "tb_social";
 $tableHotLink						=   "tb_hotlink";
 
-$tableDayliExpress 					=   "tb_DailyExpress"
+$tableDayliExpress 					=   "tb_DailyExpress";
 
 
 
