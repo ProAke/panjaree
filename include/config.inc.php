@@ -83,7 +83,7 @@ $tableSocial						=   "tb_social";
 $tableHotLink						=   "tb_hotlink";
 
 $tableDayliExpress 					=   "tb_DailyExpress";
-
+$tableTrackLog 					=   "tb_track_log";
 
 
 $tableContents 						= 	"tb_contents_detail";

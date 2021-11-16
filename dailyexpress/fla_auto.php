@@ -46,12 +46,33 @@ if ($err) {
     while ($i < count($fxdata['message']['list'][0]['routes'])) {
         $state = $fxdata['message']['list'][0]['routes'][$i]['message'];
         $routed_at = $fxdata['message']['list'][0]['routes'][$i]['routed_at'];
-        // echo $state . "-->" . $routed_at . "\n";
+        echo $state . "-->" . $routed_at . "\n";
         $i++;
     }
 
-    $a = $i - 1;
-    $finalState = $fxdata['message']['list'][0]['routes'][$a]['message'];
-    $finalRouted_at = $fxdata['message']['list'][0]['routes'][$a]['routed_at'];
-    echo "สินค้าอยู่ที่ > " . $state . " รับมาเมื่อ : " . $routed_at . "\n";
+    $a = 0;
+    $finalState = $fxdata['message']['list'][0]['routes'][0]['message'];
+    $finalRouted_at = $fxdata['message']['list'][0]['routes'][0]['routed_at'];
+    echo "สินค้าอยู่ที่ > " . $finalState . " รับมาเมื่อ : " . $finalRouted_at . "\n";
+
+
+
+    // ค้นหาเทียบว่าเคยมีไหม 
+
+    $sql = "SELECT * FROM `$tableTrackLog` WHERE `track_code` = '" . $trackid . "' AND `state` = '" . $finalState . "' ";
+    $query = $conn->query($sql) or die($conn->error);
+    $total = $query->num_rows;
+    $arrData = array();
+    $arrData['provider']       = "FLA";
+    $arrData['track_code']     = $trackid;
+    $arrData['state']     = $finalState;
+    $arrData['tdate']    = $finalRouted_at;
+    foreach ($arrData as $key => $value) {
+        $arrFieldTmp[] = "`$key`";
+        $arrValueTmp[] = "'$value'";
+    }
+    $strFieldTmp = implode(",", $arrFieldTmp);
+    $strValueTmp = implode(",", $arrValueTmp);
+    $query = "INSERT INTO `$tableTrackLog`($strFieldTmp) VALUES($strValueTmp)";
+    $result = $conn->query($query);
 }
