@@ -36,10 +36,11 @@ while ($line = $result->fetch_assoc()) {
     $tpl->assign("customer", $line['cs_name'] . "<br>" . $line['cs_phone']);
 
 
-    if ($line['shipping_type'] == "FLA") {
+    if ($line['express_provider'] == "FLA") {
         $tpl->assign("express_provider", "Flash Express");
         $tpl->assign("tracking_code", "<a href='https://www.flashexpress.co.th/tracking/?se=" . $line['tracking_code'] . "' target='_blank'>" . $line['tracking_code'] . "</a>");
-    } else {
+    }
+    if ($line['express_provider'] == "THP") {
         $tpl->assign("express_provider", "ไปรษณีย์ไทย");
         $tpl->assign("tracking_code", "<a href='https://track.thailandpost.co.th/?trackNumber=" . $line['tracking_code'] . "' target='_blank'>" . $line['tracking_code'] . "</a>");
     }
@@ -50,30 +51,18 @@ $tpl->assign("_ROOT.Copyright", $Copyright);
 $tpl->printToScreen();
 
 
-/*id
+/*
 id
-ag_id
-ag_uid
-ag_cid
-ag_name
-ag_phone
-ag_shopname
-ag_address
-line_groups
+tdate
 cs_name
 cs_phone
-cs_address
-logistics
-shipping_type
-slip_bank
-slip_total
-slip_date
-slip_status
-product_image
-product_name
-product_size
-order_note
-order_tdate
-tracking_code
+ag_name
+ag_phone
+track_code
+express_provider
+COD
+WALLET
+status
+
 
 */
