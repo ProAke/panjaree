@@ -36,11 +36,10 @@ while ($line = $result->fetch_assoc()) {
     $tpl->assign("customer", $line['cs_name'] . "<br>" . $line['cs_phone']);
 
 
-    if ($line['express_provider'] == "FLA") {
+    if ($line['express_provider'] == 'FLA') {
         $tpl->assign("express_provider", "Flash Express");
         $tpl->assign("tracking_code", "<a href='https://www.flashexpress.co.th/tracking/?se=" . $line['tracking_code'] . "' target='_blank'>" . $line['tracking_code'] . "</a>");
-    }
-    if ($line['express_provider'] == "THP") {
+    } else {
         $tpl->assign("express_provider", "ไปรษณีย์ไทย");
         $tpl->assign("tracking_code", "<a href='https://track.thailandpost.co.th/?trackNumber=" . $line['tracking_code'] . "' target='_blank'>" . $line['tracking_code'] . "</a>");
     }
