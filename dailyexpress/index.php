@@ -26,7 +26,7 @@ $tpl->assign("_ROOT.logo_brand_alt", $Brand);
 // Search 
 // Select Provider
 // Select Day
-/*
+
 
 $TodayThaiShow = ThaiToday($strDateTime, $tnow);
 $no = 1;
@@ -36,4 +36,3 @@ $result = $conn->query($query);
 while ($line = $result->fetch_assoc()) {
     $no++;
 }
-*/
