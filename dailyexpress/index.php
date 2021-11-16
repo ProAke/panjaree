@@ -36,3 +36,10 @@ $result = $conn->query($query);
 while ($line = $result->fetch_assoc()) {
     $no++;
 }
+
+
+
+
+$tpl->assign("_ROOT.Powerby", $Powerby);
+$tpl->assign("_ROOT.Copyright", $Copyright);
+$tpl->printToScreen();
