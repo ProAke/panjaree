@@ -34,15 +34,7 @@ while ($line = $result->fetch_assoc()) {
     $tpl->assign("order_date", ThaiDateShort($line['order_tdate'], false));
     $tpl->assign("agent", $line['ag_name'] . "<br>" . $line['ag_phone']);
     $tpl->assign("customer", $line['cs_name'] . "<br>" . $line['cs_phone']);
-
-
-    if ($line['express_provider'] == 'FLA') {
-        $tpl->assign("express_provider", "Flash Express");
-        $tpl->assign("tracking_code", "<a href='https://www.flashexpress.co.th/tracking/?se=" . $line['tracking_code'] . "' target='_blank'>" . $line['tracking_code'] . "</a>");
-    } else {
-        $tpl->assign("express_provider", "ไปรษณีย์ไทย");
-        $tpl->assign("tracking_code", "<a href='https://track.thailandpost.co.th/?trackNumber=" . $line['tracking_code'] . "' target='_blank'>" . $line['tracking_code'] . "</a>");
-    }
+    $tpl->assign("tracking_code", $line['tracking_code']);
 }
 
 $tpl->assign("_ROOT.Powerby", $Powerby);
@@ -50,18 +42,30 @@ $tpl->assign("_ROOT.Copyright", $Copyright);
 $tpl->printToScreen();
 
 
-/*
+/*id
 id
-tdate
-cs_name
-cs_phone
+ag_id
+ag_uid
+ag_cid
 ag_name
 ag_phone
-track_code
-express_provider
-COD
-WALLET
-status
-
+ag_shopname
+ag_address
+line_groups
+cs_name
+cs_phone
+cs_address
+logistics
+shipping_type
+slip_bank
+slip_total
+slip_date
+slip_status
+product_image
+product_name
+product_size
+order_note
+order_tdate
+tracking_code
 
 */
