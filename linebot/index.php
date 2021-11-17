@@ -117,8 +117,6 @@ $messages["contents"]["template"]["columns"][0]["imageBackgroundColor"] = "#FDCE
 
 
 //$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=" . $Code);
-
-
 //$messages['messages'][0] = getFormatTextMessage("คุณ " . $userId . " ข้อความ =>" . $text);
 //$messages['messages'][0] = getFormatTextMessage("ประเภทข้อมูลที่ส่งมา =>" . $messageType);
 //$messages['messages'][1] = getFormatTextMessage("ส่งโดย  =>" . $sender);
@@ -152,7 +150,6 @@ $messages['messages'][] = $datas;
 $encodeJson = json_encode($messages);
 //sentMessage($encodeJson,$dataPushMessages);
 */
-
 /*
 $messages = [];
 $messages['replyToken'] = $replyToken;
@@ -178,6 +175,9 @@ $results = sentMessage($encodeJson, $LINEDatas);
 /*Return HTTP Request 200*/
 http_response_code(200);
 
+
+
+
 function getFormatTextMessage($text)
 {
   $datas = [];
@@ -186,6 +186,7 @@ function getFormatTextMessage($text)
 
   return $datas;
 }
+
 
 function sentMessage($encodeJson, $datas)
 {

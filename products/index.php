@@ -27,7 +27,7 @@ $TodayThaiShow = ThaiToday($strDateTime, $tnow);
 
 
 ///$query = "SELECT * FROM `$tableProducts` WHERE `status`='1' ORDER BY `ID` DESC";
-$query = "SELECT * FROM `$tableProducts` ORDER BY `ID` DESC";
+$query = "SELECT * FROM `$tableProducts` ORDER BY `id` DESC";
 $result = $conn->query($query);
 while ($line = $result->fetch_assoc()) {
     $no++;
