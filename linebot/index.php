@@ -87,7 +87,36 @@ if ($pos > 0) {
 $messages['replyToken'] = $replyToken;
 
 
-$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=" . $Code);
+$messages["type"] = "flex";
+$messages["altText"] = "ปัณณ์จรีย์ ติดตามสินค้า";
+$messages["contents"]["type"] = "template";
+$messages["contents"]["altText"] = "ปัณณ์จรีย์ ติดตามสินค้า FlasExpress : TH273221W9AN2D";
+$messages["contents"]["template"]["type"] = "carousel";
+$messages["contents"]["template"]["imageSize"] = "cover";
+$messages["contents"]["template"]["columns"][0]["thumbnailImageUrl"] = "https://panjaree.uarea.in/linebot/img/flashexpressflex.jpg";
+$messages["contents"]["template"]["columns"][0]["title"] = "ปัณณ์จรีย์ ติดตามสินค้า";
+$messages["contents"]["template"]["columns"][0]["text"] = "ส่งสินค้าแล้วทาง Flash Express คลิ๊กที่เลขพัสดุ";
+$messages["contents"]["template"]["columns"][0]["actions"][0]["type"] = "uri";
+$messages["contents"]["template"]["columns"][0]["actions"][0]["label"] = "TH273221W9AN2D";
+$messages["contents"]["template"]["columns"][0]["actions"][0]["uri"] = "https://www.flashexpress.co.th/tracking/?se=TH273221W9AN2D";
+$messages["contents"]["template"]["columns"][0]["imageBackgroundColor"] = "#FDCE00";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//$messages['messages'][0] = getFormatTextMessage("นี่ลิ้งติดตาม https://www.flashexpress.co.th/tracking/?se=" . $Code);
 
 
 //$messages['messages'][0] = getFormatTextMessage("คุณ " . $userId . " ข้อความ =>" . $text);
