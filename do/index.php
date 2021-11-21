@@ -174,10 +174,6 @@
                                     <input type="tel" name="phone" class="form-control form-control-lg" placeholder="Enter Phone" required>
                                     <div class="invalid-feedback">Phone is required!</div>
                                 </div>
-                                <div class="mb-3">
-                                    <input type="file" name="image" class="form-control form-control-lg" placeholder="Enter Photo" required>
-                                    <div class="invalid-feedback">กรุณาใหญ่รูป</div>
-                                </div>
 
                                 <div class="mb-3">
                                     <input type="submit" value="Add User" class="btn btn-primary btn-block btn-lg" id="add-user-btn">

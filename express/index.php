@@ -115,7 +115,23 @@
                                 </a>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link" href="../express/index.php">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
 
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-truck-delivery" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="7" cy="17" r="2"></circle>
+                                            <circle cx="17" cy="17" r="2"></circle>
+                                            <path d="M5 17h-2v-4m-1 -8h11v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5"></path>
+                                            <line x1="3" y1="9" x2="7" y2="9"></line>
+                                        </svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        ส่งสินค้า
+                                    </span>
+                                </a>
+                            </li>
 
 
                         </ul>
@@ -174,6 +190,17 @@
                                     <input type="tel" name="phone" class="form-control form-control-lg" placeholder="Enter Phone" required>
                                     <div class="invalid-feedback">Phone is required!</div>
                                 </div>
+                                <div class="mb-3">
+                                    <input type="file" name="image" class="form-control form-control-lg" placeholder="Enter Photo" required>
+                                    <div class="invalid-feedback">กรุณาใหญ่รูป</div>
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <textarea name="note" class="form-control form-control-lg" placeholder="Note" rows="10"></textarea>
+                                    <div class="invalid-feedback">Phone is required!</div>
+                                </div>
+
 
                                 <div class="mb-3">
                                     <input type="submit" value="Add User" class="btn btn-primary btn-block btn-lg" id="add-user-btn">
