@@ -48,6 +48,11 @@ if ($err) {
         $routed_at = $fxdata['message']['list'][0]['routes'][$i]['routed_at'];
         // echo $state . "-->" . $routed_at . "\n";
         $i++;
+
+        // state ล่าสุด
+        
+
+
     }
 
     $a = $i - 1;

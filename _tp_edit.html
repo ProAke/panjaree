@@ -1,0 +1,545 @@
+<div class="row">
+    <div class="col-12">
+        <form action="product_detail.php?barcode={barcode}" method="post" class="card" enctype="multipart/form-data">
+
+            <input type="hidden" name="action" value="save">
+            <input type="hidden" name="barcodes" value="{barcode}">
+            <div class="card-header">
+                <table style="float: left; width:100%;">
+                    <tr>
+                        <td style="float: left;">
+                            <h2 class="card-title">{name}</h2>
+                        </td>
+                        <td style="float: right;">
+
+                            <button type="submit" class="btn btn-danger ml-auto">บันทึก</button>
+                            <button type="reset" class="btn btn-info">เริ่มใหม่</button>
+                        </td>
+                </table>
+
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 col-lg-4">
+
+
+                        <div class="form-group">
+                            {img}
+                        </div>
+                        <div class="form-group">
+                            <div class="form-label">แนบรูป</div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="photo">
+                                <label class="custom-file-label">เลือกรูป</label>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">ลิ้ง</label>
+                            <input type="text" class="form-control" name="url" placeholder="{url}" value="{url}">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="form-label">รายละเอียดสินค้า</label>
+                            <textarea class="form-control" name="detail" rows="6">{detail}</textarea>
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+
+
+
+                    <div class="col-md-6 col-lg-4">
+
+
+                        <fieldset class="form-fieldset">
+
+
+                            <div class="form-group">
+                                <label class="form-label">รหัส Barcode</label>
+
+                                <a href="https://www.google.co.th/search?q={barcode}&source=lnms&tbm=isch&sa=X&biw=1920&bih=920" target="_blank">
+                    <img alt="Barcoded value {barcode}"
+                      src="http://bwipjs-api.metafloor.com/?bcid=code128&text={barcode}&scaleX=5&scaleY=1&rotate=N&includetext"
+                      height=40">
+                  </a>
+
+
+
+                                <input type="hidden" class="form-control" name="barcode" placeholder="{barcode}" value="{barcode}">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">ชื่อสินค้า<span class="form-required">*</span></label>
+                                <input type="text" class="form-control" name="name" value="{name}" />
+                            </div>
+
+                            <div class="form-group mb-0">
+                                <label class="form-label">ราคา</label>
+                                <table class="table">
+                                    <tr>
+                                        <td>ราคาใหม่: </td>
+                                        <td style="width:100px;"><input type="text" class="form-control" name="nprice" value="{nprice}" /></td>
+                                        <td>บาท</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ราคาเก่า : </td>
+                                        <td style="width:100px;"><input type="text" class="form-control" name="bprice" value="{bprice}" /></td>
+                                        <td> บาท</td>
+                                    </tr>
+                                </table>
+
+
+
+
+
+
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">สต๊อก<span class="form-required">*</span></label>
+                                <table class="table">
+
+                                    <tr>
+                                        <td>เคยซื้อมาแล้ว: </td>
+                                        <td style="width:100px;"><input type="text" class="form-control" name="items_all" value="{items_all}" /></td>
+                                        <td> ชิ้น</td>
+                                    </tr>
+                                    <tr>
+                                        <td>คงเหลือ : </td>
+                                        <td style="width:100px;"><input type="text" class="form-control" name="items_stock" value="{items_stock}" /></td>
+                                        <td> ชิ้น</td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">อย. [<a href="http://pca.fda.moph.go.th/service.php"
+                      target='_blank'>ตรวจ</a>]<span class="form-required">*</span></label>
+                                <input type="text" class="form-control" name="aoryor" value="{aoryor}" />
+                            </div>
+
+
+
+
+
+                        </fieldset>
+
+
+
+
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+
+                        <div class="form-group">
+                            <div class="form-label">ประเภท</div>
+                            <div class="custom-switches-stacked">
+                                <label class="custom-switch">
+                    <input type="radio" name="series" value="1" class="custom-switch-input" {series1}>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">ของกิน</span>
+                  </label>
+                                <label class="custom-switch">
+                    <input type="radio" name="series" value="2" class="custom-switch-input" {series2}>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">ของใช้</span>
+                  </label>
+                                <label class="custom-switch">
+                    <input type="radio" name="series" value="3" class="custom-switch-input" {series3}>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">หนังสือ</span>
+                  </label>
+                                <label class="custom-switch">
+                    <input type="radio" name="series" value="4" class="custom-switch-input" {series4}>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">ของเล่น</span>
+                  </label>
+                                <label class="custom-switch">
+                    <input type="radio" name="series" value="5" class="custom-switch-input" {series5}>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">อาหารสัตว์</span>
+                  </label>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">หมวดสินค้า</label>
+                            <select name="business_cat" id="select-beast" class="form-control custom-select">
+
+                  <!--option value="1" selected>Sage Cattabriga-Alosa</!--option-->
+                  {group_list}
+                </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">ผู้ผลิต | <a href='add_manufacturer.php'>+เพิ่มใหม่</a></label>
+                            <select name="produced" id="select-beast" class="form-control custom-select">
+                  <option value="0" seledted>-</option>
+                  <option value="4">Sage Cattabriga-Alosa</option>
+                  <option value="3">Nikola Tesla</option>
+                  {manufacturer}
+
+                </select>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-right">
+                <div class="d-flex">
+
+
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">การซื้อ</h3>
+                            </div>
+                            <div id="chart-development-activity" style="height: 10rem"></div>
+                            <div class="table-responsive">
+
+                                <table class="table card-table table-striped table-vcenter">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">คนซื้อ</th>
+                                            <th>สถานที่ซื้อ</th>
+                                            <th>จำนวน</th>
+                                            <th>ซื้อเมื่อ</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="w-1"><span class="avatar" style="background-image: url(./demo/faces/male/9.jpg)"></span></td>
+                                            <td>Ronald Bradley</td>
+                                            <td>Initial commit</td>
+                                            <td>2 ชิ้น</td>
+                                            <td class="text-nowrap">May 6, 2018</td>
+                                            <td class="w-1"><a href="#" class="icon"><i class="fe fe-trash"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="avatar">BM</span></td>
+                                            <td>Russell Gibson</td>
+                                            <td>Main structure</td>
+                                            <td>7 ชิ้น</td>
+                                            <td class="text-nowrap">April 22, 2018</td>
+                                            <td><a href="#" class="icon"><i class="fe fe-trash"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="avatar" style="background-image: url(./demo/faces/female/1.jpg)"></span></td>
+                                            <td>Beverly Armstrong</td>
+                                            <td>Left sidebar adjustments</td>
+                                            <td>1ชิ้น</td>
+                                            <td class="text-nowrap">April 15, 2018</td>
+                                            <td><a href="#" class="icon"><i class="fe fe-trash"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="avatar" style="background-image: url(./demo/faces/male/4.jpg)"></span>
+                                            </td>
+                                            <td>Bobby Knight</td>
+                                            <td>Topbar dropdown style</td>
+                                            <td>3 ชิ้น</td>
+                                            <td class="text-nowrap">April 8, 2018</td>
+                                            <td><a href="#" class="icon"><i class="fe fe-trash"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="avatar" style="background-image: url(./demo/faces/female/11.jpg)"></span></td>
+                                            <td>Sharon Wells</td>
+                                            <td>Fixes #625</td>
+                                            <td>2 ชิ้น</td>
+                                            <td class="text-nowrap">April 9, 2018</td>
+                                            <td><a href="#" class="icon"><i class="fe fe-trash"></i></a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+
+
+
+                            </div>
+                        </div>
+                        <script>
+                            require(['c3', 'jquery'], function(c3, $) {
+                                $(document).ready(function() {
+                                    var chart = c3.generate({
+                                        bindto: '#chart-development-activity', // id of chart wrapper
+                                        data: {
+                                            columns: [
+                                                // each columns data
+                                                ['data1', 0, 5, 1, 2, 7, 5, 6, 8, 24, 7, 12, 5, 6, 3, 2, 2, 6, 30, 10, 10, 15, 14, 47, 65, 55]
+                                            ],
+                                            type: 'area', // default type of chart
+                                            groups: [
+                                                ['data1', 'data2', 'data3']
+                                            ],
+                                            colors: {
+                                                'data1': tabler.colors["blue"]
+                                            },
+                                            names: {
+                                                // name of each serie
+                                                'data1': 'การซื้อต่อเดือน'
+                                            }
+                                        },
+                                        axis: {
+                                            y: {
+                                                padding: {
+                                                    bottom: 0,
+                                                },
+                                                show: false,
+                                                tick: {
+                                                    outer: false
+                                                }
+                                            },
+                                            x: {
+                                                padding: {
+                                                    left: 0,
+                                                    right: 0
+                                                },
+                                                show: false
+                                            }
+                                        },
+                                        legend: {
+                                            position: 'inset',
+                                            padding: 0,
+                                            inset: {
+                                                anchor: 'top-left',
+                                                x: 20,
+                                                y: 8,
+                                                step: 10
+                                            }
+                                        },
+                                        tooltip: {
+                                            format: {
+                                                title: function(x) {
+                                                    return '';
+                                                }
+                                            }
+                                        },
+                                        padding: {
+                                            bottom: 0,
+                                            left: -1,
+                                            right: -1
+                                        },
+                                        point: {
+                                            show: false
+                                        }
+                                    });
+                                });
+                            });
+                        </script>
+                    </div>
+
+
+
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">ข้อมูลด้านราคา</h3>
+                            </div>
+                            <div id="chart-development-activitys" style="height: 10rem"></div>
+                            <div class="table-responsive">
+
+                                <table class="table card-table table-striped table-vcenter">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">ผู้บันทึก</th>
+                                            <th>ซื้อที่</th>
+                                            <th>วันเดือนปี</th>
+                                            <th>ราคา</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="w-1"><span class="avatar" style="background-image: url(./demo/faces/male/9.jpg)"></span></td>
+                                            <td>Ronald Bradley</td>
+                                            <td>Initial commit</td>
+                                            <td class="text-nowrap">May 6, 2018</td>
+                                            <td class="w-5">30.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="avatar">BM</span></td>
+                                            <td>Russell Gibson</td>
+                                            <td>Main structure</td>
+                                            <td class="text-nowrap">April 22, 2018</td>
+                                            <td class="w-5">30.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="avatar" style="background-image: url(./demo/faces/female/1.jpg)"></span></td>
+                                            <td>Beverly Armstrong</td>
+                                            <td>Left sidebar adjustments</td>
+                                            <td class="text-nowrap">April 15, 2018</td>
+                                            <td class="w-5">30.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="avatar" style="background-image: url(./demo/faces/male/4.jpg)"></span>
+                                            </td>
+                                            <td>Bobby Knight</td>
+                                            <td>Topbar dropdown style</td>
+                                            <td class="text-nowrap">April 8, 2018</td>
+                                            <td class="w-5">30.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="avatar" style="background-image: url(./demo/faces/female/11.jpg)"></span></td>
+                                            <td>Sharon Wells</td>
+                                            <td>Fixes #625</td>
+                                            <td class="text-nowrap">April 9, 2018</td>
+                                            <td class="w-5">30.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+
+                            </div>
+                        </div>
+                        <script>
+                            require(['c3', 'jquery'], function(c3, $) {
+                                $(document).ready(function() {
+                                    var chart = c3.generate({
+                                        bindto: '#chart-development-activitys', // id of chart wrapper
+                                        data: {
+                                            columns: [
+                                                // each columns data
+                                                ['data1', 25, 25, 21, 26, 30, 30, 28, 25, 24, 27, 32, 29, 30, 30, 29, 28, 36, 30, 31, 31, 30, 29, 30, 30, 30]
+                                            ],
+                                            type: 'area', // default type of chart
+                                            groups: [
+                                                ['data1', 'data2', 'data3']
+                                            ],
+                                            colors: {
+                                                'data1': tabler.colors["red"]
+                                            },
+                                            names: {
+                                                // name of each serie
+                                                'data1': 'สถิติราคา'
+                                            }
+                                        },
+                                        axis: {
+                                            y: {
+                                                padding: {
+                                                    bottom: 0,
+                                                },
+                                                show: false,
+                                                tick: {
+                                                    outer: false
+                                                }
+                                            },
+                                            x: {
+                                                padding: {
+                                                    left: 0,
+                                                    right: 0
+                                                },
+                                                show: false
+                                            }
+                                        },
+                                        legend: {
+                                            position: 'inset',
+                                            padding: 0,
+                                            inset: {
+                                                anchor: 'top-left',
+                                                x: 20,
+                                                y: 8,
+                                                step: 10
+                                            }
+                                        },
+                                        tooltip: {
+                                            format: {
+                                                title: function(x) {
+                                                    return '';
+                                                }
+                                            }
+                                        },
+                                        padding: {
+                                            bottom: 0,
+                                            left: -1,
+                                            right: -1
+                                        },
+                                        point: {
+                                            show: false
+                                        }
+                                    });
+                                });
+                            });
+                        </script>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+    </div>
+    </form>
+    <script>
+        require(['jquery', 'selectize'], function($, selectize) {
+            $(document).ready(function() {
+                $('#input-tags').selectize({
+                    delimiter: ',',
+                    persist: false,
+                    create: function(input) {
+                        return {
+                            value: input,
+                            text: input
+                        }
+                    }
+                });
+
+                $('#select-beast').selectize({});
+
+                $('#select-users').selectize({
+                    render: {
+                        option: function(data, escape) {
+                            return '<div>' +
+                                '<span class="image"><img src="' + data.image + '" alt=""></span>' +
+                                '<span class="title">' + escape(data.text) + '</span>' +
+                                '</div>';
+                        },
+                        item: function(data, escape) {
+                            return '<div>' +
+                                '<span class="image"><img src="' + data.image + '" alt=""></span>' +
+                                escape(data.text) +
+                                '</div>';
+                        }
+                    }
+                });
+
+                $('#select-countries').selectize({
+                    render: {
+                        option: function(data, escape) {
+                            return '<div>' +
+                                '<span class="image"><img src="' + data.image + '" alt=""></span>' +
+                                '<span class="title">' + escape(data.text) + '</span>' +
+                                '</div>';
+                        },
+                        item: function(data, escape) {
+                            return '<div>' +
+                                '<span class="image"><img src="' + data.image + '" alt=""></span>' +
+                                escape(data.text) +
+                                '</div>';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</div>
