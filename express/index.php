@@ -164,11 +164,13 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">เพิ่มข้อมูลตัวแทน</h5>
+                            <h5 class="modal-title">รายการส่งสินค้า</h5>
                             <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <form id="add-user-form" class="p-2" novalidate>
+
+
                                 <div class="row mb-3 gx-3">
                                     <div class="col">
                                         <input type="text" name="fname" class="form-control form-control-lg" placeholder="Enter First Name" required>
@@ -277,12 +279,13 @@
                             <table class="table table-striped table-bordered text-center">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>E-mail</th>
-                                        <th>Phone</th>
-                                        <th>Action</th>
+                                        <th>วันที่ส่ง</th>
+                                        <th>สถานะ</th>
+                                        <th>Express/Track</th>
+                                        <th>COD</th>
+                                        <th>ผู้ส่ง</th>
+                                        <th>ผู้รับ</th>
+                                        <th>ดำเนินการ</th>
                                     </tr>
                                 </thead>
                                 <tbody>

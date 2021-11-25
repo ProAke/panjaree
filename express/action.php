@@ -20,14 +20,15 @@ if (isset($_POST['add'])) {
     }
 }
 
-// Handle Fetch All Users Ajax Request
+// Handle Fetch All express Ajax Request
 if (isset($_GET['read'])) {
-    $users = $db->read();
+    $express = $db->read();
     $output = '';
-    if ($users) {
-        foreach ($users as $row) {
+    if ($express) {
+        foreach ($express as $row) {
             $output .= '<tr>
-                      <td>' . $row['id'] . '</td>
+                      <td>' . $row['tdate'] . '</td>
+                      <td>' . $row['provider']."/".$row['trackcode'] . '</td>
                       <td>' . $row['first_name'] . '</td>
                       <td>' . $row['last_name'] . '</td>
                       <td>' . $row['email'] . '</td>
@@ -42,7 +43,7 @@ if (isset($_GET['read'])) {
         echo $output;
     } else {
         echo '<tr>
-              <td colspan="6">No Users Found in the Database!</td>
+              <td colspan="6">No express Found in the Database!</td>
             </tr>';
     }
 }
@@ -51,8 +52,8 @@ if (isset($_GET['read'])) {
 if (isset($_GET['edit'])) {
     $id = $_GET['id'];
 
-    $user = $db->readOne($id);
-    echo json_encode($user);
+    $express = $db->readOne($id);
+    echo json_encode($express);
 }
 
 // Handle Update User Ajax Request
