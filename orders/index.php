@@ -13,7 +13,7 @@ include_once("../include/class.inc.php");
 include_once("../include/class.TemplatePower.inc.php");
 include_once("../include/function.inc.php");
 
-$tpl = new TemplatePower("template/_tp_inner.html");
+$tpl = new TemplatePower("../template/_tp_inner.html");
 $tpl->assignInclude("body", "_tp_index.html");
 $tpl->prepare();
 $tpl->assign("_ROOT.page_title", "รายการสั่งสินค้า");

@@ -8,12 +8,18 @@ $util = new Util;
 
 // Handle Add New User Ajax Request
 if (isset($_POST['add'])) {
-    $fname = $util->testInput($_POST['fname']);
-    $lname = $util->testInput($_POST['lname']);
-    $email = $util->testInput($_POST['email']);
-    $phone = $util->testInput($_POST['phone']);
+    $sname          = $util->testInput($_POST['sname']);
+    $sphone         = $util->testInput($_POST['sphone']);
+    $rname          = $util->testInput($_POST['rname']);
+    $rphone         = $util->testInput($_POST['rphone']);
+    $tdate          = $util->testInput($_POST['tdate']);
+    $trackcode      = $util->testInput($_POST['trackcode']);
+    $rphone         = $util->testInput($_POST['rphone']);
+    $cod            = $util->testInput($_POST['cod']);
+    $wallet         = $util->testInput($_POST['wallet']);
+    $status         = $util->testInput($_POST['status']);
 
-    if ($db->insert($fname, $lname, $email, $phone)) {
+    if ($db->insert($tdate, $rname, $rphone, $sname, $sphone, $trackcode, $provider, $cod, $wallet, $status)) {
         echo $util->showMessage('success', 'User inserted successfully!');
     } else {
         echo $util->showMessage('danger', 'Something went wrong!');
@@ -26,12 +32,32 @@ if (isset($_GET['read'])) {
     $output = '';
     if ($express) {
         foreach ($express as $row) {
+
+            /*
+id
+tdate
+cs_name
+cs_phone
+ag_name
+ag_phone
+track_code
+express_provider
+COD
+WALLET
+status
+
+
+*/
+
+
+
+
             $output .= '<tr>
                       <td>' . $row['tdate'] . '</td>
-                      <td>' . $row['provider']."/".$row['trackcode'] . '</td>
+                      <td>-</td>
+                      <td>' . $row['provider'] . "/" . $row['trackcode'] . '</td>
                       <td>' . $row['first_name'] . '</td>
                       <td>' . $row['last_name'] . '</td>
-                      <td>' . $row['email'] . '</td>
                       <td>' . $row['phone'] . '</td>
                       <td>
                         <a href="#" id="' . $row['id'] . '" class="btn btn-success btn-sm rounded-pill py-0 editLink" data-toggle="modal" data-target="#editUserModal">Edit</a>

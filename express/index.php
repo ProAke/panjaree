@@ -66,11 +66,10 @@
                                         </svg>
                                     </span>
                                     <span class="nav-link-title">
-                                        หน้าหลัก
+                                        Home
                                     </span>
                                 </a>
                             </li>
-
                             <li class="nav-item">
                                 <a class="nav-link" href="../agents/index.php">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -97,7 +96,6 @@
                                     </span>
                                 </a>
                             </li>
-
                             <li class="nav-item">
                                 <a class="nav-link" href="../customers/index.php">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -114,7 +112,42 @@
                                     </span>
                                 </a>
                             </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../products/index.php">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
 
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-codesandbox" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M20 7.5v9l-4 2.25l-4 2.25l-4 -2.25l-4 -2.25v-9l4 -2.25l4 -2.25l4 2.25z"></path>
+                                            <path d="M12 12l4 -2.25l4 -2.25"></path>
+                                            <line x1="12" y1="12" x2="12" y2="21"></line>
+                                            <path d="M12 12l-4 -2.25l-4 -2.25"></path>
+                                            <path d="M20 12l-4 2v4.75"></path>
+                                            <path d="M4 12l4 2l0 4.75"></path>
+                                            <path d="M8 5.25l4 2.25l4 -2.25"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        สินค้า-ปัณณ์จรีย์
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../orders/index.php">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-basket" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <polyline points="7 10 12 4 17 10"></polyline>
+                                            <path d="M21 10l-2 8a2 2.5 0 0 1 -2 2h-10a2 2.5 0 0 1 -2 -2l-2 -8z"></path>
+                                            <circle cx="12" cy="15" r="2"></circle>
+                                        </svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        สั่งสินค้า
+                                    </span>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../express/index.php">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -132,11 +165,30 @@
                                     </span>
                                 </a>
                             </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../services-support/index.php">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-help" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="12" cy="12" r="9"></circle>
+                                            <line x1="12" y1="17" x2="12" y2="17.01"></line>
+                                            <path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        ช่วยเหลือ
+                                    </span>
+                                </a>
+                            </li>
+
+
+
 
 
                         </ul>
                         <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
-                            <form action="." method="get">
+                            <form action="{search}" method="get">
                                 <div class="input-icon">
                                     <span class="input-icon-addon">
 
@@ -146,7 +198,7 @@
                                             <line x1="21" y1="21" x2="15" y2="15" />
                                         </svg>
                                     </span>
-                                    <input type="text" class="form-control" placeholder="Search…" aria-label="พิมพ์ชื่อสินค้า">
+                                    <input type="text" name="key" class="form-control" placeholder="Search…" aria-label="Search in website">
                                 </div>
                             </form>
                         </div>
@@ -159,8 +211,8 @@
         <div class="page-wrapper">
 
 
-            <!-- Add New User Modal Start -->
-            <div class="modal fade" tabindex="-1" id="addNewUserModal">
+            <!-- เพิ่มรายการใหม่ Modal Start -->
+            <div class="modal modal-blur fade" tabindex="-1" id="addNewUserModal">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -171,136 +223,158 @@
                             <form id="add-user-form" class="p-2" novalidate>
 
 
-                                <div class="row mb-3 gx-3">
+                                <div class="row mb-3 gx-3 text-minute">
                                     <div class="col">
-                                        <input type="text" name="fname" class="form-control form-control-lg" placeholder="Enter First Name" required>
-                                        <div class="invalid-feedback">First name is required!</div>
+                                        <input type="text" name="sname" class="form-control form-control-lg" placeholder="คนส่ง" required>
+                                        <div class="invalid-feedback">กรุณาใส่ชื่อผู้ส่ง!</div>
                                     </div>
 
                                     <div class="col">
-                                        <input type="text" name="lname" class="form-control form-control-lg" placeholder="Enter Last Name" required>
-                                        <div class="invalid-feedback">Last name is required!</div>
+                                        <input type="text" name="sphone" class="form-control form-control-lg" placeholder="เบอร์คนส่ง" required>
+                                        <div class="invalid-feedback">กรุณาใส่เบอร์ผู้ส่ง!</div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3 gx-3 text-minute">
+                                    <div class="col">
+                                        <input type="text" name="rname" class="form-control form-control-lg" placeholder="ผู้รับ" required>
+                                        <div class="invalid-feedback">กรุณาใส่ชื่อผู้รับ!</div>
+                                    </div>
+
+                                    <div class="col">
+                                        <input type="text" name="rphone" class="form-control form-control-lg" placeholder="เบอร์ผู้รับ" required>
+                                        <div class="invalid-feedback">กรุณาใส่ชื่อผู้รับ!</div>
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
-                                    <input type="email" name="email" class="form-control form-control-lg" placeholder="Enter E-mail" required>
-                                    <div class="invalid-feedback">E-mail is required!</div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <input type="tel" name="phone" class="form-control form-control-lg" placeholder="Enter Phone" required>
+                                    <input type="tel" name="track" class="form-control form-control-lg" placeholder="รหัสติดตาม" required>
                                     <div class="invalid-feedback">Phone is required!</div>
                                 </div>
-                                <div class="mb-3">
-                                    <input type="file" name="image" class="form-control form-control-lg" placeholder="Enter Photo" required>
-                                    <div class="invalid-feedback">กรุณาใหญ่รูป</div>
+                                <div class="row mb-3 gx-3 text-minute">
+                                    <div class="col">
+                                        <div class="form-label">ส่งโดย</div>
+                                        <select class="form-select" name="provider">
+                                            <option value="FLA" selected>FLASH EXPRESS</option>
+                                            <option value="POS">ไปรษณี์ไทย</option>
+                                            <option value="JTE">J&T Epress</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-label">วันที่ส่ง</div>
+                                        <input type="text" name="sdate" class="form-select" placeholder="11/11/2564" required>
+                                        <div class="invalid-feedback">ส่งวันที่!</div>
+                                    </div>
                                 </div>
 
 
-                                <div class="mb-3">
-                                    <textarea name="note" class="form-control form-control-lg" placeholder="Note" rows="10"></textarea>
-                                    <div class="invalid-feedback">Phone is required!</div>
-                                </div>
-
 
                                 <div class="mb-3">
-                                    <input type="submit" value="Add User" class="btn btn-primary btn-block btn-lg" id="add-user-btn">
+                                    <input type="submit" name="action" value="save" class="btn btn-primary btn-block btn-lg" id="add-user-btn">
                                 </div>
-                            </form>
                         </div>
+
+
+
+
+
+                        </form>
                     </div>
                 </div>
             </div>
-            <!-- Add New User Modal End -->
+        </div>
+        <!-- เพิ่มรายการใหม่ Modal End -->
 
-            <!-- Edit User Modal Start -->
-            <div class="modal fade" tabindex="-1" id="editUserModal">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Edit This User</h5>
-                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="edit-user-form" class="p-2" novalidate>
-                                <input type="hidden" name="id" id="id">
-                                <div class="row mb-3 gx-3">
-                                    <div class="col">
-                                        <input type="text" name="fname" id="fname" class="form-control form-control-lg" placeholder="Enter First Name" required>
-                                        <div class="invalid-feedback">First name is required!</div>
-                                    </div>
-
-                                    <div class="col">
-                                        <input type="text" name="lname" id="lname" class="form-control form-control-lg" placeholder="Enter Last Name" required>
-                                        <div class="invalid-feedback">Last name is required!</div>
-                                    </div>
+        <!-- แก้ไขรายการ Modal Start -->
+        <div class="modal fade" tabindex="-1" id="editUserModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit This User</h5>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="edit-user-form" class="p-2" novalidate>
+                            <input type="hidden" name="id" id="id">
+                            <div class="row mb-3 gx-3">
+                                <div class="col">
+                                    <input type="text" name="fname" id="fname" class="form-control form-control-lg" placeholder="Enter First Name" required>
+                                    <div class="invalid-feedback">First name is required!</div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Enter E-mail" required>
-                                    <div class="invalid-feedback">E-mail is required!</div>
+                                <div class="col">
+                                    <input type="text" name="lname" id="lname" class="form-control form-control-lg" placeholder="Enter Last Name" required>
+                                    <div class="invalid-feedback">Last name is required!</div>
                                 </div>
+                            </div>
 
-                                <div class="mb-3">
-                                    <input type="tel" name="phone" id="phone" class="form-control form-control-lg" placeholder="Enter Phone" required>
-                                    <div class="invalid-feedback">Phone is required!</div>
-                                </div>
+                            <div class="mb-3">
+                                <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Enter E-mail" required>
+                                <div class="invalid-feedback">E-mail is required!</div>
+                            </div>
 
-                                <div class="mb-3">
-                                    <input type="submit" value="Update User" class="btn btn-success btn-block btn-lg" id="edit-user-btn">
-                                </div>
-                            </form>
-                        </div>
+                            <div class="mb-3">
+                                <input type="tel" name="phone" id="phone" class="form-control form-control-lg" placeholder="Enter Phone" required>
+                                <div class="invalid-feedback">Phone is required!</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="submit" value="Update User" class="btn btn-success btn-block btn-lg" id="edit-user-btn">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-            <!-- Edit User Modal End -->
-            <div class="container">
-                <div class="row mt-4">
-                    <div class="col-lg-12 d-flex justify-content-between align-items-center">
-                        <div>
-                            <h2 class="text-primary">ข้อมูลตัวแทนทั้งหมด</h2>
-                        </div>
-                        <div>
-                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNewUserModal">เพิ่มตัวแทนใหม่</button>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div id="showAlert"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-bordered text-center">
-                                <thead>
-                                    <tr>
-                                        <th>วันที่ส่ง</th>
-                                        <th>สถานะ</th>
-                                        <th>Express/Track</th>
-                                        <th>COD</th>
-                                        <th>ผู้ส่ง</th>
-                                        <th>ผู้รับ</th>
-                                        <th>ดำเนินการ</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+        </div>
+        <!-- แก้ไขรายการ Modal End -->
 
-                                </tbody>
-                            </table>
-                        </div>
+
+
+
+
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-lg-12 d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="text-primary">รายการส่งสินค้า(ออนไลน์)</h2>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNewUserModal">เพิ่มรายการ</button>
                     </div>
                 </div>
             </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="showAlert"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered text-center">
+                            <thead>
+                                <tr>
+                                    <th>วันที่ส่ง</th>
+                                    <th>สถานะ</th>
+                                    <th>Express/Track</th>
+                                    <th>COD</th>
+                                    <th>ผู้ส่ง</th>
+                                    <th>ผู้รับ</th>
+                                    <th>ดำเนินการ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
+    </div>
 
 
 
@@ -312,34 +386,36 @@
 
 
 
-        <footer class="footer footer-transparent d-print-none">
-            <div class="container">
-                <div class="row text-center align-items-center flex-row-reverse">
-                    <div class="col-lg-auto ms-lg-auto">
-                        <ul class="list-inline list-inline-dots mb-0">
 
-                            <li class="list-inline-item">
-                                <a href="" target="_blank" class="link-secondary" rel="noopener">
 
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon text-pink icon-filled icon-inline" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                                    </svg> อ.พี่เอก
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-lg-auto mt-3 mt-lg-0">
-                        <ul class="list-inline list-inline-dots mb-0">
-                            <li class="list-inline-item">
-                                Copyright © Pajaree Office.
-                            </li>
+    <footer class="footer footer-transparent d-print-none">
+        <div class="container">
+            <div class="row text-center align-items-center flex-row-reverse">
+                <div class="col-lg-auto ms-lg-auto">
+                    <ul class="list-inline list-inline-dots mb-0">
 
-                        </ul>
-                    </div>
+                        <li class="list-inline-item">
+                            <a href="" target="_blank" class="link-secondary" rel="noopener">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon text-pink icon-filled icon-inline" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                                </svg> อ.พี่เอก
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                    <ul class="list-inline list-inline-dots mb-0">
+                        <li class="list-inline-item">
+                            Copyright © Pajaree Office.
+                        </li>
+
+                    </ul>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
     </div>
 
