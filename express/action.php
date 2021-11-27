@@ -8,18 +8,17 @@ $util = new Util;
 
 // Handle Add New User Ajax Request
 if (isset($_POST['add'])) {
-    $sname          = $util->testInput($_POST['sname']);
-    $sphone         = $util->testInput($_POST['sphone']);
+    $tdate          = $util->testInput($_POST['tdate']);
     $rname          = $util->testInput($_POST['rname']);
     $rphone         = $util->testInput($_POST['rphone']);
-    $tdate          = $util->testInput($_POST['tdate']);
-    $trackcode      = $util->testInput($_POST['trackcode']);
-    $rphone         = $util->testInput($_POST['rphone']);
+    $sname          = $util->testInput($_POST['sname']);
+    $sphone         = $util->testInput($_POST['sphone']);
+    $code           = $util->testInput($_POST['code']);
+    $provider       = $util->testInput($_POST['provider']);
     $cod            = $util->testInput($_POST['cod']);
     $wallet         = $util->testInput($_POST['wallet']);
-    $status         = $util->testInput($_POST['status']);
 
-    if ($db->insert($tdate, $rname, $rphone, $sname, $sphone, $trackcode, $provider, $cod, $wallet, $status)) {
+    if ($db->insert($tdate, $rname, $rphone, $sname, $sphone, $code, $provider, $cod, $wallet)) {
         echo $util->showMessage('success', 'User inserted successfully!');
     } else {
         echo $util->showMessage('danger', 'Something went wrong!');
@@ -34,31 +33,30 @@ if (isset($_GET['read'])) {
         foreach ($express as $row) {
 
             /*
-id
-tdate
-cs_name
-cs_phone
-ag_name
-ag_phone
-track_code
-express_provider
-COD
-WALLET
-status
+
 
 
 */
 
 
+            if ($row['provider'] == "THP") {
+                $provider = "<img src='https://infinitybike64.files.wordpress.com/2013/01/559000000134902.jpeg' height='50'/>";
+            }
+            if ($row['provider'] == "DHL") {
+                $provider = "<img src='https://www.dhl.com/content/dam/dhl/en/express/express_logo.png' height='50'/>";
+            }
+            if ($row['provider'] == "FLA") {
+                $provider = "<a href='https://www.flashexpress.co.th/tracking/?se=" . $row['code'] . "' target='_blink'><img src='https://fe-pro.oss-ap-southeast-1.aliyuncs.com/ard/images/web/logo%402x.png' height='25' border=0/></a>";
+            }
 
 
-            $output .= '<tr>
+            $output .= '<tr  style="text-align:left">
                       <td>' . $row['tdate'] . '</td>
-                      <td>-</td>
-                      <td>' . $row['provider'] . "/" . $row['trackcode'] . '</td>
-                      <td>' . $row['first_name'] . '</td>
-                      <td>' . $row['last_name'] . '</td>
-                      <td>' . $row['phone'] . '</td>
+                      <td>' . $row['state'] . '</td>
+                      <td>' . $provider . " " . $row['code'] . '</td>
+                      <td>' . $row['cod'] . '</td>
+                      <td>' . $row['sname'] . '<br>' . $row['sphone'] . '</td>
+                      <td>' . $row['rname'] . '<br>' . $row['rphone'] . '</td>
                       <td>
                         <a href="#" id="' . $row['id'] . '" class="btn btn-success btn-sm rounded-pill py-0 editLink" data-toggle="modal" data-target="#editUserModal">Edit</a>
 
@@ -85,12 +83,18 @@ if (isset($_GET['edit'])) {
 // Handle Update User Ajax Request
 if (isset($_POST['update'])) {
     $id = $util->testInput($_POST['id']);
-    $fname = $util->testInput($_POST['fname']);
-    $lname = $util->testInput($_POST['lname']);
-    $email = $util->testInput($_POST['email']);
-    $phone = $util->testInput($_POST['phone']);
+    $tdate          = $util->testInput($_POST['tdate']);
+    $rname          = $util->testInput($_POST['rname']);
+    $rphone         = $util->testInput($_POST['rphone']);
+    $sname          = $util->testInput($_POST['sname']);
+    $sphone         = $util->testInput($_POST['sphone']);
+    $code           = $util->testInput($_POST['code']);
+    $provider       = $util->testInput($_POST['provider']);
+    $cod            = $util->testInput($_POST['cod']);
+    $wallet         = $util->testInput($_POST['wallet']);
+    $status         = $util->testInput($_POST['status']);
 
-    if ($db->update($id, $fname, $lname, $email, $phone)) {
+    if ($db->update($id, $rrname, $rsname, $email, $phone)) {
         echo $util->showMessage('success', 'User updated successfully!');
     } else {
         echo $util->showMessage('danger', 'Something went wrong!');

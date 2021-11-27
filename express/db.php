@@ -4,24 +4,21 @@ require_once 'config.php';
 
 class Database extends Config
 {
-    // �������� User Into Database
-    public function insert($tdate, $rname, $rphone, $sname, $sphone, $trackcode, $provider, $cod, $wallet, $status)
+    //User Into Database
+    public function insert($tdate, $rname, $rphone, $sname, $sphone, $code, $provider)
     {
-        $tdate = date("Y-m-d");
-        $sql = 'INSERT INTO express (tdate, cs_name, cs_phone, ag_name, ag_phone,track_code, express_provider, COD, wallet, status) 
-        VALUES (:tdate, :cs_name, :cs_phone, :ag_name, :ag_phone, :track_code, :express_provider, :cod, :wallet, :status)';
+        //$tdate = date("Y-m-d");
+        $sql = 'INSERT INTO tb_DailyExpress (tdate, rname, rphone, sname, sphone, code, provider) 
+        VALUES (:tdate, :rname, :rphone, :sname, :sphone, :code, :provider)';
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
             'tdate' => $tdate,
-            'cs_name' => $rname,
-            'cs_phone' => $rphone,
-            'ag_name' => $sname,
-            'ag_phone' => $sphone,
-            'track_code' => $trackcode,
-            'provider' => $provider,
-            'COD' => $cod,
-            'wallet' => $wallet,
-            'status' => $status
+            'rname' => $rname,
+            'rphone' => $rphone,
+            'sname' => $sname,
+            'sphone' => $sphone,
+            'code' => $code,
+            'provider' => $provider
         ]);
         return true;
     }
@@ -30,24 +27,26 @@ class Database extends Config
     /*
 id
 tdate
-cs_name
-cs_phone
-ag_name
-ag_phone
-track_code
-express_provider
-COD
-WALLET
+rname
+rphone
+sname
+sphone
+code
+provider
+cod
+wallet
+state
 status
+
 
 
 */
 
 
-    // Fetch ��ҹ������ express From Database
+    // Fetch ��ҹ������ tb_DailyExpress From Database
     public function read()
     {
-        $sql = 'SELECT * FROM express ORDER BY id DESC';
+        $sql = 'SELECT * FROM tb_DailyExpress ORDER BY tdate DESC';
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
@@ -57,7 +56,7 @@ status
     // Fetch Single User From Database
     public function readOne($id)
     {
-        $sql = 'SELECT * FROM express WHERE id = :id';
+        $sql = 'SELECT * FROM tb_DailyExpress WHERE id = :id';
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id' => $id]);
         $result = $stmt->fetch();
@@ -67,7 +66,7 @@ status
     // Update Single User
     public function update($id, $fname, $lname, $email, $phone)
     {
-        $sql = 'UPDATE express SET first_name = :fname, last_name = :lname, email = :email, phone = :phone WHERE id = :id';
+        $sql = 'UPDATE tb_dailyexpress SET first_name = :fname, last_name = :lname, email = :email, phone = :phone WHERE id = :id';
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
             'fname' => $fname,
@@ -83,7 +82,7 @@ status
     // Delete User From Database
     public function delete($id)
     {
-        $sql = 'DELETE FROM express WHERE id = :id';
+        $sql = 'DELETE FROM tb_dailyexpress WHERE id = :id';
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id' => $id]);
         return true;

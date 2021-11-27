@@ -248,7 +248,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <input type="tel" name="track" class="form-control form-control-lg" placeholder="รหัสติดตาม" required>
+                                    <input type="tel" name="code" class="form-control form-control-lg" placeholder="รหัสติดตาม" required>
                                     <div class="invalid-feedback">Phone is required!</div>
                                 </div>
                                 <div class="row mb-3 gx-3 text-minute">
@@ -262,8 +262,20 @@
                                     </div>
                                     <div class="col">
                                         <div class="form-label">วันที่ส่ง</div>
-                                        <input type="text" name="sdate" class="form-select" placeholder="11/11/2564" required>
+                                        <input type="text" name="tdate" class="form-select" placeholder="2021-11-25" required>
                                         <div class="invalid-feedback">ส่งวันที่!</div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3 gx-3 text-minute">
+                                    <div class="col">
+                                        <div class="form-label">codระบุตัวเลข</div>
+                                        <input type="text" name="cod" class="form-control form-control-lg" placeholder="00">
+                                        <div class="invalid-feedback">ระบุตัวเลข</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-label">Wallet ระบุเบอร์โทร</div>
+                                        <input type="text" name="wallet" class="form-control form-control-lg" placeholder="00">
+                                        <div class="invalid-feedback">!</div>
                                     </div>
                                 </div>
 
