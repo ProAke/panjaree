@@ -3,7 +3,7 @@ include('db.php');
 include('function.php');
 $query = '';
 $output = array();
-$query .= "SELECT * FROM tb_products ";
+$query .= "SELECT * FROM $tbProducts ";
 if (isset($_POST["search"]["value"])) {
     $query .= 'WHERE code LIKE "%' . $_POST["search"]["value"] . '%" ';
     $query .= 'OR product_name LIKE "%' . $_POST["search"]["value"] . '%" ';

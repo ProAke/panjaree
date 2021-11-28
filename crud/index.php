@@ -17,11 +17,11 @@
 
         .box {
             width: 1270px;
-            padding: 20px;
+            padding: 2px;
             background-color: #fff;
             border: 1px solid #ccc;
             border-radius: 5px;
-            margin-top: 25px;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -29,9 +29,7 @@
 <body>
     <div class="container box">
         <h1 align="center">สินค้า</h1>
-        <br />
         <div class="table-responsive">
-            <br />
             <div align="right">
                 <button type="button" id="add_button" data-toggle="modal" data-target="#userModal" class="btn btn-info btn-lg">Add</button>
             </div>
@@ -70,7 +68,7 @@
                     <input type="text" name="product_name" id="product_name" class="form-control" />
                     <br />
                     <label>รูปสินค้า</label>
-                    <input type="file" name="product_photo" id="product_photo" />
+                    <input type="file" name="user_image" id="user_image" />
                     <span id="user_uploaded_image"></span>
                 </div>
                 <div class="modal-footer">
@@ -113,11 +111,11 @@
             event.preventDefault();
             var code = $('#code').val();
             var product_name = $('#product_name').val();
-            var extension = $('#product_photo').val().split('.').pop().toLowerCase();
+            var extension = $('#user_image').val().split('.').pop().toLowerCase();
             if (extension != '') {
                 if (jQuery.inArray(extension, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
                     alert("Invalid Image File");
-                    $('#product_photo').val('');
+                    $('#user_image').val('');
                     return false;
                 }
             }
