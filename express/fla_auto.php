@@ -33,10 +33,6 @@ if ($err) {
     $fxdata = json_decode($response, true);
     //echo $code;
     $pno = $fxdata['message']['list'][0]['pno'];
-    //$state1 = $fxdat['message']['list'][0]['routes'][0]['message'];
-    // $state2 = $fxdat['message']['list'][0]['routes'][1]['message'];
-    // $state3 = $fxdat['message']['list'][0]['routes'][3]['message'];
-
     echo "TRACKING No: " . $pno . "\n";
 
 
@@ -46,7 +42,7 @@ if ($err) {
     while ($i < count($fxdata['message']['list'][0]['routes'])) {
         $state = $fxdata['message']['list'][0]['routes'][$i]['message'];
         $routed_at = $fxdata['message']['list'][0]['routes'][$i]['routed_at'];
-        echo $state . "-->" . $routed_at . "\n";
+        //echo $state . "-->" . $routed_at . "\n";
         $i++;
 
         $sql = "SELECT * FROM `$tableTrackLog` WHERE `track_code` = '" . $trackid . "' AND `state` = '" . $state . "'  AND `tdate` = '" . $routed_at . "' ";
@@ -67,23 +63,13 @@ if ($err) {
 
 
 
-    // ค้นหาเทียบว่าเคยมีไหม 
-    /*
-    $sql = "SELECT * FROM `$tableTrackLog` WHERE `track_code` = '" . $trackid . "' AND `state` = '" . $finalState . "' ";
-    $query = $conn->query($sql) or die($conn->error);
-    $total = $query->num_rows;
-    $arrData = array();
-    $arrData['provider']       = "FLA";
-    $arrData['track_code']     = $trackid;
-    $arrData['state']     = $finalState;
-    $arrData['tdate']    = $finalRouted_at;
-    foreach ($arrData as $key => $value) {
-        $arrFieldTmp[] = "`$key`";
-        $arrValueTmp[] = "'$value'";
-    }
-    $strFieldTmp = implode(",", $arrFieldTmp);
-    $strValueTmp = implode(",", $arrValueTmp);
-    $query = "INSERT INTO `$tableTrackLog`($strFieldTmp) VALUES($strValueTmp)";
-    $result = $conn->query($query);
-    */
+
+    $sql = "UPDATE tb_DailyExpress SET `state`= '" . $finalRouted_at . "<br>" . $finalState . "' WHERE `code`='" . $trackid . "'";
+    $result = $conn->query($sql);
+
+    //echo $sql . "<br>" . $result;
 }
+
+
+header('Location: index.php');
+exit;

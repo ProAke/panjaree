@@ -64,16 +64,29 @@ status
     }
 
     // Update Single User
-    public function update($id, $fname, $lname, $email, $phone)
+    public function update($id, $tdate, $rname, $rphone, $sname, $sphone, $code, $provider, $cod, $wallet)
     {
-        $sql = 'UPDATE tb_dailyexpress SET first_name = :fname, last_name = :lname, email = :email, phone = :phone WHERE id = :id';
+        //$sql = 'UPDATE tb_DailyExpress SET rname = :rname WHERE id = :id';
+        //$stmt = $this->conn->prepare($sql);
+        //$stmt->execute(['rname' => $rname]);
+        $sql = "UPDATE tb_DailyExpress SET `rname`= '" . $rname . "',
+         `rphone`= '" . $rphone . "',
+         `sname`= '" . $sname . "',
+         `rphone`= '" . $rphone . "',
+         `code`= '" . $code . "',
+         `cod`= '" . $cod . "',
+         `wallet`= '" . $wallet . "'         
+          WHERE `id`='" . $id . "'";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
-            'fname' => $fname,
-            'lname' => $lname,
-            'email' => $email,
-            'phone' => $phone,
-            'id' => $id
+            'rname' => $rname,
+            'rphone' => $rphone,
+            'sname' => $sname,
+            'sphone' => $sphone,
+            'code' => $code,
+            'provider' => $provider,
+            'cod' => $cod,
+            'wallet' => $wallet
         ]);
 
         return true;
@@ -82,7 +95,7 @@ status
     // Delete User From Database
     public function delete($id)
     {
-        $sql = 'DELETE FROM tb_dailyexpress WHERE id = :id';
+        $sql = 'DELETE FROM tb_DailyExpress WHERE id = :id';
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id' => $id]);
         return true;

@@ -302,36 +302,70 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Edit This User</h5>
+                        <h5 class="modal-title">แก้ไขข้อมูลส่งสินค้า</h5>
                         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form id="edit-user-form" class="p-2" novalidate>
                             <input type="hidden" name="id" id="id">
-                            <div class="row mb-3 gx-3">
+                            <div class="row mb-3 gx-3 text-minute">
                                 <div class="col">
-                                    <input type="text" name="fname" id="fname" class="form-control form-control-lg" placeholder="Enter First Name" required>
-                                    <div class="invalid-feedback">First name is required!</div>
+                                    <input type="text" name="sname" id="sname" class="form-control form-control-lg" placeholder="คนส่ง" required>
+                                    <div class="invalid-feedback">กรุณาใส่ชื่อผู้ส่ง!</div>
                                 </div>
 
                                 <div class="col">
-                                    <input type="text" name="lname" id="lname" class="form-control form-control-lg" placeholder="Enter Last Name" required>
-                                    <div class="invalid-feedback">Last name is required!</div>
+                                    <input type="text" name="sphone" id="sphone" class="form-control form-control-lg" placeholder="เบอร์คนส่ง" required>
+                                    <div class="invalid-feedback">กรุณาใส่เบอร์ผู้ส่ง!</div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3 gx-3 text-minute">
+                                <div class="col">
+                                    <input type="text" name="rname" id="rname" class="form-control form-control-lg" placeholder="ผู้รับ" required>
+                                    <div class="invalid-feedback">กรุณาใส่ชื่อผู้รับ!</div>
+                                </div>
+
+                                <div class="col">
+                                    <input type="text" name="rphone" id="rphone" class="form-control form-control-lg" placeholder="เบอร์ผู้รับ" required>
+                                    <div class="invalid-feedback">กรุณาใส่เบอร์ผู้รับ!</div>
                                 </div>
                             </div>
 
                             <div class="mb-3">
-                                <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Enter E-mail" required>
-                                <div class="invalid-feedback">E-mail is required!</div>
+                                <input type="tel" name="code" id="code" class="form-control form-control-lg" placeholder="รหัสติดตาม" required>
+                                <div class="invalid-feedback">รหัสติดตาม!</div>
+                            </div>
+                            <div class="row mb-3 gx-3 text-minute">
+                                <div class="col">
+                                    <div class="form-label">ส่งโดย</div>
+                                    <select class="form-select" name="provider" id="provider">
+                                        <option value="FLA" selected>FLASH EXPRESS</option>
+                                        <option value="POS">ไปรษณี์ไทย</option>
+                                        <option value="JTE">J&T Epress</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <div class="form-label">วันที่ส่ง</div>
+                                    <input type="text" name="tdate" id="tdate" class="form-control form-control-lg">
+                                    <div class="invalid-feedback">ส่งวันที่!</div>
+                                </div>
+                            </div>
+                            <div class="row mb-3 gx-3 text-minute">
+                                <div class="col">
+                                    <div class="form-label">cod ระบุตัวเลข</div>
+                                    <input type="text" name="cod" id="cod" class="form-control form-control-lg" placeholder="00">
+                                    <div class="invalid-feedback">ระบุตัวเลข</div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-label">Wallet ระบุเบอร์โทร</div>
+                                    <input type="text" name="wallet" id="wallet" class="form-control form-control-lg" placeholder="00">
+                                    <div class="invalid-feedback">!</div>
+                                </div>
                             </div>
 
                             <div class="mb-3">
-                                <input type="tel" name="phone" id="phone" class="form-control form-control-lg" placeholder="Enter Phone" required>
-                                <div class="invalid-feedback">Phone is required!</div>
-                            </div>
-
-                            <div class="mb-3">
-                                <input type="submit" value="Update User" class="btn btn-success btn-block btn-lg" id="edit-user-btn">
+                                <input type="submit" value="แก้ไข" class="btn btn-success btn-block btn-lg" id="edit-user-btn">
                             </div>
                         </form>
                     </div>

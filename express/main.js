@@ -57,12 +57,20 @@ const editUser = async(id) => {
     const data = await fetch(`action.php?edit=1&id=${id}`, {
         method: "GET",
     });
+    //console.log(data);
+
+
     const response = await data.json();
     document.getElementById("id").value = response.id;
+    document.getElementById("tdate").value = response.tdate;
     document.getElementById("rname").value = response.rname;
     document.getElementById("rphone").value = response.rphone;
     document.getElementById("sname").value = response.sname;
+    document.getElementById("sphone").value = response.sphone;
     document.getElementById("code").value = response.code;
+    document.getElementById("cod").value = response.cod;
+    document.getElementById("wallet").value = response.wallet;
+
 };
 
 // Update User Ajax Request

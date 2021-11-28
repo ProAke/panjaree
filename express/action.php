@@ -19,6 +19,9 @@ if (isset($_POST['add'])) {
     $wallet         = $util->testInput($_POST['wallet']);
 
     if ($db->insert($tdate, $rname, $rphone, $sname, $sphone, $code, $provider, $cod, $wallet)) {
+
+
+
         echo $util->showMessage('success', 'User inserted successfully!');
     } else {
         echo $util->showMessage('danger', 'Something went wrong!');
@@ -51,8 +54,12 @@ if (isset($_GET['read'])) {
 
 
             $output .= '<tr  style="text-align:left">
-                      <td>' . $row['tdate'] . '</td>
-                      <td>' . $row['state'] . '</td>
+                      <td>' . $row['tdate'] . '<br>
+                      <a href="fla_auto.php?tk=' . $row['code'] . '" class="btn btn-success btn-sm rounded-pill py-0">ดึงสถานะ</a>
+                      
+                      
+                      </td>
+                      <td style="width:30%;">' . $row['state'] . '</td>
                       <td>' . $provider . " " . $row['code'] . '</td>
                       <td>' . $row['cod'] . '</td>
                       <td>' . $row['sname'] . '<br>' . $row['sphone'] . '</td>
@@ -92,10 +99,9 @@ if (isset($_POST['update'])) {
     $provider       = $util->testInput($_POST['provider']);
     $cod            = $util->testInput($_POST['cod']);
     $wallet         = $util->testInput($_POST['wallet']);
-    $status         = $util->testInput($_POST['status']);
 
-    if ($db->update($id, $rrname, $rsname, $email, $phone)) {
-        echo $util->showMessage('success', 'User updated successfully!');
+    if ($db->update($id, $tdate, $rname, $rphone, $sname, $sphone, $code, $provider, $cod, $wallet)) {
+        echo $util->showMessage('success', 'updated successfully!');
     } else {
         echo $util->showMessage('danger', 'Something went wrong!');
     }
