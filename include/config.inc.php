@@ -99,8 +99,8 @@ $tableSetting						= 	"tb_setting";
 
 
 $tableProducts						=	"tb_products";
-
-
+$tableAgent							=	"tb_agent";
+$tableBotAction							=	"tb_bot_action";
 // All config
 $cfgDefaultPerPage = 5;
 $cfgOtherRowPerPage = 15;
@@ -108,7 +108,7 @@ $cfgOtherRowPerPage = 15;
 
 // Session
 if (substr_count($_SERVER["SCRIPT_NAME"], "/") == 1) {
-	session_name("swcms");
+	session_name("panjaree");
 }
 
 session_start();

@@ -3,43 +3,44 @@ include('db.php');
 include('function.php');
 if (isset($_POST["operation"])) {
     if ($_POST["operation"] == "Add") {
-        $image = '';
-        if ($_FILES["user_image"]["name"] != '') {
-            $image = upload_image();
+        $product_photo = '';
+        if ($_FILES["product_photo"]["name"] != '') {
+            $product_photo = upload_image();
         }
         $statement = $connection->prepare("
-   INSERT INTO $tbProducts (code, product_name, image) 
-   VALUES (:code, :product_name, :image)
+   INSERT INTO tb_products (code, product_name, product_photo) 
+   VALUES (:code, :product_name, :product_photo)
   ");
         $result = $statement->execute(
             array(
                 ':code' => $_POST["code"],
                 ':product_name' => $_POST["product_name"],
-                ':image'  => $image
+                ':product_photo'  => $product_photo
             )
         );
         if (!empty($result)) {
             echo 'Data Inserted';
+        } else {
+            echo 'ไม่สามารถเพิ่มค่าได้';
         }
     }
     if ($_POST["operation"] == "Edit") {
-        $image = '';
-        if ($_FILES["user_image"]["name"] != '') {
-            $image = upload_image();
+        $product_photo = '';
+        if ($_FILES["product_photo"]["name"] != '') {
+            $product_photo = upload_image();
         } else {
-            $image = $_POST["hidden_user_image"];
+            $product_photo = $_POST["hidden_product_photo"];
         }
         $statement = $connection->prepare(
-            "UPDATE users 
-   SET first_name = :first_name, last_name = :last_name, image = :image  
+            "UPDATE tb_products SET code = :code, product_name = :product_name, product_photo = :product_photo 
    WHERE id = :id
    "
         );
         $result = $statement->execute(
             array(
-                ':first_name' => $_POST["first_name"],
-                ':last_name' => $_POST["last_name"],
-                ':image'  => $image,
+                ':code' => $_POST["code"],
+                ':product_name' => $_POST["product_name"],
+                ':product_photo'  => $product_photo,
                 ':id'   => $_POST["user_id"]
             )
         );
@@ -47,4 +48,6 @@ if (isset($_POST["operation"])) {
             echo 'Data Updated';
         }
     }
+} else {
+    echo 'ไม่สามารถทำรายการได้';
 }

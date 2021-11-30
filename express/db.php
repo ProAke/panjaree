@@ -44,9 +44,14 @@ status
 
 
     // Fetch ��ҹ������ tb_DailyExpress From Database
-    public function read()
+    public function read($tday)
     {
-        $sql = 'SELECT * FROM tb_DailyExpress ORDER BY tdate DESC';
+        if($tday != ""){
+            $sql = 'SELECT * FROM tb_DailyExpress WHERE tdate='".$tday."' ORDER BY tdate DESC';
+        }else{
+        $sql = 'SELECT * FROM tb_DailyExpress ORDER BY tdate DESC';    
+        }
+        
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();

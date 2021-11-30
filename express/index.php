@@ -389,6 +389,24 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <span>ย้อนหลัง 15 วัน | </span>
+                    <a href='index.php?day=15'>1</a>
+                    <a href='index.php?day=16'>1</a>
+                    <a href='index.php?day=17'>1</a>
+                    <a href='index.php?day=18'>1</a>
+                    <a href='index.php?day=19'>1</a>
+                    <a href='index.php?day=20'>1</a>
+                    <a href='index.php?day=21'>1</a>
+                    <a href='index.php?day=22'>1</a>
+                    <a href='index.php?day=24'>1</a>
+                    <a href='index.php?day=25'>1</a>
+                    <a href='index.php?day=26'>1</a>
+                    <a href='index.php?day=27'>27</a>
+
+                </div>
+            </div>
             <hr>
             <div class="row">
                 <div class="col-lg-12">

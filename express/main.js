@@ -5,6 +5,7 @@ const addModal = new bootstrap.Modal(document.getElementById("addNewUserModal"))
 const editModal = new bootstrap.Modal(document.getElementById("editUserModal"));
 const tbody = document.querySelector("tbody");
 
+
 // Add New User Ajax Request
 addForm.addEventListener("submit", async(e) => {
     e.preventDefault();
@@ -36,7 +37,7 @@ addForm.addEventListener("submit", async(e) => {
 
 // Fetch All Users Ajax Request
 const fetchAllUsers = async() => {
-    const data = await fetch("action.php?read=1", {
+    const data = await fetch("action.php?read=1&tday=" + tday, {
         method: "GET",
     });
     const response = await data.text();

@@ -22,12 +22,14 @@ $tpl->assign("_ROOT.logo_brand_alt", $Brand);
 
 $TodayThaiShow = ThaiToday($strDateTime, $tnow);
 
+$TodayThaiShow = ThaiToday($strDateTime, $tnow);
+
 
 $query = "SELECT * FROM `$tableOrders`";
 $result = $conn->query($query);
 while ($line = $result->fetch_assoc()) {
     $no++;
-    $tpl->newBlock("TRACKING_ALL");
+    $tpl->newBlock("AGENTS_ALL");
 
     $tpl->assign("id", $line['id']);
     //$tpl->assign("order_date", $line['order_tdate']);

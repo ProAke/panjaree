@@ -68,7 +68,7 @@
                     <input type="text" name="product_name" id="product_name" class="form-control" />
                     <br />
                     <label>รูปสินค้า</label>
-                    <input type="file" name="user_image" id="user_image" />
+                    <input type="file" name="product_photo" id="product_photo" />
                     <span id="user_uploaded_image"></span>
                 </div>
                 <div class="modal-footer">
@@ -111,49 +111,52 @@
             event.preventDefault();
             var code = $('#code').val();
             var product_name = $('#product_name').val();
-            var extension = $('#user_image').val().split('.').pop().toLowerCase();
+            var extension = $('#product_photo').val().split('.').pop().toLowerCase();
             if (extension != '') {
                 if (jQuery.inArray(extension, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
                     alert("Invalid Image File");
-                    $('#user_image').val('');
+                    $('#product_photo').val('');
                     return false;
                 }
             }
             if (code != '' && product_name != '') {
+
                 $.ajax({
-                    url: "insert.php",
-                    method: 'POST',
-                    data: new FormData(this),
-                    contentType: false,
-                    processData: false,
+                    type: "POST",
+                    url: "new.php",
+                    data: "code=" + code + "&product_name=" + product_name,
                     success: function(data) {
-                        alert(data);
+                        alert("เพิ่มสินค้าใหม่เรียบร้อย");
                         $('#user_form')[0].reset();
                         $('#userModal').modal('hide');
                         dataTable.ajax.reload();
                     }
                 });
+
+
+
+
             } else {
                 alert("Both Fields are Required");
             }
         });
 
         $(document).on('click', '.update', function() {
-            var xid = $(this).attr("id");
+            var user_id = $(this).attr("id");
             $.ajax({
                 url: "fetch_single.php",
                 method: "POST",
                 data: {
-                    id: xid
+                    user_id: user_id
                 },
                 dataType: "json",
                 success: function(data) {
                     $('#userModal').modal('show');
                     $('#code').val(data.code);
-                    $('#products_name').val(data.product_name);
-                    $('.modal-title').text("Edit User");
-                    $('#xid').val(xid);
-                    $('#user_uploaded_image').html(data.image);
+                    $('#product_name').val(data.product_name);
+                    $('.modal-title').text("แก้ไขสินค้า");
+                    $('#user_id').val(user_id);
+                    $('#user_uploaded_image').html(data.user_image);
                     $('#action').val("Edit");
                     $('#operation').val("Edit");
                 }
@@ -161,13 +164,13 @@
         });
 
         $(document).on('click', '.delete', function() {
-            var xid = $(this).attr("id");
+            var user_id = $(this).attr("id");
             if (confirm("Are you sure you want to delete this?")) {
                 $.ajax({
                     url: "delete.php",
                     method: "POST",
                     data: {
-                        id: xid
+                        user_id: user_id
                     },
                     success: function(data) {
                         alert(data);

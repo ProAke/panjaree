@@ -30,16 +30,13 @@ if (isset($_POST['add'])) {
 
 // Handle Fetch All express Ajax Request
 if (isset($_GET['read'])) {
-    $express = $db->read();
+    $tday = $_GET['tday'];
+    $express = $db->read($tday);
     $output = '';
     if ($express) {
         foreach ($express as $row) {
 
-            /*
 
-
-
-*/
 
 
             if ($row['provider'] == "THP") {
@@ -49,7 +46,7 @@ if (isset($_GET['read'])) {
                 $provider = "<img src='https://www.dhl.com/content/dam/dhl/en/express/express_logo.png' height='50'/>";
             }
             if ($row['provider'] == "FLA") {
-                $provider = "<a href='https://www.flashexpress.co.th/tracking/?se=" . $row['code'] . "' target='_blink'><img src='https://fe-pro.oss-ap-southeast-1.aliyuncs.com/ard/images/web/logo%402x.png' height='25' border=0/></a>";
+                $provider = "<a href='https://www.flashexpress.co.th/tracking/?se=" . $row['code'] . "' target='_blink'><img src='https://www.thumbsup.in.th/wp-content/uploads/2021/07/Flash-Express.png' height='25' border=0/></a>";
             }
 
 

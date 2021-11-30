@@ -62,9 +62,14 @@ if ($err) {
     echo "-----------------------------------------------------------------\n";
 
 
+    $numCP = substr_count($finalState, ”นำส่งสำเร็จ”);
 
+    if ($numCP > 0) {
+        $sql = "UPDATE tb_DailyExpress SET `status`= 2 `state`= '" . $finalRouted_at . "<br>" . $finalState . "' WHERE `code`='" . $trackid . "'";
+    } else {
+        $sql = "UPDATE tb_DailyExpress SET `state`= '" . $finalRouted_at . "<br>" . $finalState . "' WHERE `code`='" . $trackid . "'";
+    }
 
-    $sql = "UPDATE tb_DailyExpress SET `state`= '" . $finalRouted_at . "<br>" . $finalState . "' WHERE `code`='" . $trackid . "'";
     $result = $conn->query($sql);
 
     //echo $sql . "<br>" . $result;
