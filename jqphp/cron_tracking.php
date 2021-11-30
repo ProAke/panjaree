@@ -21,3 +21,4 @@ $query = "INSERT INTO `tb_bot_action`(`action`,`note` ,`tdate`) VALUES('demo',''
 $result = $conn->query($query);
 
 echo "200";
+//echo $query;
