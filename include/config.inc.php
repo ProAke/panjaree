@@ -100,7 +100,7 @@ $tableSetting						= 	"tb_setting";
 
 $tableProducts						=	"tb_products";
 $tableAgent							=	"tb_agent";
-$tableBotAction							=	"tb_bot_action";
+$tableBotAction						=	"tb_bot_action";
 // All config
 $cfgDefaultPerPage = 5;
 $cfgOtherRowPerPage = 15;
