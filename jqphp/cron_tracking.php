@@ -17,7 +17,15 @@ $db_config = array(
 );
 
 $conn = @new mysqli($db_config["host"], $db_config["user"], $db_config["pass"], $db_config["dbname"]);
-$query = "INSERT INTO `tb_bot_action`(`action`,`note` ,`tdate`) VALUES('demo','','" . date("Y-m-d H:i:s") . "')";
+
+
+
+
+$sql = "SELECT * FROM `tb_DailyExpress` WHERE `status` = '1'";
+$query = $conn->query($sql) or die($conn->error);
+$t = $query->num_rows;
+
+$query = "INSERT INTO `tb_bot_action`(`action`, `note` ,`tdate`) VALUES($t,'น่าสนใจ','" . date("Y-m-d H:i:s") . "')";
 $result = $conn->query($query);
 
 echo "200";
