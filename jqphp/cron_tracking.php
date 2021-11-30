@@ -8,23 +8,16 @@ PHP Version : 7.0++
 Copyright (C) 2010-2025, VPSLive Digital Together's , all rights reserved.
  *****************************************************************/
 
-include_once("../include/config.inc.php");
+$db_config = array(
+    "host" => "203.146.252.149",
+    "user" => "fufudev_panjaree",
+    "pass" => "6%Dn3j8a",
+    "dbname" => "panjaree_web",
+    "charset" => "utf8"
+);
 
-
-// ทดสอบบันทึกข้อมูลทุกๆๆ 1 นาที
-$arrData = array();
-
-$arrData['action']     = "demo";
-$arrData['note']       = "ทดสอบการเขียนข้อมูล";
-$arrData['tdate']       = date("Y-m-d H:i:s");
-
-foreach ($arrData as $key => $value) {
-    $arrFieldTmp[] = "`$key`";
-    $arrValueTmp[] = "'$value'";
-}
-$strFieldTmp = implode(",", $arrFieldTmp);
-$strValueTmp = implode(",", $arrValueTmp);
-$query = "INSERT INTO `$tableBotAction`($strFieldTmp) VALUES($strValueTmp)";
+$conn = @new mysqli($db_config["host"], $db_config["user"], $db_config["pass"], $db_config["dbname"]);
+$query = "INSERT INTO `tb_bot_action`(`action`,`note` ,`tdate`) VALUES('demo','','" . date("Y-m-d H:i:s") . "')";
 $result = $conn->query($query);
 
 echo "200";
