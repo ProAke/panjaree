@@ -8,6 +8,7 @@ $util = new Util;
 
 // Handle Add New User Ajax Request
 if (isset($_POST['add'])) {
+
     $tdate          = $util->testInput($_POST['tdate']);
     $rname          = $util->testInput($_POST['rname']);
     $rphone         = $util->testInput($_POST['rphone']);
