@@ -389,6 +389,12 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <span>ย้อนหลัง 15 วัน | </span>
+
+                </div>
+            </div>
             <hr>
             <div class="row">
                 <div class="col-lg-12">

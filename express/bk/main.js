@@ -5,6 +5,7 @@ const addModal = new bootstrap.Modal(document.getElementById("addNewUserModal"))
 const editModal = new bootstrap.Modal(document.getElementById("editUserModal"));
 const tbody = document.querySelector("tbody");
 
+
 // Add New User Ajax Request
 addForm.addEventListener("submit", async(e) => {
     e.preventDefault();
