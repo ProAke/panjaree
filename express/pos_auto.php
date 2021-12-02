@@ -11,7 +11,7 @@ $token_key     = 'OuTlWpIqYmZKHUU:TBZ9SLT?D!KgX.FOSMAjMmCwGMK4YdKJNqX9V6SUC-K-X2
 
 
 $trackid = $_GET['tk'];
-
+echo $trackid . "<br>";
 
 function api_request($url, $token, $content = null)
 {
