@@ -40,7 +40,9 @@ function api_request($url, $token, $content = null)
 $items = [
     'status' => 'all',
     'language' => 'TH',
-    'barcode' => $trackid
+    'barcode' => [
+        '$trackid'
+    ]
 ];
 
 //Step1: GetToken()
