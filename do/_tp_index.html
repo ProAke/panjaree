@@ -1,0 +1,33 @@
+<div class="container-xl">
+    <!-- Page title -->
+    <div class="page-header d-print-none">
+        <div class="row align-items-center">
+
+            <!-- Page title actions -->
+
+
+            <div class="page-body">
+                <div class="container-xl">
+                    <div class="row row-cards">
+                        {show}
+                        <form action="index.php?01" method="post">
+                            <fieldset class="form-fieldset">
+                                <div class="mb-5">
+                                    <label class="form-label required">นำเข้าข้อมูลแบบแถว [ รหัส ,ชื่อผู้รับ,เบอร์ผู้รับ,cod,wallet] ถ้ามีไม่ครบให้ใส่ - <br>
+                                     ตัวอย่าง : TH290326EE3268,วัชรี วรรณบุญยืน,-,860, </label>
+
+                                    <textarea class="form-control" name="data" id="data" rows="10" autocomplete="on"></textarea>
+                                </div>
+
+
+                                <input type="submit" name="action" value="บันทึก" class="btn btn-primary btn-block btn-m" id="add-user-btn">
+                            </fieldset </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

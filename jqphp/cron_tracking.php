@@ -24,19 +24,19 @@ $conn = @new mysqli($db_config["host"], $db_config["user"], $db_config["pass"], 
 $sql = "SELECT * FROM `tb_DailyExpress` WHERE `status` = '1'";
 $query = $conn->query($sql) or die($conn->error);
 $t = $query->num_rows;
+$n = 0;
 while ($row = $query->fetch_assoc()) {
-
+    $n++;
     $code = $row['code'];
-    //send code to auto tracking 
-    // 
-
-    $response = HTTPRequester::HTTPGet("https://panjaree.uarea.in/jqphp/fla_auto_2.php", array("tk" => $code));
+    echo $n . "-" . $code . "<br>";
 }
 
 
-
+/*
 $query = "INSERT INTO `tb_bot_action`(`action`, `note` ,`tdate`) VALUES($t,'น่าสนใจ','" . date("Y-m-d H:i:s") . "')";
 $result = $conn->query($query);
 
 echo "200";
 //echo $query;
+
+*/

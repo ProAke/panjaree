@@ -3,8 +3,13 @@ include_once("../include/config.inc.php");
 include_once("../include/class.inc.php");
 include_once("../include/function.inc.php");
 
-header('Content-Type: application/json; charset=utf-8');
-//$trackid = 'TH381422KDQ10A';
+//header('Content-Type: application/json; charset=utf-8');
+$api_token_url = 'https://trackapi.thailandpost.co.th/post/api/v1/authenticate/token';
+$api_track_url = 'https://trackapi.thailandpost.co.th/post/api/v1/track';
+$token_key     = 'OuTlWpIqYmZKHUU:TBZ9SLT?D!KgX.FOSMAjMmCwGMK4YdKJNqX9V6SUC-K-X2IfC-NmR6DUH=SYTmBAV0SGJoCxGnCnBbNWLCHZ';
+
+
+
 $trackid = $_GET['tk'];
 
 
@@ -31,7 +36,18 @@ function api_request($url, $token, $content = null)
     return json_decode($result, true);
 }
 
+//Items
+$items = [
+    'status' => 'all',
+    'language' => 'TH',
+    'barcode' => $trackid
+];
+
+//Step1: GetToken()
+$res_token = api_request($api_token_url, $token_key);
 
 
+//Step2: GetItems()
+$res_items = api_request($api_track_url, $res_token['token'], $items);
 
-echo "200";
+print_r($res_items);
