@@ -3,7 +3,7 @@
 //include_once("../include/class.inc.php");
 //include_once("../include/function.inc.php");
 
-//header('Content-Type: application/json; charset=utf-8');
+header('Content-Type: application/json; charset=utf-8');
 $api_token_url = 'https://trackapi.thailandpost.co.th/post/api/v1/authenticate/token';
 $api_track_url = 'https://trackapi.thailandpost.co.th/post/api/v1/track';
 $token_key     = 'OuTlWpIqYmZKHUU:TBZ9SLT?D!KgX.FOSMAjMmCwGMK4YdKJNqX9V6SUC-K-X2IfC-NmR6DUH=SYTmBAV0SGJoCxGnCnBbNWLCHZ';
