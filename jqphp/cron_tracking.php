@@ -24,6 +24,16 @@ $conn = @new mysqli($db_config["host"], $db_config["user"], $db_config["pass"], 
 $sql = "SELECT * FROM `tb_DailyExpress` WHERE `status` = '1'";
 $query = $conn->query($sql) or die($conn->error);
 $t = $query->num_rows;
+while ($row = $query->fetch_assoc()) {
+
+    $code = $row['code'];
+    //send code to auto tracking 
+    // 
+
+    $response = HTTPRequester::HTTPGet("https://panjaree.uarea.in/jqphp/fla_auto_2.php", array("tk" => $code));
+}
+
+
 
 $query = "INSERT INTO `tb_bot_action`(`action`, `note` ,`tdate`) VALUES($t,'น่าสนใจ','" . date("Y-m-d H:i:s") . "')";
 $result = $conn->query($query);
