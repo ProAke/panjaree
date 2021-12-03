@@ -18,8 +18,9 @@ if (isset($_POST['add'])) {
     $provider       = $util->testInput($_POST['provider']);
     $cod            = $util->testInput($_POST['cod']);
     $wallet         = $util->testInput($_POST['wallet']);
+    $status         = 1;
 
-    if ($db->insert($tdate, $rname, $rphone, $sname, $sphone, $code, $provider, $cod, $wallet)) {
+    if ($db->insert($tdate, $rname, $rphone, $sname, $sphone, $code, $provider, $cod, $wallet, $status)) {
 
 
 
@@ -31,6 +32,8 @@ if (isset($_POST['add'])) {
 
 // Handle Fetch All express Ajax Request
 if (isset($_GET['read'])) {
+
+
     $express = $db->read();
     $output = '';
     if ($express) {

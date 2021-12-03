@@ -5,11 +5,11 @@ require_once 'config.php';
 class Database extends Config
 {
     //User Into Database
-    public function insert($tdate, $rname, $rphone, $sname, $sphone, $code, $provider)
+    public function insert($tdate, $rname, $rphone, $sname, $sphone, $code, $provider, $status)
     {
         //$tdate = date("Y-m-d");
-        $sql = 'INSERT INTO tb_DailyExpress (tdate, rname, rphone, sname, sphone, code, provider) 
-        VALUES (:tdate, :rname, :rphone, :sname, :sphone, :code, :provider)';
+        $sql = 'INSERT INTO tb_DailyExpress (tdate, rname, rphone, sname, sphone, code, provider, status) 
+        VALUES (:tdate, :rname, :rphone, :sname, :sphone, :code, :provider, :status)';
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
             'tdate' => $tdate,
@@ -18,7 +18,8 @@ class Database extends Config
             'sname' => $sname,
             'sphone' => $sphone,
             'code' => $code,
-            'provider' => $provider
+            'provider' => $provider,
+            'status' => $status
         ]);
         return true;
     }
@@ -46,6 +47,7 @@ status
     // Fetch ��ҹ������ tb_DailyExpress From Database
     public function read()
     {
+
         $sql = 'SELECT * FROM tb_DailyExpress WHERE status= 1 ORDER BY tdate DESC';
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
@@ -72,7 +74,7 @@ status
         $sql = "UPDATE tb_DailyExpress SET `rname`= '" . $rname . "',
          `rphone`= '" . $rphone . "',
          `sname`= '" . $sname . "',
-         `rphone`= '" . $rphone . "',
+         `sphone`= '" . $sphone . "',
          `code`= '" . $code . "',
          `cod`= '" . $cod . "',
          `wallet`= '" . $wallet . "'         
