@@ -1,0 +1,92 @@
+<div class="container-xl">
+    <!-- Page title -->
+    <div class="page-header d-print-none">
+        <div class="row align-items-center">
+
+
+            <div class="col">
+                <h2 class="page-title">
+                    Form elements
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-body">
+        <!-- START BLOCK : PRODUCTS_EDIT -->
+        <form action="edit.php?id={id}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{id}">
+
+            <div class="container-xl">
+                <div class="row row-cards ">
+                    <div class="col-md-6 ">
+                        <div class="card ">
+                            <div class="card-header ">
+                                <h3 class="card-title ">รูปภาพและคลิป</h3>
+                            </div>
+                            <div class="card-body ">
+
+                                {product_photo}
+                                <div class="form-label ">เปลี่ยนรูป</div>
+                                <input type="file" name="product_photo" class="form-control " />
+                                <input type="hidden" name="product_photo_old" value="{product_photo}" />
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="card ">
+                            <div class="card-header ">
+                                <h3 class="card-title ">ข้อมูลสินค้า</h3>
+                            </div>
+                            <div class="card-body ">
+
+                                <div class="form-group mb-3 ">
+
+                                    <div class="row ">
+                                        <div class="col-3 "><label class="form-label ">รหัสสินค้า</label>
+                                            <input type="input" name="product_code" class="form-control " aria-describedby="{product_code}" placeholder="{product_code}" value="{product_code}">
+                                            <small class="form-hint ">*</small>
+                                        </div>
+                                        <div class="col-9 "><label class="form-label ">ชื่อสินค้า</label>
+                                            <input type="input" name="product_name" class="form-control " aria-describedby="{product_name}" placeholder="{product_name} " value="{product_name}">
+                                            <small class="form-hint ">*</small>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-12 "><label class="form-label ">รายละเอียดสินค้า</label>
+
+                                            <textarea name="product_description" class="form-control " data-bs-toggle="autosize " placeholder="Type something… " style="height:80vh;">{product_description}</textarea>
+                                        </div>
+
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class=" card-footer text-end ">
+                            <div class="d-flex ">
+                                <a href="# " class="btn btn-link ">Cancel</a>
+                                <button type="submit " name="action" class="btn btn-primary ms-auto " value="save">บันทึก</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </form>
+        <!-- END BLOCK : PRODUCTS_EDIT -->
+    </div>
+</div>

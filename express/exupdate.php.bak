@@ -50,7 +50,7 @@ while ($line1 = $result1->fetch_assoc()) {
 
 
         $i = 0;
-        echo " num:".count($fxdata['message']['list'][0]['routes']);
+
 
         while ($i < count($fxdata['message']['list'][0]['routes'])) {
             $state = $fxdata['message']['list'][0]['routes'][$i]['message'];

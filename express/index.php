@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="refresh" content="30">
     <title>ปัณณ์จรีย์ v.0.1 Beta</title>
     <!-- CSS files -->
     <link href="../dist/css/tabler.min.css" rel="stylesheet" />
@@ -294,6 +295,43 @@
                     </div>
                 </div>
             </div>
+
+
+            <!-- เพิ่มรายการใหม่ Modal Start -->
+            <div class="modal modal-blur fade" tabindex="-1" id="addNewMulti">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">รายการส่งสินค้า</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="add-user-form" class="p-2" novalidate>
+
+
+                                <div class="row mb-3 gx-3 text-minute">
+                                    <textarea rows="5" class="form-control form-control-lg" name="sname" placeholder="2021-12-20,TH00010101,คนส่ง,เบอร์โทรคนส่ง,คนรับ,เบอร์โทรคนรับ,จำนวนเงิน,wallet"></textarea>
+                                </div>
+
+
+
+
+
+                                <div class="mb-3">
+                                    <input type="submit" name="action" value="save" class="btn btn-primary btn-block btn-lg" id="add-user-btn">
+                                </div>
+                        </div>
+
+
+
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
         <!-- เพิ่มรายการใหม่ Modal End -->
 
@@ -385,6 +423,7 @@
                         <h2 class="text-primary">รายการส่งสินค้า(ออนไลน์)</h2>
                     </div>
                     <div>
+                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNewMulti">เพิ่มหลายรายการ</button>
                         <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNewUserModal">เพิ่มรายการ</button>
                     </div>
                 </div>

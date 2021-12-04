@@ -36,11 +36,19 @@ while ($line = $result->fetch_assoc()) {
     $tpl->assign("product_code", $line['code']);
     $tpl->assign("product_name", $line['product_name']);
 
-    if ($line['product_photo'] != "") {
-        $tpl->assign("product_photo", "./uploads/" . $line['id'] . "/" . $line['product_photo']);
+
+
+    if (is_file("./uploads/" . $line['id'] . "/" . $line['product_photo'])) {
+        $photo = "./uploads/" . $line['id'] . "/" . $line['product_photo'];
+        $tpl->assign("photo", "<a href='#' class='d-block'><img src='" . $photo . "' class='card-img-top'></a>");
     } else {
-        $tpl->assign("product_photo", "./uploads/free-upload.jpg");
+
+
+        $tpl->assign("photo", "<a href='edit.php?id=" . $line['id'] . "' class='d-block'><img src='./uploads/free-upload.jpg' class='card-img-top'></a>");
     }
+
+
+
 
     $tpl->assign("product_price", $line['price']);
     $tpl->assign("product_price_discount", $line['price_discount']);

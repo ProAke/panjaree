@@ -19,7 +19,7 @@ class Database extends Config
             'sphone' => $sphone,
             'code' => $code,
             'provider' => $provider,
-            'status' => $status
+            'status' => 1
         ]);
         return true;
     }
@@ -48,7 +48,7 @@ status
     public function read()
     {
 
-        $sql = 'SELECT * FROM tb_DailyExpress WHERE status= 1 ORDER BY tdate DESC';
+        $sql = 'SELECT * FROM tb_DailyExpress WHERE status= 1 ORDER BY id  DESC';
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
