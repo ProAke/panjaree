@@ -442,7 +442,9 @@
                             <thead>
                                 <tr>
                                     <th>วันที่ส่ง</th>
-                                    <th>สถานะ</th>
+                                    <th>
+                                        <a href='exupdate.php' class="btn btn-primary">สถานะ </a>
+                                    </th>
                                     <th>Express/Track</th>
                                     <th>COD</th>
                                     <th>ผู้ส่ง</th>

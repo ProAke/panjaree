@@ -1,11 +1,11 @@
 <?php
 
-function upload_image()
+function upload_image($code, $id)
 {
     if (isset($_FILES["product_photo"])) {
         $extension = explode('.', $_FILES['product_photo']['name']);
-        $new_name = rand() . '.' . $extension[1];
-        $destination = './upload/' . $new_name;
+        $new_name = $code . '.' . $extension[1];
+        $destination = '../express/uploads/' . $id . '/' . $new_name;
         move_uploaded_file($_FILES['product_photo']['tmp_name'], $destination);
         return $new_name;
     }
