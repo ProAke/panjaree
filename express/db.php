@@ -77,6 +77,7 @@ status
          `sphone`= '" . $sphone . "',
          `code`= '" . $code . "',
          `cod`= '" . $cod . "',
+         `provider`= '" . $provider . "',         
          `wallet`= '" . $wallet . "'         
           WHERE `id`='" . $id . "'";
         $stmt = $this->conn->prepare($sql);
