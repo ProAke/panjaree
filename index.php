@@ -27,7 +27,7 @@ $query = "SELECT * FROM `$tableOrders`";
 $result = $conn->query($query);
 while ($line = $result->fetch_assoc()) {
     $no++;
-    $tpl->newBlock("TRACKING_ALL");
+    $tpl->newBlock("ORDERS");
 
     $tpl->assign("id", $line['id']);
     //$tpl->assign("order_date", $line['order_tdate']);

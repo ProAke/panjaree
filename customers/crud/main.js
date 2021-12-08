@@ -20,7 +20,7 @@ addForm.addEventListener("submit", async(e) => {
     } else {
         document.getElementById("add-user-btn").value = "Please Wait...";
 
-        const data = await fetch("new.php", {
+        const data = await fetch("action.php", {
             method: "POST",
             body: formData,
         });
@@ -57,20 +57,12 @@ const editUser = async(id) => {
     const data = await fetch(`action.php?edit=1&id=${id}`, {
         method: "GET",
     });
-    //console.log(data);
-
-
     const response = await data.json();
     document.getElementById("id").value = response.id;
-    document.getElementById("tdate").value = response.tdate;
-    document.getElementById("rname").value = response.rname;
-    document.getElementById("rphone").value = response.rphone;
-    document.getElementById("sname").value = response.sname;
-    document.getElementById("sphone").value = response.sphone;
-    document.getElementById("code").value = response.code;
-    document.getElementById("cod").value = response.cod;
-    document.getElementById("wallet").value = response.wallet;
-
+    document.getElementById("fname").value = response.first_name;
+    document.getElementById("lname").value = response.last_name;
+    document.getElementById("email").value = response.email;
+    document.getElementById("phone").value = response.phone;
 };
 
 // Update User Ajax Request

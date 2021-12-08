@@ -257,8 +257,8 @@
                                         <div class="form-label">ส่งโดย</div>
                                         <select class="form-select" name="provider">
                                             <option value="FLA" selected>FLASH EXPRESS</option>
-                                            <option value="POS">ไปรษณี์ไทย</option>
-                                            <option value="JTE">J&T Epress</option>
+                                            <option value="THP">ไปรษณี์ไทย</option>
+                                            <option value="KRY">Kerry Express</option>
                                         </select>
                                     </div>
                                     <div class="col">
@@ -379,8 +379,8 @@
                                     <div class="form-label">ส่งโดย</div>
                                     <select class="form-select" name="provider" id="provider">
                                         <option value="FLA" selected>FLASH EXPRESS</option>
-                                        <option value="POS">ไปรษณี์ไทย</option>
-                                        <option value="JTE">J&T Epress</option>
+                                        <option value="THP">ไปรษณี์ไทย</option>
+                                        <option value="KRY">Kerry Express</option>
                                     </select>
                                 </div>
                                 <div class="col">
