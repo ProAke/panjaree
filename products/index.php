@@ -40,7 +40,7 @@ while ($line = $result->fetch_assoc()) {
 
     if (is_file("./uploads/" . $line['id'] . "/" . $line['product_photo'])) {
         $photo = "./uploads/" . $line['id'] . "/" . $line['product_photo'];
-        $tpl->assign("photo", "<a href='#' class='d-block'><img src='" . $photo . "' class='card-img-top'></a>");
+        $tpl->assign("photo", "<a href='edit.php?id=" . $line['id'] . "' class='d-block'><img src='" . $photo . "' class='card-img-top'></a>");
     } else {
 
 
