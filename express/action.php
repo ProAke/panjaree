@@ -47,10 +47,10 @@ if (isset($_GET['read'])) {
 
 
             if ($row['provider'] == "THP") {
-                $provider = "<img src='https://infinitybike64.files.wordpress.com/2013/01/559000000134902.jpeg' height='50'/>";
+                $provider = "<a href='https://track.thailandpost.co.th/?trackNumber=" . $row['code'] . "' target='_blink'><img src='https://infinitybike64.files.wordpress.com/2013/01/559000000134902.jpeg' height='50'/></a>";
             }
-            if ($row['provider'] == "DHL") {
-                $provider = "<img src='https://www.dhl.com/content/dam/dhl/en/express/express_logo.png' height='50'/>";
+            if ($row['provider'] == "KRY") {
+                $provider = "<a href='https://th.kerryexpress.com/th/track/?track=" . $row['code'] . "' target='_blink'><img src='https://fq.lnwfile.com/_/fq/_raw/99/4s/lc.png' height='50'/></a>";
             }
             if ($row['provider'] == "FLA") {
                 $provider = "<a href='https://www.flashexpress.co.th/tracking/?se=" . $row['code'] . "' target='_blink'><img src='https://fe-pro.oss-ap-southeast-1.aliyuncs.com/ard/images/web/logo%402x.png' height='25' border=0/></a>";
