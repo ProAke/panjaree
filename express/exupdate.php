@@ -8,7 +8,7 @@ include_once("../include/function.inc.php");
 header('Content-Type: application/json; charset=utf-8');
 
 
-$query1 = "SELECT * FROM `tb_DailyExpress` WHERE `status` = '1'";
+$query1 = "SELECT * FROM `tb_DailyExpress` WHERE `status` = '1' AND `provider`='FLA'";
 $result1 = $conn->query($query1);
 
 

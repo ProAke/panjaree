@@ -443,7 +443,7 @@
                                 <tr>
                                     <th>วันที่ส่ง</th>
                                     <th>
-                                        <a href='exupdate.php' class="btn btn-primary">สถานะ </a>
+                                        <a href='exupdate.php' class="btn btn-primary">FLASH </a>
                                     </th>
                                     <th>Express/Track</th>
                                     <th>COD</th>
