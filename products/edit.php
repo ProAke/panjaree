@@ -34,10 +34,10 @@ if ($_POST['action'] == "save") {
         $Photo_type = ["product_photo"]["type"];
         $new_photo = SaveUploadImg($_FILES['product_photo'], 'uploads/' . $_POST['id'] . '/');
         rename('uploads/' . $_POST['id'] . '/' . $new_photo, 'uploads/' . $_POST['id'] . '/' . $new_name);
-        $sql = "UPDATE `$tableProducts` SET `product_code`='" . $_POST['product_code'] . "',`product_name`='" . $_POST['product_name'] . "',`product_photo`='" . $new_name . "', `product_description`='" . $_POST['product_description'] . "' WHERE `id`=" . $_POST['id'];
+        $sql = "UPDATE `$tableProducts` SET `product_photo`='" . $new_name . "', `product_description`='" . $_POST['product_description'] . "', `product_name`='" . $_POST['product_name'] . "' WHERE `id`=" . $_POST['id'];
         $conn->query($sql);
     } else {
-        $sql = "UPDATE `$tableProducts` SET `product_code`='" . $_POST['product_code'] . "',`product_name`='" . $_POST['product_name'] . "',`product_description`='" . $_POST['product_description'] . "' WHERE `id`=" . $_POST['id'];
+        $sql = "UPDATE `$tableProducts` SET `product_description`='" . $_POST['product_description'] . "', `product_name`='" . $_POST['product_name'] . "' WHERE `id`=" . $_POST['id'];
         $conn->query($sql);
     }
 
