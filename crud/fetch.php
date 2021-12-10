@@ -24,9 +24,9 @@ $filtered_rows = $statement->rowCount();
 foreach ($result as $row) {
     $image = '';
     if ($row["product_photo"] != '') {
-        $image = '<img src="../photo/uploads/' . $row['id'] . '/' . $row["product_photo"] . '" class="img-thumbnail" width="50"/>';
+        $image = '<img src="../products/uploads/' . $row['id'] . '/' . $row["product_photo"] . '" class="img-thumbnail" width="50"/>';
     } else {
-        $image = '<img src="../photo/uploads/free-upload.jpg" class="img-thumbnail" width="50"/>';
+        $image = '<img src="../products/uploads/free-upload.jpg" class="img-thumbnail" width="50"/>';
     }
     $sub_array = array();
     $sub_array[] = $image;

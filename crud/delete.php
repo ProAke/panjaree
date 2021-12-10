@@ -6,7 +6,7 @@ include("function.php");
 if (isset($_POST["user_id"])) {
     $image = get_image_name($_POST["user_id"]);
     if ($image != '') {
-        unlink("upload/" . $image);
+        unlink("../products/upload/" . $image);
     }
     $statement = $connection->prepare(
         "DELETE FROM tb_products WHERE id = :id"
