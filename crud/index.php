@@ -143,6 +143,7 @@
 
         $(document).on('click', '.update', function() {
             var user_id = $(this).attr("id");
+            console.log(user_id);
             $.ajax({
                 url: "fetch_single.php",
                 method: "POST",
