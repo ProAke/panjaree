@@ -5,7 +5,7 @@ if (isset($_POST["user_id"])) {
     $output = array();
     $statement = $connection->prepare(
         "SELECT * FROM tb_products 
-  WHERE id = '" . $_POST["ีuser_id"] . "' 
+  WHERE id = '" . $_POST["user_id"] . "' 
   LIMIT 1"
     );
     $statement->execute();
