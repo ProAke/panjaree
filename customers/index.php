@@ -34,9 +34,17 @@ while ($line = $result->fetch_assoc()) {
     $tpl->assign("customer_level", $line['CUSTOMER_LEVEL']);
     $tpl->assign("customer_name", $line['CUSTOMER_NAME']);
     $tpl->assign("customer_phone", $line['CUSTOMER_PHONE']);
-    $tpl->assign("customer_address", $line['ADDRESS1'] . $line['ADDRESS2']);
-}
 
+    if ($line['SUBDISTRICT'] != "") {
+        $subdistrict = " ต. " . $line['SUBDISTRICT'];
+    }
+
+    if ($line['PROVINCE'] != "") {
+        $tpl->assign("customer_address", $line['ADDRESS1'] . $line['ADDRESS2'] . $subdistrict . " อ. " . $line['DISTRICT'] . " จ. " . $line['PROVINCE'] . " " . $line['ZIPCODE']);
+    } else {
+        $tpl->assign("customer_address", $line['ADDRESS1']);
+    }
+}
 $tpl->assign("_ROOT.Powerby", $Powerby);
 $tpl->assign("_ROOT.Copyright", $Copyright);
 $tpl->printToScreen();

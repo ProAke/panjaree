@@ -52,45 +52,54 @@ while ($line1 = $result1->fetch_assoc()) {
 
 
         $i = 0;
-        echo " num:" . count($fxdata['message']['list'][0]['routes']);
+        //echo " num:" . count($fxdata['message']['list'][0]['routes']);
+        $mbdata = $fxdata['message']['list'][0]['routes'];
 
-        while ($i < count($fxdata['message']['list'][0]['routes'])) {
-            $state = $fxdata['message']['list'][0]['routes'][$i]['message'];
-            $routed_at = $fxdata['message']['list'][0]['routes'][$i]['routed_at'];
-            //echo $state . "-->" . $routed_at . "\n";
-            $i++;
-
-            $sql = "SELECT * FROM `$tableTrackLog` WHERE `track_code` = '" . $trackid . "' AND `state` = '" . $state . "'  AND `tdate` = '" . $routed_at . "' ";
-            $query = $conn->query($sql) or die($conn->error);
-            $t = $query->num_rows;
-            if ($t == 0) {
-                $sql = "INSERT INTO `$tableTrackLog` (`provider`, `track_code`, `state`, `tdate`) VALUES ('FLA','" . $trackid . "', '" . $state . "', '" . $routed_at . "')";
-                $query = $conn->query($sql) or die($conn->error);
-            }
-        }
-
-        $a = 0;
-        $finalState = $fxdata['message']['list'][0]['routes'][0]['message'];
-        $finalRouted_at = $fxdata['message']['list'][0]['routes'][0]['routed_at'];
-        // echo "-----------------------------------------------------------------\n";
-        // echo "สินค้าอยู่ที่ > " . $finalState . " รับมาเมื่อ : " . $finalRouted_at . "\n";
-        //echo "-----------------------------------------------------------------\n";
-        $statenow = " : สินค้าอยู่ที่ > " . $finalState . " รับมาเมื่อ : " . $finalRouted_at;
-
-
-        $findword = "นำส่งสำเร็จ";
-        $chk = strpos($finalState, $findword);
-        if ($chk !== FALSE) {
-            $sql = "UPDATE tb_DailyExpress SET `state`= '" . $finalRouted_at . "<br>" . $finalState . "', `status`= '3' WHERE `code`='" . $trackid . "'";
+        if (empty($mbdata)) {
+            echo "Empty Array";
         } else {
-            $sql = "UPDATE tb_DailyExpress SET `state`= '" . $finalRouted_at . "<br>" . $finalState . "' WHERE `code`='" . $trackid . "'";
+
+
+
+
+            while ($i < count($fxdata['message']['list'][0]['routes'])) {
+                $state = $fxdata['message']['list'][0]['routes'][$i]['message'];
+                $routed_at = $fxdata['message']['list'][0]['routes'][$i]['routed_at'];
+                //echo $state . "-->" . $routed_at . "\n";
+                $i++;
+
+                $sql = "SELECT * FROM `$tableTrackLog` WHERE `track_code` = '" . $trackid . "' AND `state` = '" . $state . "'  AND `tdate` = '" . $routed_at . "' ";
+                $query = $conn->query($sql) or die($conn->error);
+                $t = $query->num_rows;
+                if ($t == 0) {
+                    $sql = "INSERT INTO `$tableTrackLog` (`provider`, `track_code`, `state`, `tdate`) VALUES ('FLA','" . $trackid . "', '" . $state . "', '" . $routed_at . "')";
+                    $query = $conn->query($sql) or die($conn->error);
+                }
+            }
+
+            $a = 0;
+            $finalState = $fxdata['message']['list'][0]['routes'][0]['message'];
+            $finalRouted_at = $fxdata['message']['list'][0]['routes'][0]['routed_at'];
+            // echo "-----------------------------------------------------------------\n";
+            // echo "สินค้าอยู่ที่ > " . $finalState . " รับมาเมื่อ : " . $finalRouted_at . "\n";
+            //echo "-----------------------------------------------------------------\n";
+            $statenow = " : สินค้าอยู่ที่ > " . $finalState . " รับมาเมื่อ : " . $finalRouted_at;
+
+
+            $findword = "นำส่งสำเร็จ";
+            $chk = strpos($finalState, $findword);
+            if ($chk !== FALSE) {
+                $sql = "UPDATE tb_DailyExpress SET `state`= '" . $finalRouted_at . "<br>" . $finalState . "', `status`= '3' WHERE `code`='" . $trackid . "'";
+            } else {
+                $sql = "UPDATE tb_DailyExpress SET `state`= '" . $finalRouted_at . "<br>" . $finalState . "' WHERE `code`='" . $trackid . "'";
+            }
+
+
+
+
+
+            $result = $conn->query($sql);
         }
-
-
-
-
-
-        $result = $conn->query($sql);
     }
     //END LOOP  ///////////////////////////////////////
     //echo  $statenow . "" . "\n";

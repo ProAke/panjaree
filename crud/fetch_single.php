@@ -14,9 +14,9 @@ if (isset($_POST["user_id"])) {
         $output["code"] = $row["code"];
         $output["product_name"] = $row["product_name"];
         if ($row["image"] != '') {
-            $output['user_image'] = '<img src="../express/uploads/' . $row['id'] . '' . $row["tb_products"] . '" class="img-thumbnail" width="50" height="35" /><input type="hidden" name="hidden_user_image" value="' . $row["image"] . '" />';
+            $output['user_image'] = '<img src="../products/uploads/' . $row['id'] . '/' . $row["product_photo"] . '" class="img-thumbnail" width="50"/><input type="hidden" name="hidden_user_image" value="' . $row["image"] . '" />';
         } else {
-            $output['user_image'] = '<input type="hidden" name="hidden_user_image" value="" />';
+            $output['user_image'] = '<img src="../products/uploads/free-upload.jpg" class="img-thumbnail" width="50"/><input type="hidden" name="hidden_user_image" value="" />';
         }
     }
     echo json_encode($output);
