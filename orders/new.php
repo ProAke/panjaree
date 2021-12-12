@@ -51,10 +51,19 @@ if ($action == 'new') {
 
     header('Location: ../index.php');
     exit;
-} else {
-    header('Location: ../index.php?error');
-    exit;
 }
+
+
+
+$tpl = new TemplatePower("../template/_tp_inner.html");
+$tpl->assignInclude("body", "_tp_new.html");
+$tpl->prepare();
+$tpl->assign("_ROOT.page_title", "หน้าแรก");
+$tpl->assign("_ROOT.logo_brand_alt", $Brand);
+
+$tpl->assign("_ROOT.Powerby", $Powerby);
+$tpl->assign("_ROOT.Copyright", $Copyright);
+$tpl->printToScreen();
 
 
 
