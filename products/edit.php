@@ -34,10 +34,43 @@ if ($_POST['action'] == "save") {
         $Photo_type = ["product_photo"]["type"];
         $new_photo = SaveUploadImg($_FILES['product_photo'], 'uploads/' . $_POST['id'] . '/');
         rename('uploads/' . $_POST['id'] . '/' . $new_photo, 'uploads/' . $_POST['id'] . '/' . $new_name);
-        $sql = "UPDATE `$tableProducts` SET `product_photo`='" . $new_name . "', `product_description`='" . $_POST['product_description'] . "', `product_name`='" . $_POST['product_name'] . "' WHERE `id`=" . $_POST['id'];
+        $sql = "UPDATE `$tableProducts` SET `product_photo`='" . $new_name . "',
+         `product_description`='" . $_POST['product_description'] . "',
+         `product_name`='" . $_POST['product_name'] . "',
+         `size_ss`='" . $_POST['size_ss'] . "',
+         `size_s`='" . $_POST['size_s'] . "',
+         `size_m`='" . $_POST['size_m'] . "',
+         `size_l`='" . $_POST['size_l'] . "',         
+         `size_xl`='" . $_POST['size_xl'] . "',         
+         `size_xxl`='" . $_POST['size_xxl'] . "',    
+         `size_3xl`='" . $_POST['size_3xl'] . "',
+         `price_ss`='" . $_POST['price_ss'] . "',
+         `price_s`='" . $_POST['price_s'] . "',
+         `price_m`='" . $_POST['price_m'] . "',
+         `price_l`='" . $_POST['price_l'] . "',         
+         `price_xl`='" . $_POST['price_xl'] . "',         
+         `price_xxl`='" . $_POST['price_xxl'] . "',    
+         `price_3xl`='" . $_POST['price_3xl'] . "'                                
+          WHERE `id`=" . $_POST['id'];
         $conn->query($sql);
     } else {
-        $sql = "UPDATE `$tableProducts` SET `product_description`='" . $_POST['product_description'] . "', `product_name`='" . $_POST['product_name'] . "' WHERE `id`=" . $_POST['id'];
+        $sql = "UPDATE `$tableProducts` SET `product_description`='" . $_POST['product_description'] . "',
+         `product_name`='" . $_POST['product_name'] . "',
+         `size_ss`='" . $_POST['size_ss'] . "',
+         `size_s`='" . $_POST['size_s'] . "',
+         `size_m`='" . $_POST['size_m'] . "',
+         `size_l`='" . $_POST['size_l'] . "',         
+         `size_xl`='" . $_POST['size_xl'] . "',         
+         `size_xxl`='" . $_POST['size_xxl'] . "',    
+         `size_3xl`='" . $_POST['size_3xl'] . "',
+         `price_ss`='" . $_POST['price_ss'] . "',
+         `price_s`='" . $_POST['price_s'] . "',
+         `price_m`='" . $_POST['price_m'] . "',
+         `price_l`='" . $_POST['price_l'] . "',         
+         `price_xl`='" . $_POST['price_xl'] . "',         
+         `price_xxl`='" . $_POST['price_xxl'] . "',    
+         `price_3xl`='" . $_POST['price_3xl'] . "'          
+          WHERE `id`=" . $_POST['id'];
         $conn->query($sql);
     }
 
@@ -87,7 +120,21 @@ while ($line = $result->fetch_assoc()) {
     $tpl->assign("product_description", $line['product_description']);
     $tpl->assign("product_price", $line['price']);
 
+    $tpl->assign("SIZE_SS", $line['size_ss']);
+    $tpl->assign("SIZE_S", $line['size_s']);
+    $tpl->assign("SIZE_M", $line['size_m']);
+    $tpl->assign("SIZE_L", $line['size_l']);
+    $tpl->assign("SIZE_XL", $line['size_xl']);
+    $tpl->assign("SIZE_XXL", $line['size_xxl']);
+    $tpl->assign("SIZE_3XL", $line['size_3xl']);
 
+    $tpl->assign("PRICE_SS", $line['price_ss']);
+    $tpl->assign("PRICE_S", $line['price_s']);
+    $tpl->assign("PRICE_M", $line['price_m']);
+    $tpl->assign("PRICE_L", $line['price_l']);
+    $tpl->assign("PRICE_XL", $line['price_xl']);
+    $tpl->assign("PRICE_XXL", $line['price_xxl']);
+    $tpl->assign("PRICE_3XL", $line['price_3xl']);
 
     $tpl->assign("product_price_discount", $line['price_discount']);
     $tpl->assign("product_price_show", $line['price_show']);
