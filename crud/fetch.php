@@ -32,6 +32,15 @@ foreach ($result as $row) {
     $sub_array[] = $image;
     $sub_array[] = $row["code"];
     $sub_array[] = $row["product_name"];
+    $sub_array[] = $row["size_ss"];
+    $sub_array[] = $row["size_s"];
+    $sub_array[] = $row["size_m"];
+    $sub_array[] = $row["size_l"];
+    $sub_array[] = $row["size_xl"];
+    $sub_array[] = $row["size_xxl"];
+    $sub_array[] = $row["size_3xl"];
+
+
     $sub_array[] = '<button type="button" name="update" id="' . $row["id"] . '" class="btn btn-warning btn-xs update">แก้ไข</button>';
     $sub_array[] = '<button type="button" name="delete" id="' . $row["id"] . '" class="btn btn-danger btn-xs delete">ลบ</button>';
     $data[] = $sub_array;

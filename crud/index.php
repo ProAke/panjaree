@@ -40,6 +40,14 @@
                         <th width="10%">รูปสินค้า</th>
                         <th width="35%">รหัสสินค้า</th>
                         <th width="35%">ชื่อสินค้า</th>
+                        <th width="35%">SS</th>
+                        <th width="35%">S</th>
+                        <th width="35%">M</th>
+                        <th width="35%">L</th>
+                        <th width="35%">XL</th>
+                        <th width="35%">XXL</th>
+                        <th width="35%">3XL</th>
+                        <th width="35%">ชื่อสินค้า</th>
                         <th width="10%">Edit</th>
                         <th width="10%">Delete</th>
                     </tr>
