@@ -48,7 +48,21 @@ while ($line = $result->fetch_assoc()) {
     }
 
 
+    $tpl->assign("SIZE_SS", $line['size_ss']);
+    $tpl->assign("SIZE_S", $line['size_s']);
+    $tpl->assign("SIZE_M", $line['size_m']);
+    $tpl->assign("SIZE_L", $line['size_l']);
+    $tpl->assign("SIZE_XL", $line['size_xl']);
+    $tpl->assign("SIZE_XXL", $line['size_xxl']);
+    $tpl->assign("SIZE_3XL", $line['size_3xl']);
 
+    $tpl->assign("PRICE_SS", $line['price_ss']);
+    $tpl->assign("PRICE_S", $line['price_s']);
+    $tpl->assign("PRICE_M", $line['price_m']);
+    $tpl->assign("PRICE_L", $line['price_l']);
+    $tpl->assign("PRICE_XL", $line['price_xl']);
+    $tpl->assign("PRICE_XXL", $line['price_xxl']);
+    $tpl->assign("PRICE_3XL", $line['price_3xl']);
 
     $tpl->assign("product_price", $line['price']);
     $tpl->assign("product_price_discount", $line['price_discount']);
