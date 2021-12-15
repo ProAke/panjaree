@@ -35,6 +35,7 @@ if ($_POST['action'] == "save") {
         $new_photo = SaveUploadImg($_FILES['product_photo'], 'uploads/' . $_POST['id'] . '/');
         rename('uploads/' . $_POST['id'] . '/' . $new_photo, 'uploads/' . $_POST['id'] . '/' . $new_name);
         $sql = "UPDATE `$tableProducts` SET `product_photo`='" . $new_name . "',
+        `code`='" . $_POST['product_code'] . "',        
          `product_description`='" . $_POST['product_description'] . "',
          `product_name`='" . $_POST['product_name'] . "',
          `size_ss`='" . $_POST['size_ss'] . "',
@@ -62,6 +63,7 @@ if ($_POST['action'] == "save") {
         $conn->query($sql);
     } else {
         $sql = "UPDATE `$tableProducts` SET `product_description`='" . $_POST['product_description'] . "',
+        `code`='" . $_POST['product_code'] . "',
          `product_name`='" . $_POST['product_name'] . "',
          `size_ss`='" . $_POST['size_ss'] . "',
          `size_s`='" . $_POST['size_s'] . "',
