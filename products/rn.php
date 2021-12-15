@@ -33,14 +33,11 @@ while ($line = $result->fetch_assoc()) {
 
 
     if (is_file("./uploads/" . $line['id'] . "/" . $line['product_photo'])) {
-        rename(./uploads/" . $line['id'] . "/" . $line['product_photo'], "./uploads/" . $line['id'] . "/" . $Nname);
+        rename("./uploads/" . $line['id'] . "/" . $line['product_photo'], "./uploads/" . $line['id'] . "/" . $Nname);
         $sql = "UPDATE `$tableProducts` SET `product_photo='" . $Nname . "',                    
          WHERE `id`=" . $line['id'];
-       $conn->query($sql);
-       echo "สำเร็จ";
-
-
-
+        $conn->query($sql);
+        echo "สำเร็จ";
     } else {
         echo "no image";
     }
