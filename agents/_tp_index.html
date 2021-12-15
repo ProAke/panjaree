@@ -54,12 +54,14 @@
                                         <th class="w-1">ลำดับ
                                         </th>
                                         <th>รหัส</th>
-                                        <th>level</th>
+                                        <th>ชื่อร้าน</th>
                                         <th>ชื่อ-นามสกุล</th>
-                                        <th>เบอร์โทร</th>
-                                        <th>email</th>
-                                        <th>ยอด/ครั้ง</th>
-                                        <th></th>
+                                        <th>เบอร์โทร/Line/Facebook</th>
+                                        <th>ยอดทั้งหมด</th>
+                                        <th>ลูกค้า</th>
+                                        <th>สั่งใหม่</th>
+
+                                        <th class="text-end"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -69,16 +71,17 @@
                                     <!-- START BLOCK : AGENTS_ALL -->
 
                                     <tr>
-                                        <td><span class="text-muted">{id}</span></td>
-                                        <td><span class="text-muted"></span>{ag_id}</span>
+                                        <td><span class="text-muted">{no}</span></td>
+                                        <td><span class="text-muted">2</span>{ag_id}</span>
                                         </td>
-                                        <td><span class="text-muted">{ag_level}</span></td>
-                                        <td><span class="text-muted">>{ag_fullname}</span></td>
-                                        <td><span class="text-muted">{ag_phone}</span></td>
-                                        <td><span class="text-muted">{ag_email}</span></td>
-                                        <td><span class="text-muted">{ag_amount}/{ag_items}</span></td>
+                                        <td><span class="text-muted">3{ag_fullname}</span></td>
+                                        <td><span class="text-muted">4{ag_phone}{ag_line}{ag_facebook}</span></td>
+                                        <td><span class="text-muted">5{ag_orders}</span></td>
+                                        <td><span class="text-muted">6{ag_customers}</span></td>
+                                        <td><span class="text-muted">7{ag_neworders}</span></td>
+                                        <td><span class="text-muted">8{ag_neworders}</span></td>
                                         <td class="text-end">
-                                            <a href="order/edit.php?id={id}&action=edit">
+                                            <a href="edit.php?id={id}&action=edit">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notes" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                     <rect x="5" y="3" width="14" height="18" rx="2"></rect>
@@ -87,7 +90,7 @@
                                                     <line x1="9" y1="15" x2="13" y2="15"></line>
                                                  </svg>
                                             </a>
-                                            <a href="order/del.php?id={id}&action=del">
+                                            <a href="del.php?id={id}&action=del">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="10" height="10" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                     <line x1="4" y1="7" x2="20" y2="7"></line>

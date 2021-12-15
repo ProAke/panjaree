@@ -40,7 +40,7 @@ while ($line = $result->fetch_assoc()) {
 
     if (is_file("./uploads/" . $line['id'] . "/" . $line['product_photo'])) {
         $photo = "./uploads/" . $line['id'] . "/" . $line['product_photo'];
-        $tpl->assign("photo", "<a href='edit.php?id=" . $line['id'] . "' class='d-block'><img src='" . $photo . "' class='card-img-top'></a>");
+        $tpl->assign("photo", "<a href='edit.php?id=" . $line['id'] . "' class='d-block'><img src='" . $photo . "' class='card-img-top' style='height: 150px;'></a>");
     } else {
 
 
@@ -63,6 +63,14 @@ while ($line = $result->fetch_assoc()) {
     $tpl->assign("PRICE_XL", $line['price_xl']);
     $tpl->assign("PRICE_XXL", $line['price_xxl']);
     $tpl->assign("PRICE_3XL", $line['price_3xl']);
+
+    $tpl->assign("AG_PRICE_SS", $line['ag_price_ss']);
+    $tpl->assign("AG_PRICE_S", $line['ag_price_s']);
+    $tpl->assign("AG_PRICE_M", $line['ag_price_m']);
+    $tpl->assign("AG_PRICE_L", $line['ag_price_l']);
+    $tpl->assign("AG_PRICE_XL", $line['ag_price_xl']);
+    $tpl->assign("AG_PRICE_XXL", $line['ag_price_xxl']);
+    $tpl->assign("AG_PRICE_3XL", $line['ag_price_3xl']);
 
     $tpl->assign("product_price", $line['price']);
     $tpl->assign("product_price_discount", $line['price_discount']);

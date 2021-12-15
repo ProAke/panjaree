@@ -25,18 +25,42 @@ $TodayThaiShow = ThaiToday($strDateTime, $tnow);
 $TodayThaiShow = ThaiToday($strDateTime, $tnow);
 
 
-$query = "SELECT * FROM `$tableOrders`";
+$query = "SELECT * FROM `$tableAgents` ORDER BY `id` DESC";
 $result = $conn->query($query);
 while ($line = $result->fetch_assoc()) {
     $no++;
     $tpl->newBlock("AGENTS_ALL");
-
+    $tpl->assign("no", $no);
     $tpl->assign("id", $line['id']);
-    //$tpl->assign("order_date", $line['order_tdate']);
-    $tpl->assign("order_date", ThaiDateShort($line['order_tdate'], false));
-    $tpl->assign("agent", $line['ag_name'] . "<br>" . $line['ag_phone']);
-    $tpl->assign("customer", $line['cs_name'] . "<br>" . $line['cs_phone']);
-    $tpl->assign("tracking_code", $line['tracking_code']);
+    $tpl->assign("ag_fullname", $line['ag_fullname']);
+
+
+    /*
+    id
+    ag_id
+    ag_linegroup
+    ag_fullname
+    ag_phone
+    ag_avatar
+    ag_lineid
+    ag_lineOA
+    ag_facebookid
+    ag_facebookPage
+    ag_ig
+    ag_tiktok
+    ag_youtube
+    ag_website
+    ag_shopname
+    ag_address1
+    ag_address2
+    ag_district
+    ag_subdistrict
+    ag_province
+    ag_zipcode
+    status
+    startdate
+    tdate
+*/
 }
 
 $tpl->assign("_ROOT.Powerby", $Powerby);

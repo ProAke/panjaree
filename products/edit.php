@@ -50,7 +50,14 @@ if ($_POST['action'] == "save") {
          `price_l`='" . $_POST['price_l'] . "',         
          `price_xl`='" . $_POST['price_xl'] . "',         
          `price_xxl`='" . $_POST['price_xxl'] . "',    
-         `price_3xl`='" . $_POST['price_3xl'] . "'                                
+         `price_3xl`='" . $_POST['price_3xl'] . "',
+         `ag_price_ss`='" . $_POST['ag_price_ss'] . "',
+         `ag_price_s`='" . $_POST['ag_price_s'] . "',
+         `ag_price_m`='" . $_POST['ag_price_m'] . "',
+         `ag_price_l`='" . $_POST['ag_price_l'] . "',         
+         `ag_price_xl`='" . $_POST['ag_price_xl'] . "',         
+         `ag_price_xxl`='" . $_POST['ag_price_xxl'] . "',    
+         `ag_price_3xl`='" . $_POST['ag_price_3xl'] . "'                                           
           WHERE `id`=" . $_POST['id'];
         $conn->query($sql);
     } else {
@@ -69,7 +76,14 @@ if ($_POST['action'] == "save") {
          `price_l`='" . $_POST['price_l'] . "',         
          `price_xl`='" . $_POST['price_xl'] . "',         
          `price_xxl`='" . $_POST['price_xxl'] . "',    
-         `price_3xl`='" . $_POST['price_3xl'] . "'          
+         `price_3xl`='" . $_POST['price_3xl'] . "',
+         `ag_price_ss`='" . $_POST['ag_price_ss'] . "',
+         `ag_price_s`='" . $_POST['ag_price_s'] . "',
+         `ag_price_m`='" . $_POST['ag_price_m'] . "',
+         `ag_price_l`='" . $_POST['ag_price_l'] . "',         
+         `ag_price_xl`='" . $_POST['ag_price_xl'] . "',         
+         `ag_price_xxl`='" . $_POST['ag_price_xxl'] . "',    
+         `ag_price_3xl`='" . $_POST['ag_price_3xl'] . "'                     
           WHERE `id`=" . $_POST['id'];
         $conn->query($sql);
     }
@@ -135,6 +149,15 @@ while ($line = $result->fetch_assoc()) {
     $tpl->assign("PRICE_XL", $line['price_xl']);
     $tpl->assign("PRICE_XXL", $line['price_xxl']);
     $tpl->assign("PRICE_3XL", $line['price_3xl']);
+
+
+    $tpl->assign("AG_PRICE_SS", $line['ag_price_ss']);
+    $tpl->assign("AG_PRICE_S", $line['ag_price_s']);
+    $tpl->assign("AG_PRICE_M", $line['ag_price_m']);
+    $tpl->assign("AG_PRICE_L", $line['ag_price_l']);
+    $tpl->assign("AG_PRICE_XL", $line['ag_price_xl']);
+    $tpl->assign("AG_PRICE_XXL", $line['ag_price_xxl']);
+    $tpl->assign("AG_PRICE_3XL", $line['ag_price_3xl']);
 
     $tpl->assign("product_price_discount", $line['price_discount']);
     $tpl->assign("product_price_show", $line['price_show']);

@@ -13,8 +13,31 @@ include_once("../include/class.inc.php");
 include_once("../include/class.TemplatePower.inc.php");
 include_once("../include/function.inc.php");
 
-$tpl = new TemplatePower("template/_tp_main.html");
-$tpl->assignInclude("body", "_tp_index.html");
-$tpl->prepare();
-$tpl->assign("_ROOT.page_title", "หน้าแรก");
-$tpl->assign("_ROOT.logo_brand_alt", $Brand);
+
+
+$query = "SELECT * FROM `$tableProducts` ORDER BY `id` DESC";
+$result = $conn->query($query);
+if ($line = $result->fetch_assoc()) {
+    $newid = $line['id'] + 1;
+
+    if ($newid < 10) {
+        $newcode = "PJR" . "00" . $newid;
+    } else if ($newid < 100) {
+        $newcode = "PJR" . "0" . $newid;
+    } else {
+        $newcode = "PJR" . $newid;
+    }
+}
+$arrData = array();
+$arrData['code']       = $newcode;
+foreach ($arrData as $key => $value) {
+    $arrFieldTmp[] = "`$key`";
+    $arrValueTmp[] = "'$value'";
+}
+$strFieldTmp = implode(",", $arrFieldTmp);
+$strValueTmp = implode(",", $arrValueTmp);
+$query = "INSERT INTO `$tableProducts`($strFieldTmp) VALUES($strValueTmp)";
+$result = $conn->query($query);
+
+header('Location: index.php?ok');
+exit;

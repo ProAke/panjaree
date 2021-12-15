@@ -88,6 +88,8 @@ $tableTrackLog 					=   "tb_track_log";
 
 $tableContents 						= 	"tb_contents_detail";
 $tableCustomers						= 	"tb_customers";
+$tableAgents						= 	"tb_agents";
+
 
 $tableProvince						=	"tb_province";
 $tableAmphur						=	"tb_amphur";
