@@ -48,7 +48,7 @@ status
     public function read()
     {
 
-        $sql = 'SELECT * FROM tb_DailyExpress WHERE status= 1 ORDER BY id  DESC';
+        $sql = 'SELECT * FROM tb_DailyExpress WHERE status= 1 ORDER BY tdate DESC';
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
