@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta http-equiv="refresh" content="30">
+
     <title>ปัณณ์จรีย์ v.0.1 Beta</title>
     <!-- CSS files -->
     <link href="../dist/css/tabler.min.css" rel="stylesheet" />
