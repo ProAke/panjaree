@@ -47,7 +47,6 @@
                         <th width="35%">XL</th>
                         <th width="35%">XXL</th>
                         <th width="35%">3XL</th>
-                        <th width="35%">ชื่อสินค้า</th>
                         <th width="10%">Edit</th>
                         <th width="10%">Delete</th>
                     </tr>
