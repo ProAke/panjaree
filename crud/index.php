@@ -28,8 +28,11 @@
 
 <body>
     <div class="container box">
-        <h1 align="center">สินค้า</h1>
+        <h1 align="center">สินค้าปัณณ์จรีย์</h1>
         <div class="table-responsive">
+            <div align="left">
+                <a href="../products/index.php" class="btn btn-primary">กลับ</a>
+            </div>
             <div align="right">
                 <button type="button" id="add_button" data-toggle="modal" data-target="#userModal" class="btn btn-info btn-lg">Add</button>
             </div>
