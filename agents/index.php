@@ -21,8 +21,7 @@ $tpl->assign("_ROOT.logo_brand_alt", $Brand);
 
 
 $TodayThaiShow = ThaiToday($strDateTime, $tnow);
-
-$TodayThaiShow = ThaiToday($strDateTime, $tnow);
+$tpl->assign("_ROOT.TodayThaiShow", $TodayThaiShow);
 
 
 $query = "SELECT * FROM `$tableAgents` ORDER BY `id` DESC";
@@ -32,6 +31,7 @@ while ($line = $result->fetch_assoc()) {
     $tpl->newBlock("AGENTS_ALL");
     $tpl->assign("no", $no);
     $tpl->assign("id", $line['id']);
+
     $tpl->assign("ag_fullname", $line['ag_fullname']);
 
 
@@ -57,6 +57,15 @@ while ($line = $result->fetch_assoc()) {
     ag_subdistrict
     ag_province
     ag_zipcode
+
+    ag_office
+    ag_office_address1
+    ag_office_address2
+    ag_office_district
+    ag_office_subdistrict
+    ag_office_province
+    ag_office_zipcode
+
     status
     startdate
     tdate

@@ -72,14 +72,15 @@
 
                                     <tr>
                                         <td><span class="text-muted">{no}</span></td>
-                                        <td><span class="text-muted">2</span>{ag_id}</span>
+                                        <td><span class="text-muted"></span>{ag_id}</span>
                                         </td>
-                                        <td><span class="text-muted">3{ag_fullname}</span></td>
-                                        <td><span class="text-muted">4{ag_phone}{ag_line}{ag_facebook}</span></td>
-                                        <td><span class="text-muted">5{ag_orders}</span></td>
-                                        <td><span class="text-muted">6{ag_customers}</span></td>
-                                        <td><span class="text-muted">7{ag_neworders}</span></td>
-                                        <td><span class="text-muted">8{ag_neworders}</span></td>
+                                        <td><span class="text-muted">{ag_shopname}</span></td>
+                                        <td><span class="text-muted">{ag_fullname}</span></td>
+                                        <td><span class="text-muted">{ag_phone}{ag_line}{ag_facebook}</span></td>
+                                        <td><span class="text-muted">{ag_orders}</span></td>
+                                        <td><span class="text-muted">{ag_customers}</span></td>
+                                        <td><span class="text-muted">{ag_neworders}</span></td>
+
                                         <td class="text-end">
                                             <a href="edit.php?id={id}&action=edit">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notes" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -231,9 +232,9 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="mb-3">
-                                <label class="form-label">ชื่อลูกค้า(รับสินค้า)</label>
+                                <label class="form-label">ที่ทำงาน</label>
                                 <div class="input-group input-group-flat">
-                                    <input type="text" class="form-control" name="cs_name" placeholder="ชื่อลูกค้า">
+                                    <input type="text" class="form-control" name="ag_office_name" placeholder="ชื่อที่ทำงาน">
                                 </div>
                             </div>
                         </div>
@@ -241,7 +242,7 @@
                             <div class="mb-3">
                                 <label class="form-label">เบอร์โทร</label>
                                 <div class="input-group input-group-flat">
-                                    <input type="text" class="form-control" name="cs_phone" placeholder="เบอร์โทร">
+                                    <input type="text" class="form-control" name="ag_office_phone" placeholder="เบอร์โทร">
                                 </div>
                             </div>
                         </div>
@@ -250,7 +251,7 @@
                         <div class="col-lg-12">
                             <div>
                                 <label class="form-label">ที่อยู่</label>
-                                <textarea class="form-control" rows="3" name="cs_address"></textarea>
+                                <textarea class="form-control" rows="3" name="ag_office_address"></textarea>
                             </div>
                         </div>
 
@@ -260,90 +261,7 @@
 
 
                 </div>
-                <div class="modal-body">
 
-
-                    <div class="row">
-
-                        <div class="col-lg-2">
-                            <div class="mb-3">
-                                <label class="form-label">รหัสสินค้า</label>
-                                <div class="input-group input-group-flat">
-                                    <input type="text" class="form-control" name="product_id" placeholder="รหัสสินค้า">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label class="form-label">รายละเอียดสินค้า</label>
-                                <div class="input-group input-group-flat">
-                                    <input type="text" class="form-control" name="product_name" placeholder="ชื่อสินค้า">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-1">
-                            <div class="mb-3">
-                                <label class="form-label">จำนวน</label>
-                                <div class="input-group input-group-flat">
-                                    <input type="text" class="form-control" name="qty">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="mb-3">
-                                <div class="form-label">รูปสินค้าที่สั่ง</div>
-                                <input type="file" class="form-control" name="order-photo1" />
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-
-                        <div class="col-lg-2">
-                            <div class="mb-3">
-                                <label class="form-label">รหัสสินค้า</label>
-                                <div class="input-group input-group-flat">
-                                    <input type="text" class="form-control" name="product_id2" placeholder="รหัสสินค้า">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label class="form-label">รายละเอียดสินค้า</label>
-                                <div class="input-group input-group-flat">
-                                    <input type="text" class="form-control" name="product_name2" placeholder="ชื่อสินค้า">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-1">
-                            <div class="mb-3">
-                                <label class="form-label">จำนวน</label>
-                                <div class="input-group input-group-flat">
-                                    <input type="text" class="form-control" name="qty2">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="mb-3">
-                                <div class="form-label">รูปสินค้าที่สั่ง</div>
-                                <input type="file" class="form-control" name="order-photo2" />
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-
-
-
-                        <div class="col-lg-12">
-                            <div>
-                                <label class="form-label">อื่นๆ</label>
-                                <textarea class="form-control" rows="3" nmae="note"></textarea>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
                 <div class="modal-footer">
                     <input type="hidden" name="action" value="new">
                     <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">ยกเลิก</a>

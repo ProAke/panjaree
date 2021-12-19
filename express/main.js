@@ -70,6 +70,8 @@ const editUser = async(id) => {
     document.getElementById("code").value = response.code;
     document.getElementById("cod").value = response.cod;
     document.getElementById("wallet").value = response.wallet;
+    document.getElementById("url").value = response.url;
+    document.getElementById('provider').selectedOptions[0].value = response.provider;
 
 };
 

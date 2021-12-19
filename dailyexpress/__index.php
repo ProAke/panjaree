@@ -52,6 +52,9 @@ while ($line = $result->fetch_assoc()) {
     if ($line['express_provider'] == 'FLA') {
         $tpl->assign("express_provider", "Flash Express");
         $tpl->assign("track_code", "<a href='https://www.flashexpress.co.th/tracking/?se=" . $line['track_code'] . "' target='_blank'>" . $line['track_code'] . "</a>");
+    } elseif ($line['express_provider'] == 'KRY') {
+        $tpl->assign("express_provider", "Kerry Express");
+        $tpl->assign("track_code", "<a href='https://th.kerryexpress.com/th/track/?track=" . $line['track_code'] . "' target='_blank'>" . $line['track_code'] . "</a>");
     } else {
         $tpl->assign("express_provider", "ไปรษณีย์ไทย");
         $tpl->assign("track_code", "<a href='https://track.thailandpost.co.th/?trackNumber=" . $line['track_code'] . "' target='_blank'>" . $line['track_code'] . "</a>");

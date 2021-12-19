@@ -18,9 +18,10 @@ if (isset($_POST['add'])) {
     $provider       = $util->testInput($_POST['provider']);
     $cod            = $util->testInput($_POST['cod']);
     $wallet         = $util->testInput($_POST['wallet']);
+    $url         = $util->testInput($_POST['url']);
     $status         = 1;
 
-    if ($db->insert($tdate, $rname, $rphone, $sname, $sphone, $code, $provider, $cod, $wallet, $status)) {
+    if ($db->insert($tdate, $rname, $rphone, $sname, $sphone, $code, $provider, $url, $cod, $wallet, $status)) {
 
 
 
@@ -86,7 +87,6 @@ if (isset($_GET['read'])) {
 // Handle Edit User Ajax Request
 if (isset($_GET['edit'])) {
     $id = $_GET['id'];
-
     $express = $db->readOne($id);
     echo json_encode($express);
 }
@@ -103,8 +103,9 @@ if (isset($_POST['update'])) {
     $provider       = $util->testInput($_POST['provider']);
     $cod            = $util->testInput($_POST['cod']);
     $wallet         = $util->testInput($_POST['wallet']);
-
-    if ($db->update($id, $tdate, $rname, $rphone, $sname, $sphone, $code, $provider, $cod, $wallet)) {
+    $url            = $util->testInput($_POST['url']);
+    $status         = $util->testInput($_POST['status']);
+    if ($db->update($id, $tdate, $rname, $rphone, $sname, $sphone, $code, $provider, $cod, $wallet, $url, $status)) {
         echo $util->showMessage('success', 'updated successfully!');
     } else {
         echo $util->showMessage('danger', 'Something went wrong!');
