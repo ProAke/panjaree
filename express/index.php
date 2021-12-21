@@ -420,7 +420,7 @@
             <div class="row mt-4">
                 <div class="col-lg-12 d-flex justify-content-between align-items-center">
                     <div>
-                        <h2 class="text-primary">รายการส่งสินค้า(ออนไลน์)</h2>
+                        <h2 class="text-primary">รายการส่งสินค้า(ออนไลน์)</h2> | <a href="today.php">ส่งวันนี้</a>
                     </div>
                     <div>
                         <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNewMulti">เพิ่มหลายรายการ</button>

@@ -73,6 +73,7 @@ if (isset($_GET['read'])) {
                         <a href="#" id="' . $row['id'] . '" class="btn btn-success btn-sm rounded-pill py-0 editLink" data-toggle="modal" data-target="#editUserModal">Edit</a>
 
                         <a href="#" id="' . $row['id'] . '" class="btn btn-danger btn-sm rounded-pill py-0 deleteLink">Delete</a>
+                        <a href="status.php?action=completed&id=' . $row['id'] . '" class="btn btn-success btn-sm rounded-pill py-0">สถานะ</a>
                       </td>
                     </tr>';
         }
