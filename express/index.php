@@ -401,7 +401,7 @@
                                     <div class="invalid-feedback">!</div>
                                 </div>
                             </div>
-
+                            <div class="row"><textarea name="state" id="state"></textarea></div>
                             <div class="mb-3">
                                 <input type="submit" value="แก้ไข" class="btn btn-success btn-block btn-lg" id="edit-user-btn">
                             </div>
