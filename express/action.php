@@ -18,10 +18,9 @@ if (isset($_POST['add'])) {
     $provider       = $util->testInput($_POST['provider']);
     $cod            = $util->testInput($_POST['cod']);
     $wallet         = $util->testInput($_POST['wallet']);
-    $url         = $util->testInput($_POST['url']);
     $status         = 1;
 
-    if ($db->insert($tdate, $rname, $rphone, $sname, $sphone, $code, $provider, $url, $cod, $wallet, $status)) {
+    if ($db->insert($tdate, $rname, $rphone, $sname, $sphone, $code, $provider, $cod, $wallet, $status)) {
 
 
 
