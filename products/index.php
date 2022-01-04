@@ -37,17 +37,19 @@ while ($line = $result->fetch_assoc()) {
     $tpl->assign("product_name", $line['product_name']);
 
 
-
-    if (is_file("./uploads/" . $line['id'] . "/" . $line['product_photo'])) {
-        $photo = "./uploads/" . $line['id'] . "/" . $line['product_photo'];
+    if ($_SERVER['REMOTE_ADDR'] == "127.0.0.1") {
+        $photo = "https://panjaree.uarea.in/products/uploads/" . $line['id'] . "/" . $line['product_photo'];
         $tpl->assign("photo", "<a href='edit.php?id=" . $line['id'] . "' class='d-block'><img src='" . $photo . "' class='card-img-top'></a>");
     } else {
+        if (is_file("./uploads/" . $line['id'] . "/" . $line['product_photo'])) {
+            $photo = "https://panjaree.uarea.in/products/uploads/" . $line['id'] . "/" . $line['product_photo'];
+            $tpl->assign("photo", "<a href='edit.php?id=" . $line['id'] . "' class='d-block'><img src='" . $photo . "' class='card-img-top'></a>");
+        } else {
 
 
-        $tpl->assign("photo", "<a href='edit.php?id=" . $line['id'] . "' class='d-block'><img src='./uploads/free-upload.jpg' class='card-img-top'></a>");
+            $tpl->assign("photo", "<a href='edit.php?id=" . $line['id'] . "' class='d-block'><img src='https://panjaree.uarea.in/products/uploads/free-upload.jpg' class='card-img-top'></a>");
+        }
     }
-
-
     $tpl->assign("SIZE_SS", $line['size_ss']);
     $tpl->assign("SIZE_S", $line['size_s']);
     $tpl->assign("SIZE_M", $line['size_m']);
