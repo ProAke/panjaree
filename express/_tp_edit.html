@@ -1,0 +1,206 @@
+<div class="container-xl">
+    <!-- Page title -->
+    <div class="page-header d-print-none">
+        <div class="row align-items-center">
+
+
+            <div class="col">
+                <h2 class="page-title">
+                    แก้ไขข้อมูลส่งสินค้า
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-body">
+        <!-- START BLOCK : PRODUCTS_EDIT -->
+        <form action="edit.php?id={id}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{id}">
+
+            <div class="container-xl">
+                <div class="row row-cards ">
+                    <div class="col-md-6 ">
+                        <div class="card ">
+                            <div class="card-header ">
+                                <h3 class="card-title ">รูปภาพและคลิป</h3>
+                            </div>
+                            <div class="card-body ">
+
+                                {product_photo}
+                                <div class="form-label ">เปลี่ยนรูป</div>
+                                <input type="file" name="product_photo" class="form-control " />
+                                <input type="hidden" name="product_photo_old" value="{product_photo}" />
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="card ">
+                            <div class="card-header ">
+                                <h3 class="card-title ">ข้อมูลสินค้า</h3>
+                            </div>
+                            <div class="card-body ">
+
+                                <div class="form-group mb-3 ">
+
+                                    <div class="row ">
+                                        <div class="col-3 "><label class="form-label ">รหัสสินค้า</label>
+                                            <input type="input" name="product_code" class="form-control " aria-describedby="{product_code}" placeholder="{product_code}" value="{product_code}">
+                                            <small class="form-hint "><img alt="{product_code}" src="http://bwipjs-api.metafloor.com/?bcid=code128&text={product_code}&scaleX=5&scaleY=1&rotate=N&includetext" height="25">
+                                            </small>
+                                        </div>
+                                        <div class="col-9 "><label class="form-label ">ชื่อสินค้า</label>
+                                            <input type="input" name="product_name" class="form-control " aria-describedby="{product_name}" placeholder="{product_name} " value="{product_name}">
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row g-2">
+
+                                        <table class="table card-table table-vcenter">
+                                            <header>
+                                                <tr style="background-color: darkred;">
+                                                    <th></th>
+                                                    <th>SS</th>
+                                                    <th>S</th>
+                                                    <th>M</th>
+                                                    <th>L</th>
+                                                    <th>XL</th>
+                                                    <th>XXL</th>
+                                                    <th>3XL</th>
+                                                </tr>
+                                            </header>
+
+                                            <body>
+                                                <tr>
+                                                    <td>
+                                                        ขาย
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="price_ss" value="{PRICE_SS}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="price_s" value="{PRICE_S}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="price_m" value="{PRICE_M}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="price_l" value="{PRICE_L}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="price_xl" value="{PRICE_XL}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="price_xxl" value="{PRICE_XXL}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="price_3xl" value="{PRICE_3XL}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        ตัวแทน
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="ag_price_ss" value="{AG_PRICE_SS}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="ag_price_s" value="{AG_PRICE_S}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="ag_price_m" value="{AG_PRICE_M}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="ag_price_l" value="{AG_PRICE_L}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="ag_price_xl" value="{AG_PRICE_XL}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="ag_price_xxl" value="{AG_PRICE_XXL}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="ag_price_3xl" value="{AG_PRICE_3XL}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        stock
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="size_ss" value="{SIZE_SS}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="size_s" value="{SIZE_S}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="size_m" value="{SIZE_M}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="size_l" value="{SIZE_L}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="size_xl" value="{SIZE_XL}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="size_xxl" value="{SIZE_XXL}" style="width:50px; padding:5px;">
+
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="size_3xl" value="{SIZE_3XL}" style="width:50px; padding:5px;">
+                                                    </td>
+                                                </tr>
+                                            </body>
+                                        </table>
+
+
+
+
+
+
+
+                                    </div>
+
+
+
+
+
+
+
+                                    <div class="row ">
+                                        <div class="col-12 "><label class="form-label ">รายละเอียดสินค้า</label>
+
+                                            <textarea name="product_description" class="form-control " data-bs-toggle="autosize " placeholder="Type something… " style="height:80vh;">{product_description}</textarea>
+                                        </div>
+
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class=" card-footer text-end ">
+                            <div class="d-flex ">
+                                <a href="# " class="btn btn-link ">Cancel</a>
+                                <button type="submit " name="action" class="btn btn-primary ms-auto " value="save">บันทึก</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </form>
+        <!-- END BLOCK : PRODUCTS_EDIT -->
+    </div>
+</div>

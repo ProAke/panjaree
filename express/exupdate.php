@@ -1,26 +1,7 @@
 <?php
-//error_reporting(E_ALL ^ E_NOTICE);
-error_reporting(0);
-include_once("../include/config.inc.php");
-include_once("../include/class.inc.php");
-include_once("../include/function.inc.php");
 
 header('Content-Type: application/json; charset=utf-8');
 
-
-$query1 = "SELECT * FROM `tb_DailyExpress` WHERE `status` = '1' AND `provider`='FLA'";
-$result1 = $conn->query($query1);
-
-
-//START LOOP
-while ($line1 = $result1->fetch_assoc()) {
-
-    $trackid1 = $line1['code'];
-    $trackid = trim($trackid1);
-    $sql2 = "UPDATE tb_DailyExpress SET `code`= '" . $trackid . "' WHERE `id`='" . $line1['id'] . "'";
-    $conn->query($sql2);
-    ///////////////////////////////////////////////////
-    echo $trackid;
     $curl = curl_init();
     curl_setopt_array($curl, array(
         CURLOPT_URL => "https://www.flashexpress.co.th/tools/get-route/",
