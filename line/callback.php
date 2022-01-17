@@ -36,10 +36,8 @@ $url = $base_url . '?' . $query;
                 เชื่อมต่อระบบ
             </div>
             <div class="panel-body">
-                <p>ดำเนินการเชื่อมต่อ</p>
-                <a href="<?php echo $url; ?>">
-                    <img src="img/btn_login_base.png">
-                </a>
+                <p>เชื่อมต่อเรียบร้อยแล้ว</p>
+
             </div>
         </div>
     </div>
