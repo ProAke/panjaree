@@ -25,9 +25,9 @@ $state = $_GET['state'];
 // 各種値の設定
 //**************
 $base_url = "https://api.line.me/oauth2/v2.1/token";
-$client_id = '1656624584';
-$client_secret = 'ce1705868228c444e9c92ef92fc2b9e2';
-$redirect_uri = 'https://panjaree.uarea.in/line/callback.php';
+$client_id = '1561471946';
+$client_secret = 'ad6061c4a823064d372fd1c203799d8a';
+$redirect_uri = 'https://connect.isuzusales.net/iks/line/callback.php';
 
 $url = "https://api.line.me/oauth2/v2.1/token";
 
@@ -82,53 +82,57 @@ if (isset($res->error)) {
     echo "error: " . $res->error . '<br />';
     echo $res->error_description;
     // exit;
-    echo '<meta http-equiv="Refresh" content="0;https://panjaree.uarea.in' . $state . '?error">';
-} else {
+     echo '<meta http-equiv="Refresh" content="0;https://connect.isuzusales.net'.$state.'?error">';
+}else{
 
     $val = explode(".", $res->id_token);
     $data_json = base64_decode($val[1]);
     $data = json_decode($data_json);
     // print_r($data);
 
-    require_once('../include/config.inc.php');
-    require_once('../include/function.inc.php');
+        require_once('../include/config.inc.php');
+        require_once('../include/function.inc.php');
 
-    $check  = mysql_query("SELECT `ID`,`LINE_ID` FROM `$tableCustomers` WHERE `LINE_ID` = '" . $data->sub . "' ");
-    $num = mysql_num_rows($check);
+    $check  = mysql_query("SELECT `ID`,`LINE_ID` FROM `$tableCustomers` WHERE `LINE_ID` = '".$data->sub."' ");
+    $num = mysql_num_rows($check); 
+    
 
+        $arrData = array();
+        $arrData['LINE_NAME']   = $data->name;
+        $arrData['LINE_PHOTO']  = $data->picture;        
+        $arrData['EMAIL']       = $data->email;        
+        $arrData['EDITDATE']    = date("Y-m-d H:i:s");
 
-    $arrData = array();
-    $arrData['LINE_NAME']   = $data->name;
-    $arrData['LINE_PHOTO']  = $data->picture;
-    $arrData['EMAIL']       = $data->email;
-    $arrData['EDITDATE']    = date("Y-m-d H:i:s");
-
-    if ($num == '') {
+    if($num==''){
         $arrData['LINE_ID']     = $data->sub;
         $arrData['DATE']        = date("Y-m-d H:i:s");
         $arrData['DEL']    = '0';
 
-        $sql = sqlCommandInsert($tableCustomers, $arrData);
-        $query = mysql_query($sql);
-        $userId = mysql_insert_id();
-    } else {
+        $sql = sqlCommandInsert($tableCustomers,$arrData);
+        $query = mysql_query($sql);    
+        $userId = mysql_insert_id();    
+    }else{
 
-        $sql = sqlCommandUpdate($tableCustomers, $arrData, " `LINE_ID` = '" . $data->sub . "' ");
+        $sql = sqlCommandUpdate($tableCustomers,$arrData," `LINE_ID` = '".$data->sub."' ");
         $query = mysql_query($sql);
 
-        while ($result = mysql_fetch_array($check)) {
+        while($result = mysql_fetch_array($check)) {
             $userId = $result['ID'];
         }
+
     }
+        
 
 
-
-    // $cookie_name = "Panjaree_Office";
+    // $cookie_name = "isuzuslaes_cis";
     $cookie_value = base64_encode($userId);
     setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 
     // echo $num."<br>";
     // echo $userId;
 
-    echo '<meta http-equiv="Refresh" content="0;https://panjaree.uarea.in' . $state . '">';
+    echo '<meta http-equiv="Refresh" content="0;https://connect.isuzusales.net'.$state.'">';
+    
 }
+
+?>

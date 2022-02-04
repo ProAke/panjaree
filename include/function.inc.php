@@ -37,15 +37,62 @@ function ReferGroup($type = "", $lag)
 
 
 // Check User /////////////////////////////
-function CheckLogin($user = "")
+
+function CheckLogin($user)
 {
 	global $tpl;
+	global $tableCustomers;
+	$state = $_SERVER['REQUEST_URI'];
 	if ($user == "") {
-		$tpl->newBlock("LOGIN");
+		/// line login
+		$base_url = "https://access.line.me/oauth2/v2.1/authorize";
+		$client_id = '1561471946';
+		$redirect_uri = 'https://panjaree.uarea.in/line/callback.php';
+
+		$_SESSION['_line_state'] = sha1(time());
+
+
+		$query = "";
+		$query .= "response_type=" . urlencode("code") . "&";
+		$query .= "client_id=" . urlencode($client_id) . "&";
+		$query .= "redirect_uri=" . urlencode($redirect_uri) . "&";
+		//$query .= "state=" . urlencode($_SESSION['_line_state']) . "&";
+		$query .= "state=" . $state . "&";
+		$query .= "scope=" . urlencode("email profile openid") . "&bot_prompt=normal";
+
+		$url = $base_url . '?' . $query;
+		$tpl->newBlock("NOTLOGIN");
+		$tpl->assign("line_login", $url);
+		// Set Page login 
+
+
+
+
 	} else {
-		$tpl->newBlock("LOGON");
-		$tpl->assign("fname", $_SESSION['sfname']);
-		$tpl->assign("lname", $_SESSION['slname']);
+		$check = base64_decode($user);
+		$sql	= "SELECT * FROM `$tableCustomers` WHERE `ID`='" . $check . "' AND `DEL` = '0' ";
+		$query	= mysql_query($sql);
+		while ($result = mysql_fetch_array($query)) {
+			$tpl->newBlock("LOGIN");
+
+			$url = $_SERVER['REQUEST_URI'];
+			$tpl->assign("line_name", $result['LINE_NAME'] . " ");
+			$tpl->assign("line_img", "<img src='" . $result['LINE_PHOTO'] . "' style='border-radius: 50%;'>");
+			$tpl->assign("_ROOT.FullName", $result['FULLNAME']);
+			$tpl->assign("_ROOT.Phone", $result['PHONE']);
+			$tpl->assign("_ROOT.Email", $result['EMAIL']);
+			$tpl->assign("_ROOT.lineid", $result['LINE_ID']);
+			$tpl->assign("_ROOT.id", $result['ID']);
+			$tpl->assign("url", $state);
+
+			$_SESSION['iksmemberid'] = $result['ID'];
+
+			if ($result['FULLNAME'] != "") {
+				$tpl->assign("FullName", $result['FULLNAME']);
+			} else {
+				$tpl->assign("FullName", $result['LINE_NAME']);
+			}
+		}
 	}
 }
 
