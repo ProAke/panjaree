@@ -61,7 +61,7 @@ function CheckLogin($user)
 		$query .= "scope=" . urlencode("email profile openid") . "&bot_prompt=normal";
 
 		$url = $base_url . '?' . $query;
-		//$tpl->newBlock("NOTLOGIN");
+		$tpl->newBlock("LINE_LOGIN");
 		$tpl->assign("line_login", $url);
 		// Set Page login 
 
@@ -73,7 +73,7 @@ function CheckLogin($user)
 		$sql	= "SELECT * FROM `$tableCustomers` WHERE `ID`='" . $check . "' AND `DEL` = '0' ";
 		$query	= mysql_query($sql);
 		while ($result = mysql_fetch_array($query)) {
-			$tpl->newBlock("LOGIN");
+			$tpl->newBlock("LINE_LOGIN");
 
 			$url = $_SERVER['REQUEST_URI'];
 			$tpl->assign("line_name", $result['LINE_NAME'] . " ");
