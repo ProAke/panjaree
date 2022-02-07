@@ -139,6 +139,7 @@ if (isset($res->error)) {
         $result = $conn->query($strSql);
         if ($line = $rscheck->fetch_assoc()) {
             $userId = $line['ID'];
+            ///
         }
     }
 
