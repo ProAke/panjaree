@@ -50,6 +50,6 @@ if ($_POST['username'] != "" && $_POST['password'] != "") {
 	$tpl->newBlock("FORM");
 }
 
-CheckLogin($user)
+CheckLogin($user);
 
 $tpl->printToScreen();
