@@ -121,7 +121,6 @@ if (isset($res->error)) {
         $strValueTmp = implode(",", $arrValueTmp);
         $query = "INSERT INTO `$tableCustomers`($strFieldTmp) VALUES($strValueTmp)";
         $result = $conn->query($query);
-        //$userId = mysql_insert_id();
         $userId = $conn->insert_id;
     } else {
 

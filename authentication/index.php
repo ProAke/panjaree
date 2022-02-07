@@ -53,5 +53,5 @@ if ($_POST['username'] != "" && $_POST['password'] != "") {
 	CheckLogin($_COOKIE[$cookie_name]);
 }
 
-$tpl->assign("_ROOT.page_titile", "ระบบจัดการข้อมูลลูกค้า");
+$tpl->assign("_ROOT.page_title", "ระบบจัดการข้อมูลลูกค้า");
 $tpl->printToScreen();
