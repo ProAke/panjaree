@@ -93,8 +93,13 @@ if (isset($res->error)) {
     require_once('../include/config.inc.php');
     require_once('../include/function.inc.php');
 
-    $check  = mysql_query("SELECT `ID`,`LINE_ID` FROM `$tableCustomers` WHERE `LINE_ID` = '" . $data->sub . "' ");
-    $num = mysql_num_rows($check);
+
+
+    $check = "SELECT `ID`,`LINE_ID` FROM `$tableCustomers` WHERE `LINE_ID` = '" . $data->sub . "' ";
+    $rscheck = $conn->query($check);
+    $num = $rscheck->num_rows;
+
+
 
 
     $arrData = array();
@@ -108,16 +113,33 @@ if (isset($res->error)) {
         $arrData['DATE']        = date("Y-m-d H:i:s");
         $arrData['DEL']    = '0';
 
-        $sql = sqlCommandInsert($tableCustomers, $arrData);
-        $query = mysql_query($sql);
-        $userId = mysql_insert_id();
+        foreach ($arrData as $key => $value) {
+            $arrFieldTmp[] = "`$key`";
+            $arrValueTmp[] = "'$value'";
+        }
+        $strFieldTmp = implode(",", $arrFieldTmp);
+        $strValueTmp = implode(",", $arrValueTmp);
+        $query = "INSERT INTO `$tableCustomers`($strFieldTmp) VALUES($strValueTmp)";
+        $result = $conn->query($query);
+        //$userId = mysql_insert_id();
+        $userId = $conn->insert_id;
     } else {
 
-        $sql = sqlCommandUpdate($tableCustomers, $arrData, " `LINE_ID` = '" . $data->sub . "' ");
-        $query = mysql_query($sql);
 
-        while ($result = mysql_fetch_array($check)) {
-            $userId = $result['ID'];
+
+        $arrFieldValueTmp[] = "";
+        $strFieldValueTmp[] = "";
+
+        foreach ($arrFieldValue as $key => $value) {
+            $arrFieldValueTmp[] = "`$key`='$value'";
+        }
+
+        $strFieldValueTmp = implode(",", $arrFieldValueTmp);
+
+        $strSql = "UPDATE `$tableCustomers` SET $strFieldValueTmp WHERE `LINE_ID` = '" . $data->sub . "'";
+        $result = $conn->query($strSql);
+        if ($line = $rscheck->fetch_assoc()) {
+            $userId = $line['ID'];
         }
     }
 
