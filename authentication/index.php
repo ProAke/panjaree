@@ -41,6 +41,7 @@ if ($_POST['username'] != "" && $_POST['password'] != "") {
 		$tpl->newBlock("ERROR");
 		$tpl->assign("strMessage", "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง");
 		$tpl->newBlock("FORM");
+		CheckLogin($_COOKIE[$cookie_name]);
 	}
 } else {
 
@@ -48,8 +49,9 @@ if ($_POST['username'] != "" && $_POST['password'] != "") {
 	$tpl->assignInclude("body", "_tp_index.html");
 	$tpl->prepare();
 	$tpl->newBlock("FORM");
+	$url = "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1551756963&redirect_uri=https%3A%2F%2Fconnect.isuzusales.net%2Fcis%2Fline%2Fcallback.php&state=/cis/&scope=email+profile+openid&bot_prompt=normal";
+	CheckLogin($_COOKIE[$cookie_name]);
 }
 
-CheckLogin($user);
 
 $tpl->printToScreen();

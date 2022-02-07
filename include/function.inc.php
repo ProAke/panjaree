@@ -61,7 +61,7 @@ function CheckLogin($user)
 		$query .= "scope=" . urlencode("email profile openid") . "&bot_prompt=normal";
 
 		$url = $base_url . '?' . $query;
-		$tpl->newBlock("NOTLOGIN");
+		//$tpl->newBlock("NOTLOGIN");
 		$tpl->assign("line_login", $url);
 		// Set Page login 
 
