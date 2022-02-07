@@ -46,7 +46,7 @@ function CheckLogin($user)
 	if ($user == "") {
 		/// line login
 		$base_url = "https://access.line.me/oauth2/v2.1/authorize";
-		$client_id = '1561471946';
+		$client_id = '1656624584';
 		$redirect_uri = 'https://panjaree.uarea.in/line/callback.php';
 
 		$_SESSION['_line_state'] = sha1(time());
