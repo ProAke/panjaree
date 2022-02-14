@@ -88,7 +88,7 @@ if (isset($res->error)) {
     $val = explode(".", $res->id_token);
     $data_json = base64_decode($val[1]);
     $data = json_decode($data_json);
-    // print_r($data);
+    print_r($data);
 
     require_once('../include/config.inc.php');
     require_once('../include/function.inc.php');
