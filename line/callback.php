@@ -111,7 +111,7 @@ if (isset($res->error)) {
     if ($num < 1) {
 
 
-        echo "Add New";
+        echo "Add New<br><Br>";
         $arrData['LINE_ID']     = $data->sub;
         $arrData['DATE']        = date("Y-m-d H:i:s");
         $arrData['DEL']    = '0';
@@ -123,6 +123,9 @@ if (isset($res->error)) {
         $strFieldTmp = implode(",", $arrFieldTmp);
         $strValueTmp = implode(",", $arrValueTmp);
         $query = "INSERT INTO `$tableMembersLogin`($strFieldTmp) VALUES($strValueTmp)";
+
+        echo $query . "<br>";
+
         $result = $conn->query($query);
         $userId = $conn->insert_id;
     } else {
