@@ -9,10 +9,10 @@ require_once('../include/config.inc.php');
 // }
 
 $code = $_GET['code'];
-// echo '$code= ' . $code . '<br /><br />';
+echo '$code= ' . $code . '<br /><br />';
 
 $state = $_GET['state'];
-// echo '$state= ' . $state . '<br /><br />';
+echo '$state= ' . $state . '<br /><br />';
 
 // $session_state = $_SESSION['_line_state'];
 // unset($_SESSION['_line_state']);
@@ -150,7 +150,7 @@ if (isset($res->error)) {
     setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 
     // echo $num."<br>";
-    // echo $userId;
+    echo $userId;
 
-    echo '<meta http-equiv="Refresh" content="0;https://panjaree.uarea.in' . $state . '">';
+    //echo '<meta http-equiv="Refresh" content="0;https://panjaree.uarea.in' . $state . '">';
 }
