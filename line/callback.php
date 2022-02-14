@@ -147,10 +147,10 @@ if (isset($res->error)) {
 
     // $cookie_name = "Panjaree_Office";
     $cookie_value = base64_encode($userId);
-    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+    //setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 
     // echo $num."<br>";
-    echo $userId;
+    //echo $userId;
 
-    //echo '<meta http-equiv="Refresh" content="0;https://panjaree.uarea.in' . $state . '">';
+    echo '<meta http-equiv="Refresh" content="0;https://panjaree.uarea.in' . $state . '">';
 }
