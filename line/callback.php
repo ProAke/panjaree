@@ -108,7 +108,10 @@ if (isset($res->error)) {
     $arrData['EMAIL']       = $data->email;
     $arrData['EDITDATE']    = date("Y-m-d H:i:s");
 
-    if ($num == 0) {
+    if ($num < 1) {
+
+
+        echo "Add New";
         $arrData['LINE_ID']     = $data->sub;
         $arrData['DATE']        = date("Y-m-d H:i:s");
         $arrData['DEL']    = '0';
@@ -124,7 +127,7 @@ if (isset($res->error)) {
         $userId = $conn->insert_id;
     } else {
 
-
+        echo "Update";
 
         $arrFieldValueTmp[] = "";
         $strFieldValueTmp[] = "";
