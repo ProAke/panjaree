@@ -95,7 +95,7 @@ if (isset($res->error)) {
 
 
 
-    $check = "SELECT `ID`,`LINE_ID` FROM `$tableCustomers` WHERE `LINE_ID` = '" . $data->sub . "' ";
+    $check = "SELECT `ID`,`LINE_ID` FROM `$tableMembersLogin` WHERE `LINE_ID` = '" . $data->sub . "' ";
     $rscheck = $conn->query($check);
     $num = $rscheck->num_rows;
 
@@ -119,7 +119,7 @@ if (isset($res->error)) {
         }
         $strFieldTmp = implode(",", $arrFieldTmp);
         $strValueTmp = implode(",", $arrValueTmp);
-        $query = "INSERT INTO `$tableCustomers`($strFieldTmp) VALUES($strValueTmp)";
+        $query = "INSERT INTO `$tableMembersLogin`($strFieldTmp) VALUES($strValueTmp)";
         $result = $conn->query($query);
         $userId = $conn->insert_id;
     } else {
@@ -135,7 +135,7 @@ if (isset($res->error)) {
 
         $strFieldValueTmp = implode(",", $arrFieldValueTmp);
 
-        $strSql = "UPDATE `$tableCustomers` SET $strFieldValueTmp WHERE `LINE_ID` = '" . $data->sub . "'";
+        $strSql = "UPDATE `$tableMembersLogin` SET $strFieldValueTmp WHERE `LINE_ID` = '" . $data->sub . "'";
         $result = $conn->query($strSql);
         if ($line = $rscheck->fetch_assoc()) {
             $userId = $line['ID'];
