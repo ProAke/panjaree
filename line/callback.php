@@ -93,7 +93,7 @@ if (isset($res->error)) {
     require_once('../include/config.inc.php');
     require_once('../include/function.inc.php');
 
-
+    $num = 0;
 
     $check = "SELECT `ID`,`LINE_ID` FROM `$tableMembersLogin` WHERE `LINE_ID` = '" . $data->sub . "' ";
     $rscheck = $conn->query($check);
@@ -108,7 +108,7 @@ if (isset($res->error)) {
     $arrData['EMAIL']       = $data->email;
     $arrData['EDITDATE']    = date("Y-m-d H:i:s");
 
-    if ($num == '') {
+    if ($num == 0) {
         $arrData['LINE_ID']     = $data->sub;
         $arrData['DATE']        = date("Y-m-d H:i:s");
         $arrData['DEL']    = '0';
