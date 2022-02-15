@@ -123,7 +123,7 @@ if (isset($res->error)) {
 
 
 
-    // $cookie_name = "Panjaree";
+    $cookie_name = "Panjaree";
     $cookie_value = base64_encode($userId);
     setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 

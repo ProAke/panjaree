@@ -8,6 +8,19 @@ E-mail : worapot.bhi@gmail.com
 
 
 
+// Login USERPASSWORD
+if ($_SESSION['USERNAME']) {
+	$active = 1;
+} else if ($_SESSION['USERPASSWORD']) {
+	$active = 2;
+} else {
+	header("Location: ../authentication/index.php");
+	exit;
+}
+
+// Login LINE
+
+/*
 // Check Login
 $query = "SELECT * FROM `$tableAdmin` WHERE `USERNAME`='{$_SESSION['USERNAME']}' && `PASSWORD`='{$_SESSION['PASSWORD']}'";
 $result = $conn->query($query);
@@ -16,3 +29,4 @@ if ($result->num_rows == 0) {
 	header("Location: ../authentication/index.php");
 	exit;
 }
+*/
