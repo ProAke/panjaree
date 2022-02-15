@@ -17,3 +17,8 @@ $tpl->newBlock("ERROR");
 $tpl->assign("strMessage", "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง");
 $tpl->newBlock("FORM");
 CheckLogin($_COOKIE[$cookie_name]);
+
+
+
+$tpl->assign("_ROOT.page_title", "ระบบจัดการข้อมูลลูกค้า");
+$tpl->printToScreen();
