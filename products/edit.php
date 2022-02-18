@@ -109,8 +109,6 @@ if ($_POST['action'] == "save") {
           WHERE `id`=" . $_POST['id'];
     }
     $conn->query($sql);
-    $conn->close();
-    echo $numGallery;
 }
 
 
