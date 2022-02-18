@@ -22,7 +22,7 @@ if ($line = $result->fetch_assoc()) {
 
     if ($newid < 10) {
         $newcode = "PJR" . "00" . $newid;
-    } else if ($newid < 100) {
+    } else if ($newid < 1000) {
         $newcode = "PJR" . "0" . $newid;
     } else {
         $newcode = "PJR" . $newid;
