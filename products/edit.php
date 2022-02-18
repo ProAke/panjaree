@@ -131,6 +131,9 @@ while ($line = $result->fetch_assoc()) {
 
         $tpl->assign("product_photo", "<a href='edit.php?id=" . $line['id'] . "' class='d-block'><img src='./uploads/free-upload.jpg' class='card-img-top'></a>");
     }
+
+
+    $tpl->assign("product_photo_old", $line['product_photo']);
     $tpl->assign("product_description", $line['product_description']);
     $tpl->assign("product_price", $line['price']);
 
