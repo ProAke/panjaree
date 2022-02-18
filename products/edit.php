@@ -42,7 +42,8 @@ if ($_POST['action'] == "save") {
                 $file_size = $_FILES['filUpload']['size'][$key];
                 $file_tmp = $_FILES['filUpload']['tmp_name'][$key];
                 $file_type = $_FILES['filUpload']['type'][$key];
-                move_uploaded_file($file_tmp, "uploads/" . $_POST['id'] . "/" . $file_name);
+                //move_uploaded_file($file_tmp, "uploads/" . $_POST['id'] . "/" . $file_name);
+                SaveUploadImg($file_tmp, "uploads/" . $_POST['id'] . "/" . $file_name);
             }
         }
 
