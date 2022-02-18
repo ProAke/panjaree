@@ -24,7 +24,7 @@ if ($_POST['action'] == "save") {
 
 
 
-
+    $numGallery = 0;
 
 
     //////////////////////////////////
@@ -37,6 +37,7 @@ if ($_POST['action'] == "save") {
             //move_uploaded_file($file_tmp, "uploads/" . $_POST['id'] . "/" . $file_name);
             SaveUploadImg($file_tmp, "uploads/" . $_POST['id'] . "/" . $file_name);
             $arrfile[] = $file_name;
+            $numGallery++;
         }
     }
 
@@ -62,7 +63,7 @@ if ($_POST['action'] == "save") {
 
 
 
-
+if($numGallery > 0){
         $sql = "UPDATE `$tableProducts` SET `product_photo`='" . $new_name . "',
         `code`='" . $_POST['product_code'] . "',        
          `product_description`='" . $_POST['product_description'] . "',
@@ -90,8 +91,74 @@ if ($_POST['action'] == "save") {
          `ag_price_xxl`='" . $_POST['ag_price_xxl'] . "',    
          `ag_price_3xl`='" . $_POST['ag_price_3xl'] . "'                                           
           WHERE `id`=" . $_POST['id'];
+}else{
+
+
+    if($numGallery>0){
+        $sql = "UPDATE `$tableProducts` SET `product_photo`='" . $new_name . "',
+        `code`='" . $_POST['product_code'] . "',        
+         `product_description`='" . $_POST['product_description'] . "',
+         `product_name`='" . $_POST['product_name'] . "',
+         `product_gallery`='" . $arrfile[] . "',         
+         `size_ss`='" . $_POST['size_ss'] . "',
+         `size_s`='" . $_POST['size_s'] . "',
+         `size_m`='" . $_POST['size_m'] . "',
+         `size_l`='" . $_POST['size_l'] . "',         
+         `size_xl`='" . $_POST['size_xl'] . "',         
+         `size_xxl`='" . $_POST['size_xxl'] . "',    
+         `size_3xl`='" . $_POST['size_3xl'] . "',
+         `price_ss`='" . $_POST['price_ss'] . "',
+         `price_s`='" . $_POST['price_s'] . "',
+         `price_m`='" . $_POST['price_m'] . "',
+         `price_l`='" . $_POST['price_l'] . "',         
+         `price_xl`='" . $_POST['price_xl'] . "',         
+         `price_xxl`='" . $_POST['price_xxl'] . "',    
+         `price_3xl`='" . $_POST['price_3xl'] . "',
+         `ag_price_ss`='" . $_POST['ag_price_ss'] . "',
+         `ag_price_s`='" . $_POST['ag_price_s'] . "',
+         `ag_price_m`='" . $_POST['ag_price_m'] . "',
+         `ag_price_l`='" . $_POST['ag_price_l'] . "',         
+         `ag_price_xl`='" . $_POST['ag_price_xl'] . "',         
+         `ag_price_xxl`='" . $_POST['ag_price_xxl'] . "',
+         `ag_price_3xl`='" . $_POST['ag_price_3xl'] . "'                                           
+          WHERE `id`=" . $_POST['id'];
+    }else{
+        $sql = "UPDATE `$tableProducts` SET `product_photo`='" . $new_name . "',
+        `code`='" . $_POST['product_code'] . "',        
+         `product_description`='" . $_POST['product_description'] . "',
+         `product_name`='" . $_POST['product_name'] . "',
+         `size_ss`='" . $_POST['size_ss'] . "',
+         `size_s`='" . $_POST['size_s'] . "',
+         `size_m`='" . $_POST['size_m'] . "',
+         `size_l`='" . $_POST['size_l'] . "',         
+         `size_xl`='" . $_POST['size_xl'] . "',         
+         `size_xxl`='" . $_POST['size_xxl'] . "',    
+         `size_3xl`='" . $_POST['size_3xl'] . "',
+         `price_ss`='" . $_POST['price_ss'] . "',
+         `price_s`='" . $_POST['price_s'] . "',
+         `price_m`='" . $_POST['price_m'] . "',
+         `price_l`='" . $_POST['price_l'] . "',         
+         `price_xl`='" . $_POST['price_xl'] . "',         
+         `price_xxl`='" . $_POST['price_xxl'] . "',    
+         `price_3xl`='" . $_POST['price_3xl'] . "',
+         `ag_price_ss`='" . $_POST['ag_price_ss'] . "',
+         `ag_price_s`='" . $_POST['ag_price_s'] . "',
+         `ag_price_m`='" . $_POST['ag_price_m'] . "',
+         `ag_price_l`='" . $_POST['ag_price_l'] . "',         
+         `ag_price_xl`='" . $_POST['ag_price_xl'] . "',
+         `ag_price_xxl`='" . $_POST['ag_price_xxl'] . "',
+         `ag_price_3xl`='" . $_POST['ag_price_3xl'] . "'
+         WHERE `id`=" . $_POST['id'];
+}
+
+
+
         $conn->query($sql);
     } else {
+
+
+
+        
         $sql = "UPDATE `$tableProducts` SET `product_description`='" . $_POST['product_description'] . "',
         `code`='" . $_POST['product_code'] . "',
          `product_name`='" . $_POST['product_name'] . "',
