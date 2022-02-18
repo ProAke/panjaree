@@ -24,26 +24,6 @@ if ($_POST['action'] == "save") {
 
 
 
-
-
-
-    //////////////////////////////////
-    if (isset($_FILES["filUpload"])) {
-        foreach ($_FILES['filUpload']['tmp_name'] as $key => $val) {
-            $file_name = $_FILES['filUpload']['name'][$key];
-            $file_size = $_FILES['filUpload']['size'][$key];
-            $file_tmp = $_FILES['filUpload']['tmp_name'][$key];
-            $file_type = $_FILES['filUpload']['type'][$key];
-            //move_uploaded_file($file_tmp, "uploads/" . $_POST['id'] . "/" . $file_name);
-            SaveUploadImg($file_tmp, "uploads/" . $_POST['id'] . "/" . $file_name);
-            $arrfile[] = $file_name;
-        }
-    }
-
-
-
-
-
     if (!file_exists('uploads/' . $_POST['id'])) {
         mkdir('uploads/' . $_POST['id'], 0777, true);
     }
@@ -55,19 +35,10 @@ if ($_POST['action'] == "save") {
         $new_photo = SaveUploadImg($_FILES['product_photo'], 'uploads/' . $_POST['id'] . '/');
         rename('uploads/' . $_POST['id'] . '/' . $new_photo, 'uploads/' . $_POST['id'] . '/' . $new_name);
 
-
-
-
-
-
-
-
-
         $sql = "UPDATE `$tableProducts` SET `product_photo`='" . $new_name . "',
         `code`='" . $_POST['product_code'] . "',        
          `product_description`='" . $_POST['product_description'] . "',
          `product_name`='" . $_POST['product_name'] . "',
-         `product_gallery`='" . $arrfile[] . "',
          `size_ss`='" . $_POST['size_ss'] . "',
          `size_s`='" . $_POST['size_s'] . "',
          `size_m`='" . $_POST['size_m'] . "',
