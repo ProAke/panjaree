@@ -24,10 +24,11 @@ if ($_POST['action'] == "save") {
 
 
 
-    $numGallery = 0;
+    
 
 
     //////////////////////////////////
+    $numGallery = 0;
     if (isset($_FILES["filUpload"])) {
         foreach ($_FILES['filUpload']['tmp_name'] as $key => $val) {
             $file_name = $_FILES['filUpload']['name'][$key];

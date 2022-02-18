@@ -24,6 +24,26 @@ if ($_POST['action'] == "save") {
 
 
 
+    //////////////////////////////////
+    $numGallery = 0;
+    if (isset($_FILES["filUpload"])) {
+        foreach ($_FILES['filUpload']['tmp_name'] as $key => $val) {
+            $file_name = $_FILES['filUpload']['name'][$key];
+            $file_size = $_FILES['filUpload']['size'][$key];
+            $file_tmp = $_FILES['filUpload']['tmp_name'][$key];
+            $file_type = $_FILES['filUpload']['type'][$key];
+            //move_uploaded_file($file_tmp, "uploads/" . $_POST['id'] . "/" . $file_name);
+            SaveUploadImg($file_tmp, "uploads/" . $_POST['id'] . "/" . $file_name);
+            $arrfile[] = $file_name;
+            $numGallery++;
+        }
+    }
+
+
+
+
+
+
     if (!file_exists('uploads/' . $_POST['id'])) {
         mkdir('uploads/' . $_POST['id'], 0777, true);
     }
@@ -61,7 +81,6 @@ if ($_POST['action'] == "save") {
          `ag_price_xxl`='" . $_POST['ag_price_xxl'] . "',    
          `ag_price_3xl`='" . $_POST['ag_price_3xl'] . "'                                           
           WHERE `id`=" . $_POST['id'];
-        $conn->query($sql);
     } else {
         $sql = "UPDATE `$tableProducts` SET `product_description`='" . $_POST['product_description'] . "',
         `code`='" . $_POST['product_code'] . "',
@@ -88,11 +107,10 @@ if ($_POST['action'] == "save") {
          `ag_price_xxl`='" . $_POST['ag_price_xxl'] . "',    
          `ag_price_3xl`='" . $_POST['ag_price_3xl'] . "'                     
           WHERE `id`=" . $_POST['id'];
-        $conn->query($sql);
     }
-
-
     $conn->query($sql);
+    $conn->close();
+    echo $numGallery;
 }
 
 
