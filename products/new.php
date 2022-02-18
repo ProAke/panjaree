@@ -21,11 +21,11 @@ if ($line = $result->fetch_assoc()) {
     $newid = $line['id'] + 1;
 
     if ($newid < 10) {
+        $newcode = "PJR" . "000" . $newid;
+    } else if ($newid < 100 and $newid >= 10) {
         $newcode = "PJR" . "00" . $newid;
-    } else if ($newid < 1000) {
-        $newcode = "PJR" . "0" . $newid;
     } else {
-        $newcode = "PJR" . $newid;
+        $newcode = "PJR0" . $newid;
     }
 }
 $arrData = array();
