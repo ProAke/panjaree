@@ -38,18 +38,17 @@ if ($_GET['tday'] != "") {
     $today = date("y-m-d");
 }
 
-
-for ($i = 1; $i <= 31; $i++) {
-    $day++;
-
-
-    $tpl->newBlock("DayList");
-
-    if ($day == $today) {
-        $tpl->assign("ac", " active");
-    }
-    $tpl->assign("day", $day);
-    $tpl->assign("url", "index.php?tday=" . "2021-12-" . $day);
+if ($_GET['tday'] != "") {
+    $timestamps = strtotime($_GET['tday']);
+    $ttday = date('d', $timestamps);
+    $ttmonth = date('m', $timestamps);
+    $ttyear = date('Y', $timestamps);
+    $dayofMonth = date('t', $timestamps);
+} else {
+    $ttday =       date("d");
+    $ttmonth =     date("m");
+    $ttyear =      date("Y");
+    $dayofMonth = date("t");
 }
 
 
@@ -57,7 +56,28 @@ for ($i = 1; $i <= 31; $i++) {
 
 
 
-$tpl->assign("_ROOT.TodayThaiShow", $TodayThaiShow);
+for ($i = 1; $i <= $dayofMonth; $i++) {
+    $day++;
+    $tpl->newBlock("TDAY");
+    if ($day == $today) {
+        $tpl->assign("ac", " active");
+    }
+    $tpl->assign("day", $day);
+    $tpl->assign("url", "index.php?tday=" . "2021-12-" . $day);
+
+    if ($day == $ttday) {
+        $tpl->assign("tdaylist", "<option value='2022-02-" . $day . "' selected>วันที่ " . $day . " กุมภาพันธ์ 2565</option>");
+    } else {
+        $tpl->assign("tdaylist", "<option value='2022-02-" . $day . "'>วันที่ " . $day . " กุมภาพันธ์ 2565</option>");
+    }
+}
+
+
+
+
+
+$MonthYearTH  =  ThaiMonthYear($strDateTime, $tnow);
+$tpl->assign("_ROOT.TodayThaiShow", $MonthYearTH);
 $tpl->assign("_ROOT.Powerby", $Powerby);
 $tpl->assign("_ROOT.Copyright", $Copyright);
 $tpl->printToScreen();

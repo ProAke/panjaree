@@ -16,26 +16,33 @@ include_once("../include/function.inc.php");
 $tpl = new TemplatePower("../template/_tp_inner.html");
 $tpl->assignInclude("body", "_tp_index.html");
 $tpl->prepare();
-$tpl->assign("_ROOT.page_title", "บริการ");
+$tpl->assign("_ROOT.page_title", "ช่วยเหลือและบริการ");
 $tpl->assign("_ROOT.logo_brand_alt", $Brand);
 
 
 $TodayThaiShow = ThaiToday($strDateTime, $tnow);
 
 
-$query = "SELECT * FROM `$tableOrders`";
+//$query = "SELECT * FROM `$tableHelpSupport` ORDER BY `id` DESC";
+//$result = $conn->query($query);
+$no = 0;
+$query = "SELECT * FROM `" . $tableHelpSupport . "` ORDER BY `id` DESC";
 $result = $conn->query($query);
 while ($line = $result->fetch_assoc()) {
     $no++;
-    $tpl->newBlock("TRACKING_ALL");
-
-    $tpl->assign("id", $line['id']);
-    //$tpl->assign("order_date", $line['order_tdate']);
-    $tpl->assign("order_date", ThaiDateShort($line['order_tdate'], false));
-    $tpl->assign("agent", $line['ag_name'] . "<br>" . $line['ag_phone']);
-    $tpl->assign("customer", $line['cs_name'] . "<br>" . $line['cs_phone']);
-    $tpl->assign("tracking_code", $line['tracking_code']);
+    $tpl->newBlock("LISTSUPPORT");
 }
+/*
+    id
+    tdate
+    subject
+    description
+    customer_id
+    agents_id
+    status
+    */
+
+
 
 $tpl->assign("_ROOT.Powerby", $Powerby);
 $tpl->assign("_ROOT.Copyright", $Copyright);

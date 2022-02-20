@@ -588,6 +588,20 @@ function ThaiToday($strDateTime, $tnow)
 }
 
 
+
+function ThaiMonthYear($strDateTime, $ttday)
+{
+	$arrThaiMonth = array("", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
+	list($strYMD, $strTime) = explode(" ", $strDateTime);
+	list($intY, $intM, $intD) = explode("-", $strYMD);
+	$intY = $intY + 543;
+	$strM = $arrThaiMonth[$intM * 1];
+	$intD = $intD * 1;
+	$MonthYearThai = $strM . " " . $intY;
+	return $MonthYearThai;
+}
+
+
 /*
 รอแก้ไขเพราะส่งค่า $booTime มาแล้วไม่ทำงาน 
 # Function ThaiDateShort

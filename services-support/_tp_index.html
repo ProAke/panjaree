@@ -28,7 +28,7 @@
                         <div class="card-header">
                             <h3 class="card-title">ติดตามสินค้า</h3>
                             <a href="#" class="btn btn-blue" style="margin-left:5px;padding: 1px 5px 1px 3px;" data-bs-toggle="modal" data-bs-target="#modal-order">
-                                + เพิ่ม
+                                + แจ้งปัญหาใหม่
                             </a>
                         </div>
                         <div class="card-body border-bottom py-3" style="display: none;">
@@ -54,11 +54,11 @@
                                     <tr>
                                         <th class="w-1">วันเดือนปี
                                         </th>
-                                        <th>ผู้สั่ง</th>
-                                        <th>ผู้รับ</th>
-                                        <th>สินค้า/ยอด</th>
-                                        <th>สลิป/cod</th>
-                                        <th>สถานะส่ง</th>
+                                        <th>หัวเรื่อง</th>
+                                        <th>รายละเอียด</th>
+                                        <th>ผู้แจ้ง</th>
+                                        <th>เจ้าหน้าที่</th>
+                                        <th>สถานะ</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -66,7 +66,7 @@
 
 
 
-                                    <!-- START BLOCK : TRACKING_ALL -->
+                                    <!-- START BLOCK : LISTSUPPORT -->
 
                                     <tr>
                                         <td><span class="text-muted">{order_date}</span></td>
@@ -101,7 +101,7 @@
 
                                         </td>
                                     </tr>
-                                    <!-- END BLOCK : TRACKING_ALL -->
+                                    <!-- END BLOCK : LISTSUPPORT -->
 
 
 
@@ -110,6 +110,7 @@
                             </table>
                         </div>
                         <div class=" card-footer d-flex align-items-center">
+                            <!-- START BLOCK : LISTPAGE -->
                             <p class="m-0 text-muted">Showing <span>1</span> to <span>8</span> of <span>16</span> entries</p>
                             <ul class="pagination m-0 ms-auto">
                                 <li class="page-item disabled">
@@ -132,6 +133,7 @@
                 </a>
                                 </li>
                             </ul>
+                            <!-- END BLOCK : LISTPAGE -->
                         </div>
                     </div>
                 </div>

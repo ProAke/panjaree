@@ -9,7 +9,7 @@
                         บริหารข้อมูล
                     </div>
                     <h2 class="page-title">
-                        ส่งสินค้าประจำวัน / เดือน ธันวาคม 2563
+                        ส่งสินค้าประจำวัน / {TodayThaiShow}
                     </h2>
                 </div>
                 <!-- Page title actions -->
@@ -26,14 +26,18 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <label>วันที่ส่ง</label>
-                            <ul class="pagination m-0 ms-auto">
+                            <label>ส่งสินค้าเมื่อ</label>
+                            <form action="index.php" method="get" autocomplete="on">
+                                <select id="tday" name="tday" class="form-select" onchange="this.form.submit()">
 
+                                <!-- START BLOCK : TDAY -->
+                                {tdaylist}
+                                <!-- END BLOCK : TDAY -->
+                           </select>
 
-                                <!-- START BLOCK : DayList -->
-                                <li class="page-item{ac}"><a class="page-link" href="{url}">{day}</a></li>
-                                <!-- END BLOCK : DayList -->
-                            </ul>
+                            </form>
+                            <button class="btn btn-primary ms-auto " value="save">อัพเดทสลิปส่งสินค้าประจำ</button>
+
                         </div>
                         <div class="card-body border-bottom py-3" style="display: none;">
                             <div class="d-flex">
