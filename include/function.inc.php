@@ -225,6 +225,7 @@ function FRONTSETTING($lag)
 	global $tpl;
 	global $tableSetting;
 	global $lag;
+	$lag = 1;
 
 	$query_set = "SELECT * FROM `$tableSetting` WHERE `LAG`='$lag' ";
 	$result_set = mysql_query($query_set) or die($query_set);
