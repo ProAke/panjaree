@@ -143,10 +143,10 @@ if (isset($res->error)) {
 
         $strSql = "UPDATE `tb_members_login` SET $strFieldValueTmp WHERE `LINE_ID` = '" . $data->sub . "'";
         $result = $conn->query($strSql);
-        if ($line = $rscheck->fetch_assoc()) {
-            $userId = $line['ID'];
-            ///
-        }
+        //if ($line = $rscheck->fetch_assoc()) {
+        //    $userId = $line['ID'];
+        ///
+        // }
     }
 
 
