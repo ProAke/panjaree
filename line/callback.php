@@ -131,14 +131,8 @@ if (isset($res->error)) {
     } else {
 
         //  echo "Update";
-        foreach ($arrData as $key => $value) {
-            $arrFieldTmp[] = "`$key`";
-            $arrValueTmp[] = "'$value'";
-        }
-        $strFieldTmp = implode(",", $arrFieldTmp);
-        $strValueTmp = implode(",", $arrValueTmp);
-
-        $strSql = "UPDATE `tb_members_login` SET $strFieldValueTmp WHERE `LINE_ID` = '" . $data->sub . "'";
+        $Update = date("Y-m-d H:i:s");
+        $strSql = "UPDATE `tb_members_login` SET `EDITDATE`='" . $Update . "' WHERE `LINE_ID` = '" . $data->sub . "'";
         $result = $conn->query($strSql);
         if ($line = $rscheck->fetch_assoc()) {
             $userId = $line['ID'];
