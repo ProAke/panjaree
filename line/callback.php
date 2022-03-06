@@ -140,10 +140,10 @@ if (isset($res->error)) {
 
         $strSql = "UPDATE `tb_members_login` SET $strFieldValueTmp WHERE `LINE_ID` = '" . $data->sub . "'";
         $result = $conn->query($strSql);
-        //if ($line = $rscheck->fetch_assoc()) {
-        //    $userId = $line['ID'];
-        ///
-        // }
+        if ($line = $rscheck->fetch_assoc()) {
+            $userId = $line['ID'];
+            ///
+        }
     }
 
 
@@ -152,8 +152,8 @@ if (isset($res->error)) {
     $cookie_value = base64_encode($userId);
     setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 
-    //echo $strSql . "<br>";
-    //echo $userId;
+    echo $strSql . "<br>";
+    echo $userId;
 
     echo '<meta http-equiv="Refresh" content="20;https://panjaree.uarea.in' . $state . '?LineID=' . $userId . '">';
 }
