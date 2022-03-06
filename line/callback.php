@@ -149,5 +149,5 @@ if (isset($res->error)) {
     echo $strSql . "<br>";
     echo $userId;
 
-    echo '<meta http-equiv="Refresh" content="20;https://panjaree.uarea.in' . $state . '">';
+    echo '<meta http-equiv="Refresh" content="20;https://panjaree.uarea.in/authentication/index.php?LineID=' . $userId . '">';
 }
