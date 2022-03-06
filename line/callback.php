@@ -141,7 +141,7 @@ if (isset($res->error)) {
 
         $strFieldValueTmp = implode(",", $arrFieldValueTmp);
 
-        $strSql = "UPDATE `$tableMembersLogin` SET $strFieldValueTmp WHERE `LINE_ID` = '" . $data->sub . "'";
+        $strSql = "UPDATE `tb_members_login` SET $strFieldValueTmp WHERE `LINE_ID` = '" . $data->sub . "'";
         $result = $conn->query($strSql);
         if ($line = $rscheck->fetch_assoc()) {
             $userId = $line['ID'];
@@ -158,5 +158,5 @@ if (isset($res->error)) {
     echo $strSql . "<br>";
     echo $userId;
 
-    // echo '<meta http-equiv="Refresh" content="20;https://panjaree.uarea.in' . $state . '">';
+    echo '<meta http-equiv="Refresh" content="20;https://panjaree.uarea.in' . $state . '?LineID=' . $userId . '">';
 }

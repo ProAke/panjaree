@@ -12,6 +12,11 @@ include_once("../include/class.TemplatePower.inc.php");
 
 
 
+
+
+
+
+
 if ($_POST['username'] != "" && $_POST['password'] != "") {
 	$query = "SELECT * FROM `$tableAdmin` WHERE `USERNAME`='{$_POST['username']}' && `PASSWORD`='{$_POST['password']}'";
 	$result = $conn->query($query);
@@ -30,6 +35,11 @@ if ($_POST['username'] != "" && $_POST['password'] != "") {
 		// Update Last Login
 		$query = "UPDATE `$tableAdmin` SET `LAST_LOGIN`=NOW(),`COUNT`=`COUNT`+1 WHERE `USERNAME`='{$_POST['username']}' && `PASSWORD`='{$_POST['password']}'";
 		$result = $conn->query($query);
+
+		header("Location: ../home/index.php");
+		exit;
+	} else if ($_GET['LineID']) {
+		$_SESSION['LineID'] = $_GET['LineID'];
 
 		header("Location: ../home/index.php");
 		exit;

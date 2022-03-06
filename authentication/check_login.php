@@ -13,6 +13,8 @@ if ($_SESSION['USERNAME']) {
 	$active = 1;
 } else if ($_SESSION['USERPASSWORD']) {
 	$active = 2;
+} else if ($_SESSION['LineID']) {
+	$active = 1;
 } else {
 	header("Location: ../authentication/index.php");
 	exit;
