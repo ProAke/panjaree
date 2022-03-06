@@ -131,15 +131,12 @@ if (isset($res->error)) {
     } else {
 
         //  echo "Update";
-
-        $arrFieldValueTmp[] = "";
-        $strFieldValueTmp[] = "";
-
-        foreach ($arrFieldValue as $key => $value) {
-            $arrFieldValueTmp[] = "`$key`='$value'";
+        foreach ($arrData as $key => $value) {
+            $arrFieldTmp[] = "`$key`";
+            $arrValueTmp[] = "'$value'";
         }
-
-        $strFieldValueTmp = implode(",", $arrFieldValueTmp);
+        $strFieldTmp = implode(",", $arrFieldTmp);
+        $strValueTmp = implode(",", $arrValueTmp);
 
         $strSql = "UPDATE `tb_members_login` SET $strFieldValueTmp WHERE `LINE_ID` = '" . $data->sub . "'";
         $result = $conn->query($strSql);
