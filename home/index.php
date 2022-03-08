@@ -36,7 +36,7 @@ if ($_SESSION['LineID']) {
 
 
 
-
+echo $_SESSION['LineID'] . "<<<<";
 
 
 
