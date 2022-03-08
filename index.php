@@ -12,12 +12,17 @@ include_once("include/function.inc.php");
 include_once("include/class.TemplatePower.inc.php");
 
 
-$query = "SELECT * FROM `$tableAdmin` WHERE `USERNAME`='{$_SESSION['USERNAME']}' && `PASSWORD`='{$_SESSION['PASSWORD']}'";
-$result = $conn->query($query);
-if ($result->num_rows == 0) {
-    header("Location: authentication/index.php");
+
+if ($_SESSION['USERNAME']) {
+    header("Location: home/index.php");
+    exit;
+} else if ($_SESSION['USERPASSWORD']) {
+    header("Location: home/index.php");
+    exit;
+} else if ($_SESSION['LineID']) {
+    header("Location: home/index.php");
     exit;
 } else {
-    header("Location: home/index.php");
+    header("Location: ../authentication/index.php");
     exit;
 }
