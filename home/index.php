@@ -23,6 +23,31 @@ $tpl->assign("_ROOT.page_title", "หน้าแรก");
 $tpl->assign("_ROOT.logo_brand_alt", $Brand);
 
 
+
+
+if($_SESSION['LineID']) {
+     
+    $sql ="SELECT * FROM `tb_members_login` WHERE `login_id` = '$_SESSION['LineID']'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $tpl->assign("_ROOT.fullname", $row['LINE_NAME']);
+    $tpl->assign("_ROOT.avatar", $row['LINE_PHOTO']);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 $TodayThaiShow = ThaiToday($strDateTime, $tnow);
 
 
