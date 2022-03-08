@@ -12,16 +12,6 @@ include_once("../include/class.TemplatePower.inc.php");
 
 
 
-if ($_SESSION['USERNAME']) {
-	header("Location: ../home/index.php");
-	exit;
-}
-
-if ($_SESSION['LineID']) {
-	header("Location: ../products/index.php");
-	exit;
-}
-
 
 if ($_POST['username'] != "" && $_POST['password'] != "") {
 	$query = "SELECT * FROM `$tableAdmin` WHERE `USERNAME`='{$_POST['username']}' && `PASSWORD`='{$_POST['password']}'";
@@ -44,9 +34,7 @@ if ($_POST['username'] != "" && $_POST['password'] != "") {
 
 		header("Location: ../home/index.php");
 		exit;
-	} else if ($_GET['LineID']) {
-		$_SESSION['LineID'] = $_GET['LineID'];
-
+	} else if ($_SESSION['LineID']) {
 		header("Location: ../home/index.php");
 		exit;
 	} else {
