@@ -27,7 +27,7 @@ $tpl->assign("_ROOT.logo_brand_alt", $Brand);
 
 if ($_SESSION['LineID']) {
 
-    echo $_SESSION['LineID'];
+    echo $_SESSION['LineID'] . "<<<<";
 } else {
 
     header("Location: index.php");
