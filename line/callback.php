@@ -136,7 +136,7 @@ if (isset($res->error)) {
         $result = $conn->query($strSql);
         if ($line = $rscheck->fetch_assoc()) {
             $userId = $line['ID'];
-            ///
+            $_SESSION['LineID'] = $userId;
         }
     }
 
@@ -149,5 +149,5 @@ if (isset($res->error)) {
     echo $strSql . "<br>";
     echo $userId . "<br>";
     echo $state;
-    echo '<meta http-equiv="Refresh" content="0;https://panjaree.uarea.in/home/index.php">';
+    echo '<meta http-equiv="Refresh" content="0;https://panjaree.uarea.in/check/index.php">';
 }
