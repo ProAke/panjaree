@@ -14,18 +14,8 @@ include_once("../include/class.TemplatePower.inc.php");
 include_once("../include/function.inc.php");
 include_once("../authentication/check_login.php");
 
-if ($_SESSION['LineID']) {
 
-    echo $_SESSION['LineID'] . "<<<<";
-} else {
-
-    header("Location: index.php");
-    exit;
-}
-
-
-
-echo $_SESSION['LineID'] . "<<<<";
+print("Welcome");
 
 $tpl = new TemplatePower("../template/_tp_inner.html");
 $tpl->assignInclude("body", "_tp_index.html");
