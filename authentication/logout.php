@@ -16,8 +16,6 @@ include_once("../../include/class.TemplatePower.inc.php");
 
 // Clear Session
 $_SESSION = array();
-
+$_SESSION = array();
 header("Location: index.php");
 exit;
-
-?>

@@ -99,8 +99,7 @@ if (isset($res->error)) {
     $rscheck = $conn->query($check);
     $num = $rscheck->num_rows;
 
-
-
+    $lineID                 = $data->sub;
 
     $arrData = array();
     $arrData['LINE_NAME']   = $data->name;
@@ -136,7 +135,8 @@ if (isset($res->error)) {
         $result = $conn->query($strSql);
         if ($line = $rscheck->fetch_assoc()) {
             $userId = $line['ID'];
-            $_SESSION['LineID'] = $userId;
+            $_SESSION['LineID'] = $lineID;
+            $_SESSION['UserID'] = $userId;
         }
     }
 
