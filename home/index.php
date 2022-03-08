@@ -27,12 +27,12 @@ $tpl->assign("_ROOT.logo_brand_alt", $Brand);
 
 if($_SESSION['LineID']) {
      
-    $sql ="SELECT * FROM `tb_members_login` WHERE `login_id` = '$_SESSION['LineID']'";
+    $sql ="SELECT * FROM `tb_members_login` WHERE `LINE_ID` = '$_SESSION['LineID']'";
     $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    $tpl->assign("_ROOT.fullname", $row['LINE_NAME']);
-    $tpl->assign("_ROOT.avatar", $row['LINE_PHOTO']);
-
+    while ($line = $result->fetch_assoc()) {
+    $tpl->assign("_ROOT.fullname", $line['LINE_NAME']);
+    $tpl->assign("_ROOT.avatar", $line['LINE_PHOTO']);
+    }
 
 
 }
