@@ -25,15 +25,6 @@ $tpl->assign("_ROOT.logo_brand_alt", $Brand);
 
 
 
-if($_SESSION['LineID']) {
-     
-    $sql ="SELECT * FROM `tb_members_login` WHERE `LINE_ID` = '$_SESSION['LineID']'";
-    $result = $conn->query($sql);
-    
-}
-
-
-
 
 
 
