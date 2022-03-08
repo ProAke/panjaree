@@ -17,13 +17,12 @@ include_once("../include/function.inc.php");
 echo $_SESSION['LineID'] . "<<<";
 echo $_SESSION['UserID'] . "<<<";
 
-
+$_SESSION = array();
 
 print_r($_COOKIE);  // แสดง Cookies ทั้งหมดที่ php สามารถอ่านได้ 
 // สร้าง Loop เพื่อ กำหนดให้ Cookies หมดอายุไป
 
-foreach ($_COOKIE as $k => $v) {
-    setcookie($k, "", time() - 3600);
+foreach ($_COOKIE as $key => $value) {
+    unset($value);
+    setcookie($key, '', time() - 3600);
 }
-
-$_SESSION = array();
