@@ -82,7 +82,7 @@ if (isset($res->error)) {
     echo "error: " . $res->error . '<br />';
     echo $res->error_description;
     // exit;
-    echo '<meta http-equiv="Refresh" content="0;https://panjaree.uarea.in' . $state . '?error">';
+    //echo '<meta http-equiv="Refresh" content="0;https://panjaree.uarea.in' . $state . '?error">';
 } else {
 
     $val = explode(".", $res->id_token);
@@ -147,7 +147,7 @@ if (isset($res->error)) {
     setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 
     echo $strSql . "<br>";
-    echo $userId;
-
-    echo '<meta http-equiv="Refresh" content="0;https://panjaree.uarea.in' . $state . '">';
+    echo $userId . "<br>";
+    echo $state;
+    //echo '<meta http-equiv="Refresh" content="0;https://panjaree.uarea.in' . $state . '">';
 }

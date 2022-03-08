@@ -12,9 +12,15 @@ include_once("../include/class.TemplatePower.inc.php");
 
 
 
+if ($_SESSION['USERNAME']) {
+	header("Location: ../home/index.php");
+	exit;
+}
 
-
-
+if ($_SESSION['LineID']) {
+	header("Location: ../products/index.php");
+	exit;
+}
 
 
 if ($_POST['username'] != "" && $_POST['password'] != "") {
