@@ -29,12 +29,7 @@ if($_SESSION['LineID']) {
      
     $sql ="SELECT * FROM `tb_members_login` WHERE `LINE_ID` = '$_SESSION['LineID']'";
     $result = $conn->query($sql);
-    while ($line = $result->fetch_assoc()) {
-    $tpl->assign("_ROOT.fullname", $line['LINE_NAME']);
-    $tpl->assign("_ROOT.avatar", $line['LINE_PHOTO']);
-    }
-
-
+    
 }
 
 
