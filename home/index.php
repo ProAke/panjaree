@@ -14,17 +14,6 @@ include_once("../include/class.TemplatePower.inc.php");
 include_once("../include/function.inc.php");
 include_once("../authentication/check_login.php");
 
-
-
-$tpl = new TemplatePower("../template/_tp_inner.html");
-$tpl->assignInclude("body", "_tp_index.html");
-$tpl->prepare();
-$tpl->assign("_ROOT.page_title", "หน้าแรก");
-$tpl->assign("_ROOT.logo_brand_alt", $Brand);
-
-
-
-
 if ($_SESSION['LineID']) {
 
     echo $_SESSION['LineID'] . "<<<<";
@@ -37,6 +26,17 @@ if ($_SESSION['LineID']) {
 
 
 echo $_SESSION['LineID'] . "<<<<";
+
+$tpl = new TemplatePower("../template/_tp_inner.html");
+$tpl->assignInclude("body", "_tp_index.html");
+$tpl->prepare();
+$tpl->assign("_ROOT.page_title", "หน้าแรก");
+$tpl->assign("_ROOT.logo_brand_alt", $Brand);
+
+
+
+
+
 
 
 
