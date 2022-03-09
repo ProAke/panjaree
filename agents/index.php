@@ -12,6 +12,9 @@ include_once("../include/config.inc.php");
 include_once("../include/class.inc.php");
 include_once("../include/class.TemplatePower.inc.php");
 include_once("../include/function.inc.php");
+include_once("../authentication/check_login.php");
+
+
 
 $tpl = new TemplatePower("../template/_tp_inner.html");
 $tpl->assignInclude("body", "_tp_index.html");
@@ -24,6 +27,20 @@ $TodayThaiShow = ThaiToday($strDateTime, $tnow);
 $tpl->assign("_ROOT.TodayThaiShow", $TodayThaiShow);
 
 
+
+if ($_SESSION['LineID']) {
+
+    $sql = "SELECT * FROM `$tableMembersLogin` WHERE `LINE_ID`='" . $_SESSION['LineID'] . "'";
+    $result = $conn->query($sql);
+    while ($line1 = $result->fetch_assoc()) {
+        $tpl->assign("_ROOT.fullName", $line1['LINE_NAME']);
+        $tpl->assign("_ROOT.avatar", $line1['LINE_PHOTO']);
+    }
+}
+
+
+
+
 $query = "SELECT * FROM `$tableAgents` ORDER BY `id` DESC";
 $result = $conn->query($query);
 while ($line = $result->fetch_assoc()) {
@@ -31,7 +48,7 @@ while ($line = $result->fetch_assoc()) {
     $tpl->newBlock("AGENTS_ALL");
     $tpl->assign("no", $no);
     $tpl->assign("id", $line['id']);
-
+    $tpl->assign("ag_id", $line['ag_id']);
     $tpl->assign("ag_fullname", $line['ag_fullname']);
 
 

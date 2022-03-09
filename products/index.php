@@ -25,7 +25,15 @@ $tpl->assign("_ROOT.logo_brand_alt", $Brand);
 
 $TodayThaiShow = ThaiToday($strDateTime, $tnow);
 
+if ($_SESSION['LineID']) {
 
+    $sql = "SELECT * FROM `$tableMembersLogin` WHERE `LINE_ID`='" . $_SESSION['LineID'] . "'";
+    $result = $conn->query($sql);
+    while ($line1 = $result->fetch_assoc()) {
+        $tpl->assign("_ROOT.fullName", $line1['LINE_NAME']);
+        $tpl->assign("_ROOT.avatar", $line1['LINE_PHOTO']);
+    }
+}
 
 
 ///$query = "SELECT * FROM `$tableProducts` WHERE `status`='1' ORDER BY `ID` DESC";

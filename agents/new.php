@@ -13,11 +13,30 @@ include_once("../include/class.inc.php");
 include_once("../include/class.TemplatePower.inc.php");
 include_once("../include/function.inc.php");
 
-$tpl = new TemplatePower("../template/_tp_inner.html");
-$tpl->assignInclude("body", "_tp_new.html");
-$tpl->prepare();
-$tpl->assign("_ROOT.page_title", "เพิ่มตัวแทนใหม่");
-$tpl->assign("_ROOT.logo_brand_alt", $Brand);
+$query = "SELECT * FROM `$tableAgents` ORDER BY `id` DESC";
+$result = $conn->query($query);
+if ($line = $result->fetch_assoc()) {
+    $newid = $line['id'] + 1;
 
-$TodayThaiShow = ThaiToday($strDateTime, $tnow);
-$tpl->assign("_ROOT.TodayThaiShow", $TodayThaiShow);
+    if ($newid < 10) {
+        $newcode = "PJR-AG" . "000" . $newid;
+    } else if ($newid < 100 and $newid >= 10) {
+        $newcode = "PJR-AG" . "00" . $newid;
+    } else {
+        $newcode = "PJR-AG0" . $newid;
+    }
+}
+$arrData = array();
+$arrData['id']       = $newid;
+$arrData['ag_id']       = $newcode;
+foreach ($arrData as $key => $value) {
+    $arrFieldTmp[] = "`$key`";
+    $arrValueTmp[] = "'$value'";
+}
+$strFieldTmp = implode(",", $arrFieldTmp);
+$strValueTmp = implode(",", $arrValueTmp);
+$query = "INSERT INTO `$tableAgents`($strFieldTmp) VALUES($strValueTmp)";
+$result = $conn->query($query);
+
+header('Location: index.php?ok');
+exit;

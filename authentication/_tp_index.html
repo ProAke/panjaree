@@ -10,7 +10,7 @@
     <!-- END BLOCK : ERROR -->
 
     <!-- START BLOCK : FORM -->
-    <form class="card card-md" action="index.php" method="post" autocomplete="off">
+    <form class="card card-md" action="index.php" method="post">
         <div class="card-body">
             <h2 class="card-title text-center mb-4">ยินดีต้อนรับสู่ ปัณณ์จรีย์ ออฟฟิศ 1.0</h2>
             <div class="mb-3">
@@ -46,10 +46,7 @@
             });
     
             // prevent form submit
-            const form = document.querySelector("form");
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-            });
+          
         </script>
 
 
@@ -63,7 +60,8 @@
       </label>
             </div>
             <div class="form-footer">
-                <button type="submit" class="btn btn-primary w-100">เข้าสู่ระบบ</button>
+
+                <input type="submit" name="submit" value="เข้าสู่ระบบ*" class="btn btn-primary w-100" />
             </div>
         </div>
         <div class="hr-text">หรือ</div>

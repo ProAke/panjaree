@@ -12,6 +12,7 @@ include_once("../include/config.inc.php");
 include_once("../include/class.inc.php");
 include_once("../include/class.TemplatePower.inc.php");
 include_once("../include/function.inc.php");
+include_once("../authentication/check_login.php");
 
 $tpl = new TemplatePower("../template/_tp_innerExpress.html");
 $tpl->assignInclude("body", "_tp_index.html");
@@ -20,7 +21,15 @@ $tpl->assign("_ROOT.page_title", "ติดตามสินค้าราย�
 $tpl->assign("_ROOT.logo_brand_alt", $Brand);
 
 
+if ($_SESSION['LineID']) {
 
+    $sql = "SELECT * FROM `$tableMembersLogin` WHERE `LINE_ID`='" . $_SESSION['LineID'] . "'";
+    $result = $conn->query($sql);
+    while ($line1 = $result->fetch_assoc()) {
+        $tpl->assign("_ROOT.fullName", $line1['LINE_NAME']);
+        $tpl->assign("_ROOT.avatar", $line1['LINE_PHOTO']);
+    }
+}
 
 //echo date("t", mktime(0, 0, 0, 11, 1, date("Y")));
 

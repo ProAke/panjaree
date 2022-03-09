@@ -98,9 +98,6 @@ function CheckLogin($user)
 
 
 
-
-
-
 /*
 # Function sqlInsert
 # Example

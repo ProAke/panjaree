@@ -10,7 +10,10 @@ include_once("../include/function.inc.php");
 include_once("../include/class.TemplatePower.inc.php");
 
 
-
+if ($_SESSION['LineID']) {
+	header("Location: ../home/index.php");
+	exit;
+}
 
 
 if ($_POST['username'] != "" && $_POST['password'] != "") {
