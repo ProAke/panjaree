@@ -26,24 +26,27 @@
                                     </div>
                                     <div>
                                         <img alt="{product_code}" src="http://bwipjs-api.metafloor.com/?bcid=code128&text={product_code}&scaleX=5&scaleY=1&rotate=N&includetext" height="25">
-                                        <button class="su" </div>
 
+                                        <!-- add cart buttons -->
+                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="add_to_cart('{product_code}')">
+                                            <i class="fe fe-shopping-cart"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="add_to_wishlist('{product_code}')">
+                                            <i class="fe fe-heart"></i>
+                                        </button>
+                                        <!-- end add cart buttons -->
 
-
-
-
-
+                                    </div>
                                 </div>
                             </div>
+                            <!-- END BLOCK : PRODUCTS -->
                         </div>
-                        <!-- END BLOCK : PRODUCTS -->
+
                     </div>
-
                 </div>
+
+
+
             </div>
-
-
-
         </div>
     </div>
-</div>
