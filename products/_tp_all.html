@@ -28,12 +28,12 @@
                                         <img alt="{product_code}" src="http://bwipjs-api.metafloor.com/?bcid=code128&text={product_code}&scaleX=5&scaleY=1&rotate=N&includetext" height="25">
 
                                         <!-- add cart buttons -->
-                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="add_to_cart('{product_code}')">
-                                            ซื้อสินค้า
-                                        </button>
-                                        <button type="button" class="btn btn-sm btn-outline-primary" onclick="add_to_wishlist('{product_code}')">
-                                            ชอบสินค้านี้
-                                        </button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-basket" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <polyline points="7 10 12 4 17 10"></polyline>
+                                            <path d="M21 10l-2 8a2 2.5 0 0 1 -2 2h-10a2 2.5 0 0 1 -2 -2l-2 -8z"></path>
+                                            <circle cx="12" cy="15" r="2"></circle>
+                                         </svg> <span class="badge badge-pill badge-success">ซื้อสินค้า</span>
                                         <!-- end add cart buttons -->
 
                                     </div>
