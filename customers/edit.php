@@ -23,6 +23,15 @@ $action = isset($_POST['action']) ? $_POST['action'] : '';
 
 
 
+
+
+
+
+
+
+
+
+
 $tpl->assign("_ROOT.TodayThaiShow", $TodayThaiShow);
 $tpl->assign("_ROOT.Powerby", $Powerby);
 $tpl->assign("_ROOT.Copyright", $Copyright);
