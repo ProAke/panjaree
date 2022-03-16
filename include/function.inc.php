@@ -42,7 +42,8 @@ function CheckLogin($user)
 {
 	global $tpl;
 	global $tableCustomers;
-	$state = $_SERVER['REQUEST_URI'];
+	//$state = $_SERVER['REQUEST_URI'];
+	$state = "";
 	if ($user == "") {
 		/// line login
 		$base_url = "https://access.line.me/oauth2/v2.1/authorize";
@@ -58,16 +59,19 @@ function CheckLogin($user)
 		$query .= "redirect_uri=" . urlencode($redirect_uri) . "&";
 		//$query .= "state=" . urlencode($_SESSION['_line_state']) . "&";
 		$query .= "state=" . $state . "&";
-		$query .= "scope=" . urlencode("email profile openid") . "&bot_prompt=normal";
+		$query .= "scope=email+profile+openid&bot_prompt=normal";
 
 		$url = $base_url . '?' . $query;
 		$tpl->newBlock("LINE_LOGIN");
 		$tpl->assign("line_login", $url);
 		// Set Page login 
-
-
-
-
+		/*
+		https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1551756963&
+		redirect_uri=https%3A%2F%2Fconnect.isuzusales.net%2Fcis%2Fline%2Fcallback.php&
+		state=/cis/&
+		scope=email+profile+openid&
+		bot_prompt=normal
+        */
 	} else {
 		$check = base64_decode($user);
 		$sql	= "SELECT * FROM `$tableCustomers` WHERE `ID`='" . $check . "' AND `DEL` = '0' ";

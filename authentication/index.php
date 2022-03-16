@@ -58,8 +58,7 @@ if ($_POST['username'] != "" && $_POST['password'] != "") {
 	$tpl->newBlock("FORM");
 	$url = "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1656624584&redirect_uri=https%3A%2F%2Fpanjaree.uarea.in%2Fline%2Fcallback.php&state=/cis/&scope=email+profile+openid&bot_prompt=normal";
 
-	$tpl->newBlock("LINE_LOGIN");
-	$tpl->assign("line_login", $url);
+
 	CheckLogin($_COOKIE[$cookie_name]);
 }
 
