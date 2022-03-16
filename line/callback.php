@@ -146,8 +146,8 @@ if (isset($res->error)) {
     $cookie_value = base64_encode($lineID);
     setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 
-    echo $strSql . "<br>";
-    echo $userId . "<br>";
-    echo $state;
-    //echo '<meta http-equiv="Refresh" content="0;https://panjaree.uarea.in"' . $state . '>';
+    //echo $strSql . "<br>";
+    //echo $userId . "<br>";
+    //echo $state;
+    echo '<meta http-equiv="Refresh" content="0;https://panjaree.uarea.in"' . $state . '>';
 }
