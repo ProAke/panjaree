@@ -23,72 +23,13 @@ include_once("../include/function.inc.php");
 if ($_POST['action'] == "save") {
 
 
+    $sql = "UPDATE `$tableAgents` SET 
+`ag_fullname`='" . $_POST['ag_fullname'] . "',
+`ag_phone`='" . $_POST['ag_phone'] . "'                     
+`ag_address`='" . $_POST['ag_address'] . "',
+`ag_address`='" . $_POST['ag_'] . "'                     
+ WHERE `id`=" . $_POST['id'];
 
-
-    if (!file_exists('uploads/' . $_POST['id'])) {
-        mkdir('uploads/' . $_POST['id'], 0777, true);
-    }
-
-    if ($_FILES["product_photo"]["size"] > "0") {
-        $extension  = pathinfo($_FILES["product_photo"]["name"], PATHINFO_EXTENSION); // jpg
-        $new_name   = $_POST['product_code'] . "." . $extension;
-        $Photo_type = ["product_photo"]["type"];
-        $new_photo = SaveUploadImg($_FILES['product_photo'], 'uploads/' . $_POST['id'] . '/');
-        rename('uploads/' . $_POST['id'] . '/' . $new_photo, 'uploads/' . $_POST['id'] . '/' . $new_name);
-
-        $sql = "UPDATE `$tableProducts` SET `product_photo`='" . $new_name . "',
-        `code`='" . $_POST['product_code'] . "',        
-         `product_description`='" . $_POST['product_description'] . "',
-         `product_name`='" . $_POST['product_name'] . "',
-         `size_ss`='" . $_POST['size_ss'] . "',
-         `size_s`='" . $_POST['size_s'] . "',
-         `size_m`='" . $_POST['size_m'] . "',
-         `size_l`='" . $_POST['size_l'] . "',         
-         `size_xl`='" . $_POST['size_xl'] . "',         
-         `size_xxl`='" . $_POST['size_xxl'] . "',    
-         `size_3xl`='" . $_POST['size_3xl'] . "',
-         `price_ss`='" . $_POST['price_ss'] . "',
-         `price_s`='" . $_POST['price_s'] . "',
-         `price_m`='" . $_POST['price_m'] . "',
-         `price_l`='" . $_POST['price_l'] . "',         
-         `price_xl`='" . $_POST['price_xl'] . "',         
-         `price_xxl`='" . $_POST['price_xxl'] . "',    
-         `price_3xl`='" . $_POST['price_3xl'] . "',
-         `ag_price_ss`='" . $_POST['ag_price_ss'] . "',
-         `ag_price_s`='" . $_POST['ag_price_s'] . "',
-         `ag_price_m`='" . $_POST['ag_price_m'] . "',
-         `ag_price_l`='" . $_POST['ag_price_l'] . "',         
-         `ag_price_xl`='" . $_POST['ag_price_xl'] . "',         
-         `ag_price_xxl`='" . $_POST['ag_price_xxl'] . "',    
-         `ag_price_3xl`='" . $_POST['ag_price_3xl'] . "'                                           
-          WHERE `id`=" . $_POST['id'];
-    } else {
-        $sql = "UPDATE `$tableProducts` SET `product_description`='" . $_POST['product_description'] . "',
-        `code`='" . $_POST['product_code'] . "',
-         `product_name`='" . $_POST['product_name'] . "',
-         `size_ss`='" . $_POST['size_ss'] . "',
-         `size_s`='" . $_POST['size_s'] . "',
-         `size_m`='" . $_POST['size_m'] . "',
-         `size_l`='" . $_POST['size_l'] . "',         
-         `size_xl`='" . $_POST['size_xl'] . "',         
-         `size_xxl`='" . $_POST['size_xxl'] . "',    
-         `size_3xl`='" . $_POST['size_3xl'] . "',
-         `price_ss`='" . $_POST['price_ss'] . "',
-         `price_s`='" . $_POST['price_s'] . "',
-         `price_m`='" . $_POST['price_m'] . "',
-         `price_l`='" . $_POST['price_l'] . "',         
-         `price_xl`='" . $_POST['price_xl'] . "',         
-         `price_xxl`='" . $_POST['price_xxl'] . "',    
-         `price_3xl`='" . $_POST['price_3xl'] . "',
-         `ag_price_ss`='" . $_POST['ag_price_ss'] . "',
-         `ag_price_s`='" . $_POST['ag_price_s'] . "',
-         `ag_price_m`='" . $_POST['ag_price_m'] . "',
-         `ag_price_l`='" . $_POST['ag_price_l'] . "',         
-         `ag_price_xl`='" . $_POST['ag_price_xl'] . "',         
-         `ag_price_xxl`='" . $_POST['ag_price_xxl'] . "',    
-         `ag_price_3xl`='" . $_POST['ag_price_3xl'] . "'                     
-          WHERE `id`=" . $_POST['id'];
-    }
     $conn->query($sql);
 }
 
@@ -124,6 +65,24 @@ while ($line = $result->fetch_assoc()) {
     $tpl->assign("ag_fullname", $line['ag_fullname']);
     $tpl->assign("ag_linegroup", $line['ag_linegroup']);
     $tpl->assign("ag_phone", $line['ag_phone']);
+    $tpl->assign("ag_email", $line['ag_email']);
+    $tpl->assign("ag_address", $line['ag_address']);
+    $tpl->assign("ag_province", $line['ag_province']);
+    $tpl->assign("ag_zipcode", $line['ag_zipcode']);
+
+    $tpl->assign("ag_office", $line['ag_office']);
+    $tpl->assign("ag_office_address1", $line['ag_office_address1']);
+    $tpl->assign("ag_facebook", $line['ag_facebook']);
+    $tpl->assign("ag_line", $line['ag_line']);
+    $tpl->assign("ag_website", $line['ag_website']);
+    $tpl->assign("ag_logo", $line['ag_logo']);
+    $tpl->assign("ag_status", $line['ag_status']);
+    $tpl->assign("ag_create_date", $line['ag_create_date']);
+    $tpl->assign("ag_update_date", $line['ag_update_date']);
+    $tpl->assign("ag_create_by", $line['ag_create_by']);
+    $tpl->assign("ag_update_by", $line['ag_update_by']);
+    $tpl->assign("ag_remark", $line['ag_remark']);
+    $tpl->assign("ag_status", $line['ag_status']);
     $tpl->assign("ag_avatar", $line['ag_avatar']);
 
     /*

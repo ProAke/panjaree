@@ -52,80 +52,80 @@
                                     <div class="row ">
                                         <div class="col-12 "><label class="form-label ">ที่อยู่ตัวแทน</label>
                                             <textarea name="ag_address" class="form-control " data-bs-toggle="autosize " placeholder="ที่อยู่" style="height:5vh;">{ag_address}</textarea>
-                                            <div class="col-3 "><label class="form-label ">อำเภอ</label>
-                                                <input type="input" name="ag_zipcode" class="form-control " aria-describedby="{ag_zipcode}" placeholder="{ag_zipcode} " value="{ag_zipcode}">
+                                        </div>
+                                        <div class="col-3 "><label class="form-label ">อำเภอ</label>
+                                            <input type="input" name="ag_zipcode" class="form-control " aria-describedby="{ag_zipcode}" placeholder="{ag_zipcode} " value="{ag_zipcode}">
+                                        </div>
+                                        <div class="col-3 "><label class="form-label ">จังหวัด</label>
+                                            <input type="input" name="ag_zipcode" class="form-control " aria-describedby="{ag_zipcode}" placeholder="{ag_zipcode} " value="{ag_zipcode}">
 
-                                            </div>
-                                            <div class="col-3 "><label class="form-label ">จังหวัด</label>
-                                                <input type="input" name="ag_zipcode" class="form-control " aria-describedby="{ag_zipcode}" placeholder="{ag_zipcode} " value="{ag_zipcode}">
+                                        </div>
+                                        <div class="col-3 "><label class="form-label ">ประเทศ</label>
+                                            <input type="input" name="ag_zipcode" class="form-control " aria-describedby="{ag_zipcode}" placeholder="{ag_zipcode} " value="{ag_zipcode}">
 
-                                            </div>
-                                            <div class="col-3 "><label class="form-label ">ประเทศ</label>
-                                                <input type="input" name="ag_zipcode" class="form-control " aria-describedby="{ag_zipcode}" placeholder="{ag_zipcode} " value="{ag_zipcode}">
-
-                                            </div>
-                                            <div class="col-3 "><label class="form-label ">รหัสไปรษณีย์</label>
-                                                <input type="input" name="ag_zipcode" class="form-control " aria-describedby="{ag_zipcode}" placeholder="{ag_zipcode} " value="{ag_zipcode}">
-
-                                            </div>
+                                        </div>
+                                        <div class="col-3 "><label class="form-label ">รหัสไปรษณีย์</label>
+                                            <input type="input" name="ag_zipcode" class="form-control " aria-describedby="{ag_zipcode}" placeholder="{ag_zipcode} " value="{ag_zipcode}">
 
                                         </div>
 
-
-
                                     </div>
 
-
-
-
-                                    <div class="row ">
-                                        <div class="col-12 "><label class="form-label ">ข้อความถึงตัวแทน</label>
-
-                                            <textarea name="ag_description" class="form-control " data-bs-toggle="autosize " placeholder="Type something… " style="height:20vh;">{ag_description}</textarea>
-                                        </div>
-
-
-
-                                    </div>
 
 
                                 </div>
 
+
+
+
+                                <div class="row ">
+                                    <div class="col-12 "><label class="form-label ">ข้อความถึงตัวแทน</label>
+
+                                        <textarea name="ag_description" class="form-control " data-bs-toggle="autosize " placeholder="Type something… " style="height:20vh;">{ag_description}</textarea>
+                                    </div>
+
+
+
+                                </div>
+
+
                             </div>
+
                         </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class="card ">
-                            <div class="card-header ">
-                                <h3 class="card-title ">รูปภาพและคลิป</h3>
-                            </div>
-                            <div class="card-body ">
-
-                                {product_photo}
-                                <div class="form-label ">เปลี่ยนรูป</div>
-                                <input type="file" name="product_photo" class="form-control " />
-                                <input type="hidden" name="product_photo_old" value="{product_photo_old}" />
-                                <input type="file" name="filUpload[]" id="filUpload" multiple="multiple">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class=" card-footer text-end ">
-                            <div class="d-flex ">
-                                <a href="# " class="btn btn-link ">Cancel</a>
-                                <button type="submit " name="action" class="btn btn-primary ms-auto " value="save">บันทึก</button>
-                            </div>
-                        </div>
-
-
                     </div>
                 </div>
+                <div class="col-md-6 ">
+                    <div class="card ">
+                        <div class="card-header ">
+                            <h3 class="card-title ">รูปภาพและคลิป</h3>
+                        </div>
+                        <div class="card-body ">
 
+                            {product_photo}
+                            <div class="form-label ">เปลี่ยนรูป</div>
+                            <input type="file" name="product_photo" class="form-control " />
+                            <input type="hidden" name="product_photo_old" value="{product_photo_old}" />
+                            <input type="file" name="filUpload[]" id="filUpload" multiple="multiple">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class=" card-footer text-end ">
+                        <div class="d-flex ">
+                            <a href="# " class="btn btn-link ">Cancel</a>
+                            <button type="submit " name="action" class="btn btn-primary ms-auto " value="save">บันทึก</button>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
 
-
-        </form>
-        <!-- END BLOCK : PRODUCTS_EDIT -->
     </div>
+
+
+    </form>
+    <!-- END BLOCK : PRODUCTS_EDIT -->
+</div>
 </div>
