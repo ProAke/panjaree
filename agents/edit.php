@@ -30,6 +30,7 @@ if ($_POST['action'] == "save") {
 `ag_address`='" . $_POST['ag_'] . "'                     
  WHERE `id`=" . $_POST['id'];
     echo $sql;
+
     $result = $db->query($sql);
 }
 
