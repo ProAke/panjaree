@@ -29,8 +29,8 @@ if ($_POST['action'] == "save") {
 `ag_address`='" . $_POST['ag_address'] . "',
 `ag_address`='" . $_POST['ag_'] . "'                     
  WHERE `id`=" . $_POST['id'];
-
-    $conn->query($sql);
+    echo $sql;
+    $result = $db->query($sql);
 }
 
 
