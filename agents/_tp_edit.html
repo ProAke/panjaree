@@ -18,7 +18,7 @@
 
     <div class="page-body">
         <!-- START BLOCK : AGENT_EDIT -->
-        <form action="edit.php?id={id}" method="post" enctype="multipart/form-data">
+        <form action="edit.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="{id}">
 
             <div class="container-xl">
@@ -114,7 +114,8 @@
                     <div class=" card-footer text-end ">
                         <div class="d-flex ">
                             <a href="# " class="btn btn-link ">Cancel</a>
-                            <button type="submit" name="action" class="btn btn-primary ms-auto" value="save">บันทึก</button>
+                            <input type="reset" class="btn btn-link" value="Reset">
+                            <input type="submit" name="action" class="btn btn-primary ms-auto" value="save">
                         </div>
                     </div>
 
