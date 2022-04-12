@@ -15,10 +15,10 @@
             </div>
         </div>
     </div>
-
+    {show}
     <div class="page-body">
         <!-- START BLOCK : AGENT_EDIT -->
-        <form action="edit.php" method="post" enctype="multipart/form-data">
+        <form action="edit.php?id={id}" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="{id}">
 
             <div class="container-xl">
@@ -49,8 +49,11 @@
 
 
 
-                                    <div class="row ">
-                                        <div class="col-12 "><label class="form-label ">ที่อยู่ตัวแทน</label>
+                                    <div class="row" style="margin-top:10px;">
+                                        <div class="col-12 "><label class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="adressship" value="1">
+                                            <span class="form-check-label">ที่อยู่ตัวแทน ใช้ส่งสินค้า</span>
+                                          </label>
                                             <textarea name="ag_address" class="form-control " data-bs-toggle="autosize " placeholder="ที่อยู่" style="height:5vh;">{ag_address}</textarea>
                                         </div>
                                         <div class="col-3 "><label class="form-label ">อำเภอ</label>
@@ -70,6 +73,59 @@
                                         </div>
 
                                     </div>
+                                    <div class="row" style="margin-top:10px; ">
+                                        <div class="col-12 "><label class="form-check form-check-inline ">
+                                            <input class="form-check-input" type="radio" name="adressship" value="2">
+                                            <span class="form-check-label ">ที่อยู่ร้าน/บริษัท ใช้ส่งสินค้า</span>
+                                          </label>
+
+                                            <textarea name="ag_address " class="form-control " data-bs-toggle="autosize " placeholder="ที่อยู่ " style="height:5vh; ">{ag_address}</textarea>
+                                        </div>
+                                        <div class="col-3 "><label class="form-label ">อำเภอ</label>
+                                            <input type="input " name="ag_zipcode " class="form-control " aria-describedby="{ag_zipcode} " placeholder="{ag_zipcode} " value="{ag_zipcode} ">
+                                        </div>
+                                        <div class="col-3 "><label class="form-label ">จังหวัด</label>
+                                            <input type="input " name="ag_zipcode " class="form-control " aria-describedby="{ag_zipcode} " placeholder="{ag_zipcode} " value="{ag_zipcode} ">
+
+                                        </div>
+                                        <div class="col-3 "><label class="form-label ">ประเทศ</label>
+                                            <input type="input " name="ag_zipcode " class="form-control " aria-describedby="{ag_zipcode} " placeholder="{ag_zipcode} " value="{ag_zipcode} ">
+
+                                        </div>
+                                        <div class="col-3 "><label class="form-label ">รหัสไปรษณีย์</label>
+                                            <input type="input " name="ag_zipcode " class="form-control " aria-describedby="{ag_zipcode} " placeholder="{ag_zipcode} " value="{ag_zipcode} ">
+
+                                        </div>
+
+                                    </div>
+                                    <hr>
+
+
+                                    <div class="row ">
+                                        <div class="col-6 "><label class="form-label ">เบอร์โทร</label>
+                                            <input type="input " name="ag_phone " class="form-control " aria-describedby="{ag_phone} " placeholder="เบอร์โทร " value="{ag_phone} ">
+                                        </div>
+                                        <div class="col-6 "><label class="form-label ">Email</label>
+                                            <input type="input " name="ag_email " class="form-control " aria-describedby="{ag_email} " placeholder="Email " value="{ag_email} ">
+                                        </div>
+                                        <div class="col-6 "><label class="form-label ">LINE ID</label>
+                                            <input type="input " name="ag_lineid " class="form-control " aria-describedby="{ag_lineid} " placeholder="Line ส่วนตัว " value="{ag_lineid} ">
+                                        </div>
+                                        <div class="col-6 "><label class="form-label ">LINE OA/SHOP</label>
+                                            <input type="input " name="ag_lineoa " class="form-control " aria-describedby="{ag_lineid} " placeholder="Line OA/Shop " value="{ag_lineoa} ">
+                                        </div>
+                                        <div class="col-12 "><label class="form-label ">Facebook ส่วนตัว</label>
+                                            <input type="input " name="ag_facebook " class="form-control " aria-describedby="{ag_facebook} " placeholder="Facebook ส่วนตัว " value="{ag_facebook} ">
+
+                                        </div>
+                                        <div class="col-12 "><label class="form-label ">Facebook Page ร้าน</label>
+                                            <input type="input " name="ag_facebookpage " class="form-control " aria-describedby="{ag_facebookpage} " placeholder="Page ร้าน " value="{ag_facebookpage ">
+
+                                        </div>
+
+                                    </div>
+
+
 
 
 
@@ -81,7 +137,7 @@
                                 <div class="row ">
                                     <div class="col-12 "><label class="form-label ">ข้อความถึงตัวแทน</label>
 
-                                        <textarea name="ag_description" class="form-control " data-bs-toggle="autosize " placeholder="Type something… " style="height:20vh;">{ag_description}</textarea>
+                                        <textarea name="ag_description " class="form-control " data-bs-toggle="autosize " placeholder="Type something… " style="height:20vh; ">{ag_description}</textarea>
                                     </div>
 
 
@@ -93,29 +149,70 @@
 
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 ">
-                    <div class="card ">
-                        <div class="card-header ">
-                            <h3 class="card-title ">รูปภาพและคลิป</h3>
-                        </div>
-                        <div class="card-body ">
 
-                            {product_photo}
-                            <div class="form-label ">เปลี่ยนรูป</div>
-                            <input type="file" name="product_photo" class="form-control " />
-                            <input type="hidden" name="product_photo_old" value="{product_photo_old}" />
-                            <input type="file" name="filUpload[]" id="filUpload" multiple="multiple">
+
+                    <!-- ประวัติการสั่งสินค้า -->
+                    <div class="col-md-6 ">
+                        <div class="card ">
+                            <div class="card-header ">
+                                <h3 class="card-title ">ประวัติการสั่งซื้อสินค้า</h3>
+                            </div>
+                            <div class="card-body ">
+
+                                <div class="form-group mb-3 ">
+
+                                    <div class="row ">
+                                        <table class="table ">
+                                            <thead></thead>
+                                            <td>สถานะ</td>
+                                            <td>เลขที่ใบสั่งซื้อ</td>
+                                            <td>รายการย่อ </td>
+                                            </tr>
+                                        </table>
+
+
+                                    </div>
+
+
+
+
+
+
+
+                                </div>
+
+
+
+
+                                <div class="row ">
+                                    <div class="col-12 "><label class="form-label ">ข้อความถึงตัวแทน</label>
+
+                                        <textarea name="ag_description " class="form-control " data-bs-toggle="autosize " placeholder="Type something… " style="height:20vh; ">{ag_description}</textarea>
+                                    </div>
+
+
+
+                                </div>
+
+
+                            </div>
 
                         </div>
                     </div>
+
                 </div>
-                <div class="col-12">
+                <div class="col-md-6 ">
+                    <div class="card ">
+
+
+                    </div>
+                </div>
+                <div class="col-12 ">
                     <div class=" card-footer text-end ">
                         <div class="d-flex ">
-                            <a href="# " class="btn btn-link ">Cancel</a>
-                            <input type="reset" class="btn btn-link" value="Reset">
-                            <input type="submit" name="action" class="btn btn-primary ms-auto" value="save">
+
+                            <input type="reset " class="btn btn-red " value="Reset ">
+                            <input type="submit " name="action " class="btn btn-primary ms-auto " value="save ">
                         </div>
                     </div>
 
@@ -129,4 +226,34 @@
     </form>
     <!-- END BLOCK : PRODUCTS_EDIT -->
 </div>
+</div>
+
+
+
+<div class="modal modal-blur fade " id="modal-success " tabindex="-1 " role="dialog " aria-hidden="true ">
+    <div class="modal-dialog modal-sm modal-dialog-centered " role="document ">
+        <div class="modal-content ">
+            <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close "></button>
+            <div class="modal-status bg-success "></div>
+            <div class="modal-body text-center py-4 ">
+                <!-- Download SVG icon from http://tabler-icons.io/i/circle-check -->
+                <svg xmlns="http://www.w3.org/2000/svg " class="icon mb-2 text-green icon-lg " width="24 " height="24 " viewBox="0 0 24 24 " stroke-width="2 " stroke="currentColor " fill="none " stroke-linecap="round " stroke-linejoin="round
+                                        "><path stroke="none " d="M0 0h24v24H0z " fill="none "/><circle cx="12 " cy="12 " r="9 " /><path d="M9 12l2 2l4 -4 " /></svg>
+                <h3>แก้ไขสำเร็จ</h3>
+                <div class="text-muted ">แก้ไขข้อมูลตัวแทนจำหน่าย</div>
+            </div>
+            <div class="modal-footer ">
+                <div class="w-100 ">
+                    <div class="row ">
+                        <div class="col "><a href="# " class="btn w-100 " data-bs-dismiss="modal ">
+                  Go to dashboard
+                </a></div>
+                        <div class="col "><a href="# " class="btn btn-success w-100 " data-bs-dismiss="modal ">
+                  View invoice
+                </a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

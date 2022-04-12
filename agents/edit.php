@@ -24,14 +24,19 @@ if ($_POST['action'] == "save") {
 
 
     $sql = "UPDATE `$tableAgents` SET 
-`ag_fullname`='" . $_POST['ag_fullname'] . "',
-`ag_phone`='" . $_POST['ag_phone'] . "'                     
-`ag_address`='" . $_POST['ag_address'] . "',
-`ag_address`='" . $_POST['ag_'] . "'                     
+`ag_fullname`='" . $_POST['ag_fullname'] . "',                     
+`ag_phone`='" . $_POST['ag_phone'] . "',
  WHERE `id`=" . $_POST['id'];
-    echo $sql;
 
-    $result = $db->query($sql);
+
+    $result = $conn->query($sql);
+
+
+    if ($result) {
+        $message = "บันทึกข้อมูลเรียบร้อยแล้ว" . $sql;
+    } else {
+        $message = "ไม่สามารถบันทึกข้อมูลได้" . $sql;
+    }
 }
 
 
@@ -53,6 +58,8 @@ $tpl->assignInclude("body", "_tp_edit.html");
 $tpl->prepare();
 $tpl->assign("_ROOT.page_title", "แก้ไขข้อมูลตัวแทน");
 $tpl->assign("_ROOT.logo_brand_alt", $Brand);
+
+$tpl->assign("_ROOT.show", $message); // show status 
 
 
 $TodayThaiShow = ThaiToday($strDateTime, $tnow);

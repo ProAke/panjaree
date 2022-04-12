@@ -80,6 +80,7 @@ while ($line = $result->fetch_assoc()) {
     $tpl->assign("product_price_discount", $line['price_discount']);
     $tpl->assign("product_price_show", $line['price_show']);
     // Load Stock table tb_stock_products
+    $tpl->assign("status", $line['status']);
 }
 
 
